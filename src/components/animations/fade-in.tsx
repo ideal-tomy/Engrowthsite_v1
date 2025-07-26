@@ -25,30 +25,35 @@ export function FadeIn({
     triggerOnce: true,
   })
 
-  const variants = {
-    hidden: {
-      opacity: 0,
-      y: direction === 'up' ? 30 : direction === 'down' ? -30 : 0,
-      x: direction === 'left' ? 30 : direction === 'right' ? -30 : 0,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      x: 0,
-      transition: {
-        duration,
-        delay,
-        ease: [0.25, 0.25, 0.25, 0.75],
-      },
-    },
-  }
+  const initialY = direction === 'up' ? 30 : direction === 'down' ? -30 : 0
+  const initialX = direction === 'left' ? 30 : direction === 'right' ? -30 : 0
 
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      variants={variants}
+      initial={{
+        opacity: 0,
+        y: initialY,
+        x: initialX,
+      }}
+      animate={
+        inView
+          ? {
+              opacity: 1,
+              y: 0,
+              x: 0,
+            }
+          : {
+              opacity: 0,
+              y: initialY,
+              x: initialX,
+            }
+      }
+      transition={{
+        duration,
+        delay,
+        ease: 'easeOut',
+      }}
       className={className}
     >
       {children}
@@ -73,44 +78,42 @@ export function FadeInStagger({
     triggerOnce: true,
   })
 
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: staggerDelay,
-      },
-    },
-  }
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.25, 0.25, 0.75],
-      },
-    },
-  }
-
   return (
     <motion.div
       ref={ref}
-      initial="hidden"
-      animate={inView ? 'visible' : 'hidden'}
-      variants={container}
+      initial={{ opacity: 0 }}
+      animate={inView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{
+        staggerChildren: staggerDelay,
+      }}
       className={className}
     >
       {Array.isArray(children) ? (
         children.map((child, index) => (
-          <motion.div key={index} variants={item}>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{
+              duration: 0.6,
+              delay: index * staggerDelay,
+              ease: 'easeOut',
+            }}
+          >
             {child}
           </motion.div>
         ))
       ) : (
-        <motion.div variants={item}>{children}</motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{
+            duration: 0.6,
+            ease: 'easeOut',
+          }}
+        >
+          {children}
+        </motion.div>
       )}
     </motion.div>
   )

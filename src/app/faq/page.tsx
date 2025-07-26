@@ -4,20 +4,14 @@ import { HeroSection } from '@/components/sections/hero-section'
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
+import { CategoryNav } from '@/components/ui/category-nav'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import {
-  MessageCircle,
-  HelpCircle,
-  BookOpen,
-  Clock,
-  Users,
-  Target,
-} from 'lucide-react'
+import { MessageCircle, BookOpen, Clock, Target } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'よくある質問 | Engrowth - FAQ・サービス詳細',
@@ -94,12 +88,12 @@ export default function FAQPage() {
   ]
 
   const categories = [
-    { id: 'program', name: 'プログラム内容', icon: BookOpen },
-    { id: 'system', name: '受講システム', icon: Target },
-    { id: 'study', name: '学習について', icon: Clock },
-    { id: 'consultant', name: 'コンサルタント', icon: Users },
-    { id: 'materials', name: '教材・費用', icon: HelpCircle },
-    { id: 'level', name: 'レベル・対象', icon: BookOpen },
+    { id: 'program', name: 'プログラム内容', iconName: 'BookOpen' },
+    { id: 'system', name: '受講システム', iconName: 'Target' },
+    { id: 'study', name: '学習について', iconName: 'Clock' },
+    { id: 'consultant', name: 'コンサルタント', iconName: 'Users' },
+    { id: 'materials', name: '教材・費用', iconName: 'HelpCircle' },
+    { id: 'level', name: 'レベル・対象', iconName: 'BookOpen' },
   ]
 
   return (
@@ -137,32 +131,7 @@ export default function FAQPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-16">
-            {categories.map(category => {
-              const Icon = category.icon
-              return (
-                <div
-                  key={category.id}
-                  className="bg-white p-4 rounded-xl border hover:shadow-md transition-all duration-300 cursor-pointer group"
-                  onClick={() => {
-                    const element = document.getElementById(
-                      `category-${category.id}`
-                    )
-                    element?.scrollIntoView({ behavior: 'smooth' })
-                  }}
-                >
-                  <div className="text-center">
-                    <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-6 h-6 text-primary" />
-                    </div>
-                    <h3 className="font-semibold text-sm text-neutral-900">
-                      {category.name}
-                    </h3>
-                  </div>
-                </div>
-              )
-            })}
-          </div>
+          <CategoryNav categories={categories} />
         </Container>
       </SectionSeparator>
 

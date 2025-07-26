@@ -103,12 +103,14 @@ interface SectionSeparatorProps {
   children?: React.ReactNode
   className?: string
   background?: 'white' | 'surface' | 'transparent' | 'neutral-900'
+  id?: string
 }
 
 export function SectionSeparator({
   children,
   className,
   background = 'transparent',
+  id,
 }: SectionSeparatorProps) {
   return (
     <div
@@ -122,6 +124,7 @@ export function SectionSeparator({
         },
         className
       )}
+      id={id}
     >
       {children}
     </div>

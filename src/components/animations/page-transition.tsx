@@ -1,7 +1,9 @@
 'use client'
 
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
+// Simple page transition component
 interface PageTransitionProps {
   children: React.ReactNode
   className?: string
@@ -9,160 +11,128 @@ interface PageTransitionProps {
 
 export function PageTransition({ children, className }: PageTransitionProps) {
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -20 }}
-        transition={{
-          duration: 0.5,
-          ease: [0.25, 0.25, 0.25, 0.75],
-        }}
-        className={className}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
-  )
-}
-
-interface StaggeredListProps {
-  children: React.ReactNode[]
-  className?: string
-  staggerDelay?: number
-}
-
-export function StaggeredList({
-  children,
-  className,
-  staggerDelay = 0.1,
-}: StaggeredListProps) {
-  return (
     <motion.div
-      initial="hidden"
-      animate="visible"
-      variants={{
-        hidden: { opacity: 0 },
-        visible: {
-          opacity: 1,
-          transition: {
-            staggerChildren: staggerDelay,
-          },
-        },
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.4, ease: 'easeOut' }}
       className={className}
     >
-      {children.map((child, index) => (
-        <motion.div
-          key={index}
-          variants={{
-            hidden: { opacity: 0, y: 20 },
-            visible: {
-              opacity: 1,
-              y: 0,
-              transition: {
-                duration: 0.6,
-                ease: [0.25, 0.25, 0.25, 0.75],
-              },
-            },
-          }}
-        >
-          {child}
-        </motion.div>
-      ))}
+      {children}
     </motion.div>
   )
 }
 
-interface ProgressBarProps {
-  progress: number
+// Simple fade in component
+interface FadeProps {
+  children: React.ReactNode
+  delay?: number
+  duration?: number
   className?: string
 }
 
-export function ProgressBar({ progress, className }: ProgressBarProps) {
+export function Fade({
+  children,
+  delay = 0,
+  duration = 0.3,
+  className,
+}: FadeProps) {
   return (
-    <div className={`w-full bg-neutral-200 rounded-full h-2 ${className}`}>
-      <motion.div
-        className="bg-primary h-2 rounded-full"
-        initial={{ width: 0 }}
-        animate={{ width: `${progress}%` }}
-        transition={{ duration: 1, ease: 'easeOut' }}
-      />
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration, delay, ease: 'easeOut' }}
+      className={className}
+    >
+      {children}
+    </motion.div>
   )
 }
 
-interface CountUpProps {
+// Simple slide component
+interface SlideProps {
+  children: React.ReactNode
+  direction?: 'up' | 'down' | 'left' | 'right'
+  distance?: number
+  duration?: number
+  className?: string
+}
+
+export function Slide({
+  children,
+  direction = 'up',
+  distance = 20,
+  duration = 0.4,
+  className,
+}: SlideProps) {
+  const getInitialPosition = () => {
+    switch (direction) {
+      case 'up':
+        return { y: distance }
+      case 'down':
+        return { y: -distance }
+      case 'left':
+        return { x: distance }
+      case 'right':
+        return { x: -distance }
+      default:
+        return { y: distance }
+    }
+  }
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, ...getInitialPosition() }}
+      animate={{ opacity: 1, x: 0, y: 0 }}
+      transition={{ duration, ease: 'easeOut' }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+// Simple number counter
+interface CounterProps {
   end: number
   start?: number
   duration?: number
-  suffix?: string
   prefix?: string
+  suffix?: string
   className?: string
 }
 
-export function CountUp({
+export function Counter({
   end,
   start = 0,
   duration = 2,
-  suffix = '',
   prefix = '',
+  suffix = '',
   className,
-}: CountUpProps) {
-  return (
-    <motion.span
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={className}
-    >
-      <motion.span
-        initial={{ textContent: start }}
-        animate={{ textContent: end }}
-        transition={{ duration, ease: 'easeOut' }}
-        onUpdate={latest => {
-          if (typeof latest.textContent === 'number') {
-            return `${prefix}${Math.round(latest.textContent)}${suffix}`
-          }
-        }}
-      />
-    </motion.span>
-  )
-}
+}: CounterProps) {
+  const [count, setCount] = useState(start)
 
-interface TypewriterProps {
-  text: string
-  delay?: number
-  speed?: number
-  className?: string
-}
+  useEffect(() => {
+    const increment = (end - start) / (duration * 60) // 60fps
+    const timer = setInterval(() => {
+      setCount(prev => {
+        const next = prev + increment
+        if (next >= end) {
+          clearInterval(timer)
+          return end
+        }
+        return next
+      })
+    }, 1000 / 60)
 
-export function Typewriter({
-  text,
-  delay = 0,
-  speed = 50,
-  className,
-}: TypewriterProps) {
+    return () => clearInterval(timer)
+  }, [end, start, duration])
+
   return (
-    <motion.span
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay }}
-      className={className}
-    >
-      {text.split('').map((char, index) => (
-        <motion.span
-          key={index}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            delay: delay + (index * speed) / 1000,
-            duration: 0.1,
-          }}
-        >
-          {char}
-        </motion.span>
-      ))}
-    </motion.span>
+    <span className={className}>
+      {prefix}
+      {Math.round(count)}
+      {suffix}
+    </span>
   )
 }

@@ -1,15 +1,29 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { LayoutWrapper } from '@/components/layout/layout-wrapper'
 import { HeroSection } from '@/components/sections/hero-section'
-import { FeatureCard, ServiceCard, StatsCard } from '@/components/ui/card-components'
+import {
+  FeatureCard,
+  ServiceCard,
+  StatsCard,
+} from '@/components/ui/card-components'
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
-import { Clock, Target, Users, TrendingUp, Globe, Briefcase } from 'lucide-react'
+import {
+  Clock,
+  Target,
+  Users,
+  TrendingUp,
+  Globe,
+  Briefcase,
+} from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'ビジネス向けサービス | Engrowth - 忙しい社会人のための英語コンサルティング',
-  description: '挫折経験のある社会人の方へ。科学的メソッドに基づく短時間集中型プログラムで、忙しくても続けられる英語習得をサポートします。',
+  title:
+    'ビジネス向けサービス | Engrowth - 忙しい社会人のための英語コンサルティング',
+  description:
+    '挫折経験のある社会人の方へ。科学的メソッドに基づく短時間集中型プログラムで、忙しくても続けられる英語習得をサポートします。',
 }
 
 export default function BusinessPage() {
@@ -25,19 +39,20 @@ export default function BusinessPage() {
           </>
         }
         subtitle="&ldquo;何度か挑戦したけど、どうしても続かなかった&rdquo;そう思っている人にこそ、もう一度挑戦してほしい。"
-                  description={
-            <>
-              英語ができないのは&ldquo;才能がないから&rdquo;ではありません。<br />
-              必要なのは、<strong>正しい順番／方法／計算された習慣</strong>です。
-            </>
-          }
+        description={
+          <>
+            英語ができないのは&ldquo;才能がないから&rdquo;ではありません。
+            <br />
+            必要なのは、<strong>正しい順番／方法／計算された習慣</strong>です。
+          </>
+        }
         primaryCTA={{
           text: '無料診断を受ける',
-          href: '/contact'
+          href: '/contact',
         }}
         secondaryCTA={{
           text: 'サービス詳細',
-          href: '#service-details'
+          href: '#service-details',
         }}
       />
 
@@ -49,8 +64,11 @@ export default function BusinessPage() {
               忙しい社会人でも、英語は習得できる時代へ
             </h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              「毎日1〜2時間のまとまった時間」ではなく、<strong>1回5分〜10分の階段式学習</strong>の積み重ね。<br />
-              科学的な習慣化理論 × 第二言語習得理論（SLA）に基づく"本当に続けられる"プログラム
+              &ldquo;毎日1〜2時間のまとまった時間&rdquo;ではなく、
+              <strong>1回5分〜10分の階段式学習</strong>の積み重ね。
+              <br />
+              科学的な習慣化理論 ×
+              第二言語習得理論（SLA）に基づく&ldquo;本当に続けられる&rdquo;プログラム
             </p>
           </div>
 
@@ -93,7 +111,7 @@ export default function BusinessPage() {
               features={[
                 'モジュール型学習プログラム',
                 'LINEでのリアルタイムフィードバック',
-                '毎週のチェックインサポート'
+                '毎週のチェックインサポート',
               ]}
             />
             <ServiceCard
@@ -102,7 +120,7 @@ export default function BusinessPage() {
               features={[
                 'メール返信・会議ファシリ',
                 '商談トーク・自己紹介',
-                '提案プレゼンテーション'
+                '提案プレゼンテーション',
               ]}
               popular
             />
@@ -112,7 +130,7 @@ export default function BusinessPage() {
               features={[
                 '経営者・著名人向けメソッド',
                 '専門職への指導実績',
-                '紹介制プログラムの一般開放'
+                '紹介制プログラムの一般開放',
               ]}
             />
           </div>
@@ -163,8 +181,11 @@ export default function BusinessPage() {
               なぜ今、英語を習得する価値がかつてなく高いのか？
             </h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              外資商談、SNS発信、オンライン会議、採用活動、ChatGPTなどAIツールの活用...<br />
-              <strong>英語が使える＝世界中の知識・人材・市場にアクセスできる</strong>
+              外資商談、SNS発信、オンライン会議、採用活動、ChatGPTなどAIツールの活用...
+              <br />
+              <strong>
+                英語が使える＝世界中の知識・人材・市場にアクセスできる
+              </strong>
             </p>
           </div>
 
@@ -246,7 +267,7 @@ export default function BusinessPage() {
                   '仕事の実務で英語が必要になった（会議・資料作成・面接）',
                   '海外顧客・外国人部下とのコミュニケーションに困っている',
                   '英語の学び方そのものがわからない',
-                  '経営者として英語でプレゼン・交渉する機会が増えてきた'
+                  '経営者として英語でプレゼン・交渉する機会が増えてきた',
                 ].map((item, index) => (
                   <div key={index} className="flex items-start">
                     <span className="text-primary mr-3 mt-1 text-lg">✓</span>
@@ -263,16 +284,28 @@ export default function BusinessPage() {
               </h2>
               <div className="space-y-6">
                 <div className="bg-surface p-6 rounded-xl">
-                  <h3 className="font-semibold text-lg text-neutral-900 mb-2">プランA</h3>
-                  <p className="text-neutral-700">平日30分×毎日＋週1セッション（LINE＋Zoom）</p>
+                  <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                    プランA
+                  </h3>
+                  <p className="text-neutral-700">
+                    平日30分×毎日＋週1セッション（LINE＋Zoom）
+                  </p>
                 </div>
                 <div className="bg-surface p-6 rounded-xl">
-                  <h3 className="font-semibold text-lg text-neutral-900 mb-2">プランB</h3>
-                  <p className="text-neutral-700">週末集中型：90分セッション＋自己学習支援</p>
+                  <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                    プランB
+                  </h3>
+                  <p className="text-neutral-700">
+                    週末集中型：90分セッション＋自己学習支援
+                  </p>
                 </div>
                 <div className="bg-primary/10 p-6 rounded-xl border border-primary/20">
-                  <h3 className="font-semibold text-lg text-primary mb-2">プランC</h3>
-                  <p className="text-neutral-700">エグゼクティブ特別プラン（完全カスタム）</p>
+                  <h3 className="font-semibold text-lg text-primary mb-2">
+                    プランC
+                  </h3>
+                  <p className="text-neutral-700">
+                    エグゼクティブ特別プラン（完全カスタム）
+                  </p>
                 </div>
               </div>
               <p className="text-sm text-neutral-600 mt-6">
@@ -291,7 +324,8 @@ export default function BusinessPage() {
               まずは、無料診断からはじめませんか？
             </h2>
             <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              「英語が必要かどうかまだ決めかねている」「どこまで話せるようになればいいかわからない」<br />
+              「英語が必要かどうかまだ決めかねている」「どこまで話せるようになればいいかわからない」
+              <br />
               そんな方でもOKです。Engrowthでは、目標の整理から一緒に伴走します。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -299,7 +333,7 @@ export default function BusinessPage() {
                 <a href="/contact">無料相談はこちら</a>
               </CTAButton>
               <CTAButton variant="outline" size="lg" asChild>
-                <a href="/">トップページに戻る</a>
+                <Link href="/">トップページに戻る</Link>
               </CTAButton>
             </div>
           </div>
@@ -307,4 +341,4 @@ export default function BusinessPage() {
       </SectionSeparator>
     </LayoutWrapper>
   )
-} 
+}

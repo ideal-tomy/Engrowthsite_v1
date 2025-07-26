@@ -1,15 +1,26 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { LayoutWrapper } from '@/components/layout/layout-wrapper'
 import { HeroSection } from '@/components/sections/hero-section'
 import { FeatureCard, ServiceCard } from '@/components/ui/card-components'
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
-import { GraduationCap, BookOpen, Users, Heart, TrendingUp, MessageCircle, FileText, Briefcase } from 'lucide-react'
+import {
+  GraduationCap,
+  BookOpen,
+  Users,
+  Heart,
+  TrendingUp,
+  MessageCircle,
+  FileText,
+  Briefcase,
+} from 'lucide-react'
 
 export const metadata: Metadata = {
   title: '学生向けサービス | Engrowth - 留学前準備と実践的な英語学習',
-  description: '留学を成功体験にするための事前準備。留学経験者による実践英語サポートとエッセイ指導で、現地で本当に使える英語力を身につけましょう。',
+  description:
+    '留学を成功体験にするための事前準備。留学経験者による実践英語サポートとエッセイ指導で、現地で本当に使える英語力を身につけましょう。',
 }
 
 export default function StudentsPage() {
@@ -28,11 +39,11 @@ export default function StudentsPage() {
         description="英語で授業を理解し、レポートを書き、現地の人と関係を築くための「最低限の土台」を、留学経験者と一緒に作り上げましょう。"
         primaryCTA={{
           text: '無料相談を受ける',
-          href: '/contact'
+          href: '/contact',
         }}
         secondaryCTA={{
           text: 'サポート詳細',
-          href: '#support-details'
+          href: '#support-details',
         }}
       />
 
@@ -44,7 +55,8 @@ export default function StudentsPage() {
               なぜ今、学生に英語の事前習得が必要か？
             </h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              留学は「行くこと」ではなく「成果を得ること」が本当の目的。<br />
+              留学は「行くこと」ではなく「成果を得ること」が本当の目的。
+              <br />
               事前準備こそが、留学を成功体験に変える最も重要な要素です。
             </p>
           </div>
@@ -76,7 +88,8 @@ export default function StudentsPage() {
                 英語ができないまま出発すると...
               </h3>
               <p className="text-neutral-700 leading-relaxed">
-                最初の数ヶ月を「聞き取れない」「伝わらない」で終わってしまい、<br />
+                最初の数ヶ月を「聞き取れない」「伝わらない」で終わってしまい、
+                <br />
                 せっかくの留学期間がもったいないことに。
               </p>
             </div>
@@ -104,7 +117,7 @@ export default function StudentsPage() {
                 '現地で使われる実践英語',
                 '授業の効果的な聞き方',
                 '口頭発表・プレゼンテーション',
-                '留学先の文化・失敗例の共有'
+                '留学先の文化・失敗例の共有',
               ]}
               ctaText="実践英語を学ぶ"
               ctaHref="/contact"
@@ -116,7 +129,7 @@ export default function StudentsPage() {
                 'アカデミックライティング',
                 'テーマ設定・論点整理',
                 '構成チェック・表現添削',
-                '読まれる文章の書き方'
+                '読まれる文章の書き方',
               ]}
               ctaText="ライティングを強化"
               ctaHref="/contact"
@@ -129,7 +142,7 @@ export default function StudentsPage() {
                 '留学体験の価値化',
                 'ポートフォリオ作成',
                 '教える側へのステップアップ',
-                '英語力維持の仕組み化'
+                '英語力維持の仕組み化',
               ]}
               ctaText="キャリア相談"
               ctaHref="/contact"
@@ -148,21 +161,29 @@ export default function StudentsPage() {
               </h2>
               <div className="space-y-6 text-lg text-neutral-700 leading-relaxed">
                 <p>
-                  Engrowthのコンサルタントは全員が<strong>留学を通じて英語を実践的に使ってきた人たち</strong>です。
+                  Engrowthのコンサルタントは全員が
+                  <strong>留学を通じて英語を実践的に使ってきた人たち</strong>
+                  です。
                 </p>
                 <div className="bg-white p-6 rounded-xl border-l-4 border-primary">
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <Heart className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                      <span>TOEFL/IELTSの点数ではなく、実際に「伝える」「書く」「乗り越える」経験</span>
+                      <span>
+                        TOEFL/IELTSの点数ではなく、実際に「伝える」「書く」「乗り越える」経験
+                      </span>
                     </li>
                     <li className="flex items-start">
                       <Heart className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                      <span>誰もが英語で苦しんだ経験があるからこそ、共感と実効性のある指導</span>
+                      <span>
+                        誰もが英語で苦しんだ経験があるからこそ、共感と実効性のある指導
+                      </span>
                     </li>
                     <li className="flex items-start">
                       <Heart className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                      <span>日本語でのフォローも含めて「寄り添うプロ」が支援</span>
+                      <span>
+                        日本語でのフォローも含めて「寄り添うプロ」が支援
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -205,7 +226,9 @@ export default function StudentsPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="font-semibold text-lg text-neutral-900 mb-3">成果の最大化</h4>
+                <h4 className="font-semibold text-lg text-neutral-900 mb-3">
+                  成果の最大化
+                </h4>
                 <p className="text-neutral-700">
                   留学は「行くこと」ではなく「成果を得ること」が目的。事前準備により学習効果が大幅に向上します。
                 </p>
@@ -214,7 +237,9 @@ export default function StudentsPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <GraduationCap className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="font-semibold text-lg text-neutral-900 mb-3">時間の有効活用</h4>
+                <h4 className="font-semibold text-lg text-neutral-900 mb-3">
+                  時間の有効活用
+                </h4>
                 <p className="text-neutral-700">
                   最初の数ヶ月を基礎学習で終わらせるのではなく、より高度な学習・体験に時間を使えます。
                 </p>
@@ -223,7 +248,9 @@ export default function StudentsPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="w-8 h-8 text-primary" />
                 </div>
-                <h4 className="font-semibold text-lg text-neutral-900 mb-3">安心感の提供</h4>
+                <h4 className="font-semibold text-lg text-neutral-900 mb-3">
+                  安心感の提供
+                </h4>
                 <p className="text-neutral-700">
                   英語への不安を解消し、自信を持って現地生活をスタートできる状態を作ります。
                 </p>
@@ -244,7 +271,9 @@ export default function StudentsPage() {
               </h2>
               <div className="space-y-6">
                 <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <h3 className="font-semibold text-lg text-neutral-900 mb-3">基本プラン</h3>
+                  <h3 className="font-semibold text-lg text-neutral-900 mb-3">
+                    基本プラン
+                  </h3>
                   <div className="space-y-2 text-neutral-700">
                     <p>・週2回／60分 Zoomセッション</p>
                     <p>・LINE・チャットでのフォロー付き</p>
@@ -255,7 +284,9 @@ export default function StudentsPage() {
                   </p>
                 </div>
                 <div className="bg-primary/10 p-6 rounded-xl border border-primary/20">
-                  <h3 className="font-semibold text-lg text-primary mb-3">追加オプション</h3>
+                  <h3 className="font-semibold text-lg text-primary mb-3">
+                    追加オプション
+                  </h3>
                   <div className="space-y-2 text-neutral-700">
                     <p>・留学中の継続サポート</p>
                     <p>・帰国後のキャリア相談</p>
@@ -276,7 +307,7 @@ export default function StudentsPage() {
                   '英語でレポートや発表を求められる予定がある',
                   '留学前に「現地で使える英語」を整えておきたい',
                   '留学経験者のリアルなアドバイスが欲しい',
-                  '留学後も英語力を維持・活用したい'
+                  '留学後も英語力を維持・活用したい',
                 ].map((item, index) => (
                   <div key={index} className="flex items-start">
                     <span className="text-primary mr-3 mt-1 text-lg">✓</span>
@@ -297,7 +328,8 @@ export default function StudentsPage() {
               留学だけじゃない、その先のキャリアへ
             </h2>
             <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
-              Engrowthでは、教わる側から教える側へまわる<strong>循環の仕組み</strong>があります。
+              Engrowthでは、教わる側から教える側へまわる
+              <strong>循環の仕組み</strong>があります。
             </p>
           </div>
 
@@ -329,7 +361,8 @@ export default function StudentsPage() {
               まずは話してみませんか？
             </h2>
             <p className="text-lg text-neutral-300 mb-8 max-w-2xl mx-auto leading-relaxed">
-              学生本人でも、保護者の方でもOK。<br />
+              学生本人でも、保護者の方でもOK。
+              <br />
               今の英語力や不安な点をもとに、無料で相談・診断できます。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -337,7 +370,7 @@ export default function StudentsPage() {
                 <a href="/contact">無料相談はこちら</a>
               </CTAButton>
               <CTAButton variant="outline" size="lg" asChild>
-                <a href="/">トップページに戻る</a>
+                <Link href="/">トップページに戻る</Link>
               </CTAButton>
             </div>
           </div>
@@ -345,4 +378,4 @@ export default function StudentsPage() {
       </SectionSeparator>
     </LayoutWrapper>
   )
-} 
+}

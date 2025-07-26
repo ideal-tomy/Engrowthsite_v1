@@ -24,10 +24,6 @@ export const metadata: Metadata = {
     title: 'Engrowth | 英語コンサルティング',
     description: '科学的メソッドに基づく英語学習支援',
   },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-  },
 }
 
 export default function RootLayout({
