@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { HoverLift } from '@/components/animations/hover-effects'
 import { CTAButton } from './cta-button'
 
 interface BaseCardProps {
@@ -11,18 +12,22 @@ interface BaseCardProps {
 
 // Base Card Component
 export function Card({ className, children, hover = true }: BaseCardProps) {
-  return (
+  const cardContent = (
     <div
       className={cn(
         'bg-white rounded-xl shadow-sm border border-gray-100 p-6',
-        hover &&
-          'transition-all duration-300 hover:shadow-md hover:translate-y-[-2px]',
         className
       )}
     >
       {children}
     </div>
   )
+
+  if (hover) {
+    return <HoverLift>{cardContent}</HoverLift>
+  }
+
+  return cardContent
 }
 
 // Feature Card Component
@@ -61,7 +66,7 @@ export function FeatureCard({
   )
 }
 
-// Service Card Component  
+// Service Card Component
 interface ServiceCardProps {
   title: string
   subtitle?: string
