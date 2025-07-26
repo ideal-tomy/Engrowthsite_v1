@@ -32,6 +32,9 @@ importers:
       '@radix-ui/react-toast':
         specifier: ^1.2.14
         version: 1.2.14(@types/react-dom@18.3.7(@types/react@18.3.23))(@types/react@18.3.23)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      autoprefixer:
+        specifier: ^10.4.0
+        version: 10.4.21(postcss@8.5.6)
       class-variance-authority:
         specifier: ^0.7.1
         version: 0.7.1
@@ -44,6 +47,9 @@ importers:
       next:
         specifier: ^14.2.0
         version: 14.2.30(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      postcss:
+        specifier: ^8.4.0
+        version: 8.5.6
       react:
         specifier: ^18.3.0
         version: 18.3.1
@@ -61,17 +67,14 @@ importers:
         version: 4.0.10
     devDependencies:
       '@types/node':
-        specifier: ^20.0.0
-        version: 20.19.9
+        specifier: ^22.0.0
+        version: 22.16.5
       '@types/react':
         specifier: ^18.3.0
         version: 18.3.23
       '@types/react-dom':
         specifier: ^18.3.0
         version: 18.3.7(@types/react@18.3.23)
-      autoprefixer:
-        specifier: ^10.4.0
-        version: 10.4.21(postcss@8.5.6)
       eslint:
         specifier: ^8.57.0
         version: 8.57.1
@@ -84,9 +87,6 @@ importers:
       lint-staged:
         specifier: ^16.1.2
         version: 16.1.2
-      postcss:
-        specifier: ^8.4.0
-        version: 8.5.6
       prettier:
         specifier: ^3.2.0
         version: 3.6.2
@@ -578,8 +578,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/node@20.19.9':
-    resolution: {integrity: sha512-cuVNgarYWZqxRJDQHEB58GEONhOK79QVR/qYx4S7kcUObQvUwvFnYxJuuHUKm2aieN9X3yZB4LZsuYNU1Qphsw==}
+  '@types/node@22.16.5':
+    resolution: {integrity: sha512-bJFoMATwIGaxxx8VJPeM8TonI8t579oRvgAuT8zFugJsJZgzqv0Fu8Mhp68iecjzG7cnN3mO2dJQ5uUM2EFrgQ==}
 
   '@types/prop-types@15.7.15':
     resolution: {integrity: sha512-F6bEyamV9jKGAFBEmlQnesRPGOQqS2+Uwi0Em15xenOxHaf2hv6L8YCVn3rPdPJOiJfPiCnLIRyvwVaqMY3MIw==}
@@ -2772,7 +2772,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/node@20.19.9':
+  '@types/node@22.16.5':
     dependencies:
       undici-types: 6.21.0
 
