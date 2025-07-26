@@ -1,0 +1,357 @@
+# Engrowth ウェブサイト - Cursor Rules
+
+これは Engrowth 英語コンサルティングサービスのウェブサイトプロジェクトです。
+以下のルールとベストプラクティスに従って開発を進めてください。
+
+## プロジェクト構成
+
+- **フレームワーク**: Next.js 14.x (App Router)
+- **言語**: TypeScript (strict mode)
+- **UI**: Tailwind CSS 3.4 + shadcn/ui
+- **パッケージマネージャ**: pnpm
+- **デプロイ**: Vercel
+
+## コーディング規約
+
+### TypeScript
+- strict mode を有効にし、型安全性を最優先
+- any の使用は禁止、unknown または適切な型を使用
+- コンポーネントの props は interface で定義
+- React.FC の代わりに関数宣言を使用
+
+```typescript
+// ✅ Good
+interface ButtonProps {
+  children: React.ReactNode
+  variant?: 'primary' | 'secondary'
+  onClick?: () => void
+}
+
+export function Button({ children, variant = 'primary', onClick }: ButtonProps) {
+  // implementation
+}
+
+// ❌ Bad
+export const Button: React.FC<any> = ({ children, variant, onClick }) => {
+  // implementation
+}
+```
+
+### Next.js App Router
+- すべての新しいページは app ディレクトリに作成
+- Server Components をデフォルトとし、必要な場合のみ 'use client' を使用
+- メタデータは metadata export または generateMetadata を使用
+- 画像には next/image を必ず使用
+
+```typescript
+// app/business/page.tsx
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ビジネス向けサービス | Engrowth',
+  description: '忙しい社会人のための英語コンサルティング',
+}
+
+export default function BusinessPage() {
+  return (
+    <main>
+      {/* content */}
+    </main>
+  )
+}
+```
+
+### Tailwind CSS + shadcn/ui
+- カスタムCSS は最小限に抑制、Tailwind ユーティリティを優先
+- デザイン要件に従いブランドカラー (#d70207) を適切に使用
+- shadcn/ui コンポーネントは components/ui ディレクトリに配置
+- カスタムコンポーネントは components ディレクトリに配置
+
+```typescript
+// ✅ Good - ブランドカラーの適切な使用
+<Button className="bg-[#d70207] hover:bg-[#b60206] text-white">
+  お問い合わせ
+</Button>
+
+// ✅ Good - 明朝フォントの指定
+<h1 className="font-serif text-4xl font-bold text-neutral-900">
+  見出しテキスト
+</h1>
+```
+
+### Component Structure
+- components/ui: shadcn/ui コンポーネント
+- components/layout: Header, Footer, Navigation
+- components/sections: ページセクション用コンポーネント
+- components/diagrams: 図解・ビジュアル用コンポーネント
+
+## デザイン要件の厳守
+
+### カラーパレット
+```css
+:root {
+  --color-primary: #d70207;
+  --color-primary-dark: #b60206;
+  --color-neutral: #6a6a6a;
+  --color-neutral-light: #9e9e9e;
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f5;
+}
+```
+
+### フォント設定
+- 明朝体を基本とし、游明朝 (YuMincho) を優先使用
+- 英字には Playfair Display または Times New Roman を fallback
+- line-height は 1.7 以上で可読性を確保
+
+### レスポンシブデザイン
+- モバイルファースト設計を徹底
+- ブレークポイント: sm:640px, md:768px, lg:1024px, xl:1280px
+- 768px未満では6カラム、それ以上では12カラムグリッド
+
+## パフォーマンス要件
+
+### Core Web Vitals
+- LCP: 1.8秒以下
+- FID: 100ms以下  
+- CLS: 0.1以下
+
+### 最適化手法
+- next/image を使用し、適切な sizes 属性を指定
+- コンポーネントの lazy loading を活用
+- Bundle size の監視と最適化
+
+```typescript
+// ✅ Good - 画像最適化
+import Image from 'next/image'
+
+<Image
+  src="/hero-image.jpg"
+  alt="Engrowth英語コンサルティング"
+  width={1200}
+  height={600}
+  priority
+  sizes="(max-width: 768px) 100vw, 1200px"
+/>
+```
+
+## アクセシビリティ
+
+### WCAG 2.1 AA 準拠
+- 色コントラスト比 4.5:1 以上を維持
+- キーボードナビゲーション対応
+- 適切な ARIA attributes の使用
+- スクリーンリーダー対応
+
+```typescript
+// ✅ Good - アクセシブルなボタン
+<button
+  className="bg-primary text-white px-6 py-3 rounded-xl"
+  aria-label="無料相談を申し込む"
+>
+  お問い合わせ
+</button>
+```
+
+## SEO要件
+
+### メタデータ
+- 各ページに適切な title と description を設定
+- Open Graph タグを必ず含める
+- 構造化データ (JSON-LD) を実装
+
+```typescript
+export const metadata: Metadata = {
+  title: 'Engrowth | 循環型エコシステムによる英語コンサルティング',
+  description: '第二言語として英語を習得した日本人コンサルによる実践的な英語学習支援',
+  openGraph: {
+    title: 'Engrowth | 英語コンサルティング',
+    description: '科学的メソッドに基づく英語学習支援',
+    images: ['/og-image.jpg'],
+  },
+}
+```
+
+## エラーハンドリング
+
+### Error Boundaries
+- ページレベルでの error.tsx を実装
+- ユーザーフレンドリーなエラーメッセージ
+- 開発環境でのデバッグ情報表示
+
+### ローディング状態
+- loading.tsx でローディング UI を提供
+- Suspense を活用した部分的ローディング
+
+## テスト要件
+
+### 単体テスト (Vitest)
+- コンポーネントの基本動作をテスト
+- カスタムフックのテスト
+- ユーティリティ関数のテスト
+
+### E2E テスト (Playwright)
+- 主要なユーザーフロー（問い合わせ、ページ遷移）
+- レスポンシブ対応の確認
+- アクセシビリティテスト
+
+## Git & Development Workflow
+
+### ブランチ戦略
+- main: 本番環境
+- develop: ステージング環境  
+- feature/*: 機能開発
+- fix/*: バグ修正
+
+### コミットメッセージ
+```
+feat: Hero section コンポーネントを追加
+fix: ナビゲーションメニューのモバイル表示を修正
+docs: README.md を更新
+style: Tailwind設定を調整
+```
+
+### Pre-commit hooks
+- ESLint でコード品質チェック
+- Prettier でフォーマット統一
+- TypeScript の型チェック
+
+## Vercel デプロイ設定
+
+### 環境変数
+- NEXT_PUBLIC_* を適切に使用
+- 本番環境固有の設定は Vercel Dashboard で管理
+
+### ビルド設定
+```json
+{
+  "buildCommand": "pnpm build",
+  "outputDirectory": ".next",
+  "installCommand": "pnpm install --frozen-lockfile"
+}
+```
+
+### プレビューデプロイ
+- PR作成時に自動でプレビュー環境を生成
+- 各機能の動作確認を実施
+
+## 禁止事項
+
+- console.log の本番環境への含有
+- any 型の使用
+- インラインスタイルの使用
+- 不適切な next/image の代替案
+- アクセシビリティを無視した実装
+- SEO メタデータの未設定
+
+## 推奨ライブラリ
+
+### UI・アニメーション
+- framer-motion: 高度なアニメーション
+- react-intersection-observer: スクロールアニメーション
+- lucide-react: アイコン (shadcn/ui と統一)
+
+### Form・バリデーション
+- react-hook-form: パフォーマンス重視
+- zod: TypeScript-first バリデーション
+
+## 実装計画書との連携
+
+実装計画.md に記載されたチェックリストに従い、段階的に開発を進める。
+各フェーズ完了時に品質確認とデプロイテストを実施。
+
+### ✅ チェックリスト管理ルール
+- **完了タスクの更新**: 実装完了後、実装計画.mdの該当項目を `- [x]` に変更
+- **進行中タスクの明示**: 作業中のタスクを明確に識別
+- **コミット時の更新**: 機能実装完了時にチェックリストを同時更新
+- **フェーズ完了時の確認**: 各フェーズのすべてのタスクが完了していることを確認
+
+```markdown
+// 完了例
+- [x] Next.js 14プロジェクト作成
+- [x] TypeScript設定 (strict mode)
+- [ ] pnpm設定・package.json構成 ← 現在作業中
+```
+
+## プロフェッショナルデザイナー視点での実装原則
+
+### 🎯 実装時の必須確認事項
+- **毎回の実装前**: cursorrules と 実装計画.md を必ず確認
+- **エラー発生時**: 公式ドキュメントを第一に参照して解決
+- **コード品質**: TypeScript strict mode と ESLint ルールの厳守
+
+### 📱 モバイルファースト UI/UX 設計
+- **スマホ表示最優先**: 全ての要素がモバイルで最適化されているか確認
+- **無駄なスクロール排除**: 1画面内での情報密度を最適化
+- **タッチ操作対応**: 最小48x48pxのタップエリア確保
+- **読みやすさ**: 16px以上のフォントサイズ、1.7以上の行間
+
+```css
+/* モバイル最適化の例 */
+.section {
+  @apply py-16 px-6;  /* モバイル: 縦余白最適化 */
+}
+
+@media (min-width: 768px) {
+  .section {
+    @apply py-24 px-8;  /* デスクトップ: より大きな余白 */
+  }
+}
+```
+
+### ✨ 高級感・スタイリッシュ表現
+- **余白の活用**: セクション間120-160px、要素間は黄金比を意識
+- **タイポグラフィ**: 明朝体の美しさを活かした階層設計
+- **色彩設計**: Primary色（#d70207）は5%以内、アクセントとして効果的に配置
+- **アニメーション**: 0.3s以下の自然なモーション、過度な演出は避ける
+
+```typescript
+// 高級感のあるボタン設計例
+<Button className="
+  bg-[#d70207] hover:bg-[#b60206] 
+  text-white font-medium 
+  px-8 py-4 rounded-xl 
+  transition-all duration-300 
+  shadow-lg hover:shadow-xl 
+  transform hover:scale-[1.02]
+">
+```
+
+### 📸 SNSシェア・スクリーンショット対応
+- **情報の自己完結性**: 各セクションが単体で理解できる構成
+- **ビジュアル訴求力**: 図解・アイコンで情報を視覚化
+- **ブランド要素**: ロゴ・色・フォントが一目でEngrowthと分かる
+- **CTA明確化**: 「何をすべきか」が瞬時に理解できる設計
+
+```typescript
+// スクリーンショット映えするセクション例
+<section className="bg-white py-24 px-6 border-l-4 border-[#d70207]">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="font-serif text-3xl font-bold mb-6 text-neutral-900">
+      循環型エコシステムで学ぶ
+    </h2>
+    <p className="text-lg leading-relaxed text-neutral-700 mb-8">
+      英語を学んだ人が教える側になり、収入を得ながら社会貢献
+    </p>
+    <Button>詳細を見る</Button>
+  </div>
+</section>
+```
+
+### 🔍 品質保証チェックリスト（毎実装時）
+- [ ] モバイル表示で文字・ボタンが適切なサイズか
+- [ ] スクロール量が最適化されているか
+- [ ] 高級感のある余白・配色になっているか
+- [ ] スクリーンショット単体で内容が伝わるか
+- [ ] 公式ドキュメントに準拠した実装か
+
+### 🚫 避けるべき実装パターン
+- モバイルでの横スクロール発生
+- 過度なアニメーション・エフェクト
+- 情報密度が高すぎるレイアウト
+- ブランドイメージと合わない色使い
+- アクセシビリティを無視した実装
+
+---
+
+このルールに従って、プロのデザイナー品質で高級感あふれる Engrowth ウェブサイトを構築してください。 
