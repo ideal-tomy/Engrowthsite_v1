@@ -178,11 +178,13 @@ export function StatsCard({
 }
 
 // Testimonial Card Component
-interface TestimonialCardProps extends BaseCardProps {
+interface TestimonialCardProps {
   quote: string
   author: string
   role?: string
   avatar?: string
+  className?: string
+  hover?: boolean
 }
 
 export function TestimonialCard({

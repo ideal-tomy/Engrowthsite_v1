@@ -9,6 +9,7 @@ import {
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
+import { FadeIn, FadeInStagger } from '@/components/animations/fade-in'
 
 import {
   GraduationCap,
@@ -66,18 +67,20 @@ export default function HomePage() {
       {/* 2. 提供サービス概要 */}
       <SectionSeparator background="surface">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              Engrowthが提供するサービス
-            </h2>
-            <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              専属コンサルタントによる伴走型サポートで、目標から逆算した90日プランを設計。
-              <br />
-              毎日の学習管理とフィードバックにより、確実な英語力向上を実現します。
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+                Engrowthが提供するサービス
+              </h2>
+              <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
+                専属コンサルタントによる伴走型サポートで、目標から逆算した90日プランを設計。
+                <br />
+                毎日の学習管理とフィードバックにより、確実な英語力向上を実現します。
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard
               icon={<Users className="w-6 h-6" />}
               title="専属コンサルタント"
@@ -96,7 +99,7 @@ export default function HomePage() {
               description="Zoom・LINEを活用した柔軟な対応で、学習の継続をしっかりサポート"
               accent
             />
-          </div>
+          </FadeInStagger>
 
           <div className="text-center mt-12">
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -114,16 +117,18 @@ export default function HomePage() {
       {/* 3. Engrowthが選ばれる理由（差別化セクション） */}
       <SectionSeparator background="white">
         <Container>
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              Engrowthが選ばれる理由
-            </h2>
-            <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
-              他の英語スクールとは異なる、Engrowth独自の特徴をご紹介します。
-            </p>
-          </div>
+          <FadeIn>
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+                Engrowthが選ばれる理由
+              </h2>
+              <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
+                他の英語スクールとは異なる、Engrowth独自の特徴をご紹介します。
+              </p>
+            </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <FadeInStagger className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <ServiceCard
               title="実践経験豊富なコンサル"
               description="全員が留学経験あり、英語を実践で使いこなす人材のみで構成。理論だけでなく、実体験に基づく具体的なアドバイスを提供。"
@@ -152,7 +157,7 @@ export default function HomePage() {
                 'エビデンスベースの指導',
               ]}
             />
-          </div>
+          </FadeInStagger>
 
           <div className="text-center mt-12">
             <CTAButton variant="outline" asChild>
@@ -169,36 +174,40 @@ export default function HomePage() {
       <SectionSeparator background="surface">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-                学ぶことがゴールではない。
-                <br />
-                教えることで社会とつながる。
-              </h2>
-              <div className="space-y-6 text-lg text-neutral-700 leading-relaxed">
-                <p>
-                  Engrowthが目指すのは、単なる英語習得ではありません。
+            <FadeIn direction="left">
+              <div>
+                <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+                  学ぶことがゴールではない。
                   <br />
-                  英語を習得した若者が、その学びを社会に還元できる仕組みづくりです。
-                </p>
-                <p>
-                  教えることが最大の学びでもある。この思想のもと、学習者も指導者も共に成長し続ける、
-                  持続可能な教育エコシステムを構築しています。
-                </p>
+                  教えることで社会とつながる。
+                </h2>
+                <div className="space-y-6 text-lg text-neutral-700 leading-relaxed">
+                  <p>
+                    Engrowthが目指すのは、単なる英語習得ではありません。
+                    <br />
+                    英語を習得した若者が、その学びを社会に還元できる仕組みづくりです。
+                  </p>
+                  <p>
+                    教えることが最大の学びでもある。この思想のもと、学習者も指導者も共に成長し続ける、
+                    持続可能な教育エコシステムを構築しています。
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="space-y-6">
-              <FeatureCard
-                icon={<Heart className="w-6 h-6" />}
-                title="社会への還元"
-                description="英語を学んだ経験を、次の学習者のために活かす。知識の循環が社会全体の英語力向上に貢献。"
-              />
-              <FeatureCard
-                icon={<TrendingUp className="w-6 h-6" />}
-                title="持続可能な成長"
-                description="教えることで自分自身も成長し続ける。経済的自立と学習の継続を両立する仕組み。"
-              />
-            </div>
+            </FadeIn>
+            <FadeIn direction="right" delay={0.3}>
+              <div className="space-y-6">
+                <FeatureCard
+                  icon={<Heart className="w-6 h-6" />}
+                  title="社会への還元"
+                  description="英語を学んだ経験を、次の学習者のために活かす。知識の循環が社会全体の英語力向上に貢献。"
+                />
+                <FeatureCard
+                  icon={<TrendingUp className="w-6 h-6" />}
+                  title="持続可能な成長"
+                  description="教えることで自分自身も成長し続ける。経済的自立と学習の継続を両立する仕組み。"
+                />
+              </div>
+            </FadeIn>
           </div>
         </Container>
       </SectionSeparator>
