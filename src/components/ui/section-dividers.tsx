@@ -102,7 +102,7 @@ export function DotsDivider({
 interface SectionSeparatorProps {
   children?: React.ReactNode
   className?: string
-  background?: 'white' | 'surface' | 'transparent'
+  background?: 'white' | 'surface' | 'transparent' | 'neutral-900'
 }
 
 export function SectionSeparator({
@@ -118,6 +118,7 @@ export function SectionSeparator({
           'bg-white': background === 'white',
           'bg-surface': background === 'surface',
           'bg-transparent': background === 'transparent',
+          'bg-neutral-900': background === 'neutral-900',
         },
         className
       )}

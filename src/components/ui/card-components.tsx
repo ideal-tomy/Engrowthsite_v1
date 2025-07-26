@@ -61,8 +61,8 @@ export function FeatureCard({
   )
 }
 
-// Service Card Component
-interface ServiceCardProps extends BaseCardProps {
+// Service Card Component  
+interface ServiceCardProps {
   title: string
   subtitle?: string
   description: string
@@ -70,6 +70,8 @@ interface ServiceCardProps extends BaseCardProps {
   ctaText?: string
   ctaHref?: string
   popular?: boolean
+  className?: string
+  hover?: boolean
 }
 
 export function ServiceCard({
@@ -138,10 +140,12 @@ export function ServiceCard({
 }
 
 // Stats Card Component
-interface StatsCardProps extends BaseCardProps {
+interface StatsCardProps {
   number: string
   label: string
   description?: string
+  className?: string
+  hover?: boolean
 }
 
 export function StatsCard({
