@@ -17,6 +17,7 @@ import {
   Clock,
   Shield,
 } from 'lucide-react'
+import { Timeline } from '@/components/ui/timeline'
 
 export const metadata: Metadata = {
   title: '受講の流れ | Engrowth - LINE登録から90日サポートまで',
@@ -59,6 +60,47 @@ export default function FlowPage() {
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
               無理な営業は一切いたしません。あなたのペースに合わせて、一緒に最適なプランを考えていきます。
             </p>
+          </div>
+
+          {/* Timelineコンポーネント使用 */}
+          <div className="mb-16">
+            <Timeline
+              steps={[
+                {
+                  id: 'line-register',
+                  title: 'LINEに登録',
+                  description:
+                    '公式LINEを登録してスタッフとの連絡を開始。学習情報の受け取りや相談が可能です。',
+                  status: 'upcoming',
+                  icon: <MessageCircle className="w-6 h-6" />,
+                },
+                {
+                  id: 'online-interview',
+                  title: 'オンライン面談',
+                  description:
+                    'Zoom面談（約30分）で現在の英語力、目標、生活リズムをヒアリング。',
+                  status: 'upcoming',
+                  icon: <Video className="w-6 h-6" />,
+                },
+                {
+                  id: 'plan-design',
+                  title: 'プラン設計',
+                  description:
+                    '診断結果に基づき、あなた専用の90日学習プランを設計・提案。',
+                  status: 'upcoming',
+                  icon: <Target className="w-6 h-6" />,
+                },
+                {
+                  id: 'start-support',
+                  title: 'サポート開始',
+                  description:
+                    '専属コンサルタントによる90日間の伴走サポートがスタート。',
+                  status: 'upcoming',
+                  icon: <Play className="w-6 h-6" />,
+                },
+              ]}
+              orientation="vertical"
+            />
           </div>
 
           <div className="space-y-16">

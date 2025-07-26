@@ -13,6 +13,7 @@ import {
   Shield,
   ExternalLink,
 } from 'lucide-react'
+import { ContactForm } from '@/components/ui/contact-form'
 
 export const metadata: Metadata = {
   title: 'お問い合わせ | Engrowth - 無料相談・LINE相談受付中',
@@ -308,6 +309,13 @@ export default function ContactPage() {
               </CTAButton>
             </div>
           </div>
+        </Container>
+      </SectionSeparator>
+
+      {/* Contact Form */}
+      <SectionSeparator background="surface">
+        <Container>
+          <ContactForm showMethods={false} />
         </Container>
       </SectionSeparator>
     </LayoutWrapper>

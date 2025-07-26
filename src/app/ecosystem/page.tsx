@@ -5,11 +5,28 @@ import { FeatureCard, StatsCard } from '@/components/ui/card-components'
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
-import { RefreshCw, DollarSign, TrendingUp, Users, Globe, BookOpen, Heart, Target, ArrowRight, Briefcase, MessageCircle } from 'lucide-react'
+import {
+  RefreshCw,
+  DollarSign,
+  TrendingUp,
+  Users,
+  Globe,
+  BookOpen,
+  Heart,
+  Target,
+  ArrowRight,
+  Briefcase,
+  MessageCircle,
+} from 'lucide-react'
+import {
+  EcosystemDiagram,
+  SimpleEcosystemFlow,
+} from '@/components/diagrams/ecosystem-diagram'
 
 export const metadata: Metadata = {
   title: 'エコシステム | Engrowth - 循環型英語学習コミュニティ',
-  description: '英語を教える側にまわることで学びと収入を両立。経済的にも社会的にも成長できる人材を増やす、Engrowthの循環型エコシステムをご紹介します。',
+  description:
+    '英語を教える側にまわることで学びと収入を両立。経済的にも社会的にも成長できる人材を増やす、Engrowthの循環型エコシステムをご紹介します。',
 }
 
 export default function EcosystemPage() {
@@ -19,7 +36,8 @@ export default function EcosystemPage() {
       <HeroSection
         title={
           <>
-            英語を通して、<span className="text-primary">経済的にも社会的にも</span>
+            英語を通して、
+            <span className="text-primary">経済的にも社会的にも</span>
             <br />
             成長できる人材を増やす
           </>
@@ -28,11 +46,11 @@ export default function EcosystemPage() {
         description="英語を学ぶことがゴールではありません。学んだ英語を活かして教える側にまわることで、自分自身の学びを深化させつつ収入も得る。そんな持続可能な成長の仕組みをご紹介します。"
         primaryCTA={{
           text: '仕組みを詳しく見る',
-          href: '#ecosystem-flow'
+          href: '#ecosystem-flow',
         }}
         secondaryCTA={{
           text: '参加方法を知る',
-          href: '#how-to-join'
+          href: '#how-to-join',
         }}
       />
 
@@ -44,20 +62,30 @@ export default function EcosystemPage() {
               Engrowthの循環型エコシステムとは？
             </h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              英語を第二言語として習得した日本人が教える側にまわることで、<br />
+              英語を第二言語として習得した日本人が教える側にまわることで、
+              <br />
               自分自身の学びを深化させつつ収入も得る持続可能な仕組みです。
             </p>
           </div>
 
-          {/* 循環フロー（簡易版） */}
+          {/* 循環型エコシステム図解 */}
+          <div className="mb-16">
+            <EcosystemDiagram className="mb-8" />
+          </div>
+
+          {/* シンプルフロー（コンパクト版） */}
           <div className="bg-white p-8 md:p-12 rounded-xl shadow-sm border mb-16">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-900 mb-2">1. 英語を学ぶ</h3>
-                <p className="text-sm text-neutral-600">留学・実践で英語を習得</p>
+                <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                  1. 英語を学ぶ
+                </h3>
+                <p className="text-sm text-neutral-600">
+                  留学・実践で英語を習得
+                </p>
               </div>
               <div className="text-center">
                 <ArrowRight className="w-8 h-8 text-primary mx-auto mb-4" />
@@ -66,8 +94,12 @@ export default function EcosystemPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-900 mb-2">2. 教える側へ</h3>
-                <p className="text-sm text-neutral-600">コンサルとして指導開始</p>
+                <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                  2. 教える側へ
+                </h3>
+                <p className="text-sm text-neutral-600">
+                  コンサルとして指導開始
+                </p>
               </div>
               <div className="text-center">
                 <ArrowRight className="w-8 h-8 text-primary mx-auto mb-4" />
@@ -78,7 +110,9 @@ export default function EcosystemPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-900 mb-2">3. 収入を得る</h3>
+                <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                  3. 収入を得る
+                </h3>
                 <p className="text-sm text-neutral-600">指導報酬で経済的自立</p>
               </div>
               <div className="text-center">
@@ -88,12 +122,21 @@ export default function EcosystemPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <RefreshCw className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-900 mb-2">4. 学びが循環</h3>
-                <p className="text-sm text-neutral-600">収入で更なる学習・留学</p>
+                <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                  4. 学びが循環
+                </h3>
+                <p className="text-sm text-neutral-600">
+                  収入で更なる学習・留学
+                </p>
               </div>
               <div className="text-center">
                 <RefreshCw className="w-8 h-8 text-primary mx-auto mb-4" />
               </div>
+            </div>
+
+            {/* シンプルフロー表示 */}
+            <div className="mt-8 pt-8 border-t border-neutral-200">
+              <SimpleEcosystemFlow />
             </div>
           </div>
 
@@ -103,8 +146,10 @@ export default function EcosystemPage() {
                 好循環が生まれる仕組み
               </h3>
               <p className="text-neutral-700 leading-relaxed">
-                収入は、さらなる学びや留学費用の支えになり、次の学び手（受講者）に対しても、<br />
-                <strong>リアルな経験に基づいた指導が提供される</strong>という好循環を生み出します。
+                収入は、さらなる学びや留学費用の支えになり、次の学び手（受講者）に対しても、
+                <br />
+                <strong>リアルな経験に基づいた指導が提供される</strong>
+                という好循環を生み出します。
               </p>
             </div>
           </div>
@@ -130,23 +175,37 @@ export default function EcosystemPage() {
               </h3>
               <div className="space-y-4">
                 <div className="bg-surface p-6 rounded-xl">
-                  <p className="text-neutral-700 font-medium mb-2">「行きたいけど、金銭的に無理」</p>
-                  <p className="text-sm text-neutral-600">初期費用や生活費が高額で、挑戦すらできない</p>
+                  <p className="text-neutral-700 font-medium mb-2">
+                    「行きたいけど、金銭的に無理」
+                  </p>
+                  <p className="text-sm text-neutral-600">
+                    初期費用や生活費が高額で、挑戦すらできない
+                  </p>
                 </div>
                 <div className="bg-surface p-6 rounded-xl">
-                  <p className="text-neutral-700 font-medium mb-2">「一度は挑戦したけど、生活費が続かない」</p>
-                  <p className="text-sm text-neutral-600">途中で資金が尽き、学習を中断せざるを得ない</p>
+                  <p className="text-neutral-700 font-medium mb-2">
+                    「一度は挑戦したけど、生活費が続かない」
+                  </p>
+                  <p className="text-sm text-neutral-600">
+                    途中で資金が尽き、学習を中断せざるを得ない
+                  </p>
                 </div>
                 <div className="bg-surface p-6 rounded-xl">
-                  <p className="text-neutral-700 font-medium mb-2">「支援制度があっても、現地での費用までは賄えない」</p>
-                  <p className="text-sm text-neutral-600">奨学金だけでは十分な支援にならないケースが多い</p>
+                  <p className="text-neutral-700 font-medium mb-2">
+                    「支援制度があっても、現地での費用までは賄えない」
+                  </p>
+                  <p className="text-sm text-neutral-600">
+                    奨学金だけでは十分な支援にならないケースが多い
+                  </p>
                 </div>
               </div>
             </div>
             <div className="space-y-6">
               <div className="text-center">
                 <div className="text-6xl font-bold text-primary mb-4">75%</div>
-                <p className="text-lg font-semibold text-neutral-900">経済的理由で留学を断念</p>
+                <p className="text-lg font-semibold text-neutral-900">
+                  経済的理由で留学を断念
+                </p>
                 <p className="text-sm text-neutral-600">文部科学省調査より</p>
               </div>
               <FeatureCard
@@ -213,7 +272,9 @@ export default function EcosystemPage() {
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <BookOpen className="w-10 h-10 text-primary" />
               </div>
-              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">思考力・伝達力の向上</h3>
+              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
+                思考力・伝達力の向上
+              </h3>
               <p className="text-neutral-700 leading-relaxed">
                 ただの語学スキルではなく、思考力・伝達力・自己表現力を総合的に磨くことができます。
               </p>
@@ -222,7 +283,9 @@ export default function EcosystemPage() {
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Users className="w-10 h-10 text-primary" />
               </div>
-              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">リーダーシップの習得</h3>
+              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
+                リーダーシップの習得
+              </h3>
               <p className="text-neutral-700 leading-relaxed">
                 「教える」という立場を経験することで、主体性・計画力・責任感が自然と身につきます。
               </p>
@@ -231,7 +294,9 @@ export default function EcosystemPage() {
               <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Globe className="w-10 h-10 text-primary" />
               </div>
-              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">グローバル人材へ</h3>
+              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
+                グローバル人材へ
+              </h3>
               <p className="text-neutral-700 leading-relaxed">
                 将来のリーダー・起業家・グローバル人材として活躍できる土台を築くことができます。
               </p>
@@ -256,12 +321,16 @@ export default function EcosystemPage() {
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-8 h-8 text-blue-600" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900">学ぶ人（社会人・英語初心者）</h3>
+                <h3 className="font-serif text-xl font-bold text-neutral-900">
+                  学ぶ人（社会人・英語初心者）
+                </h3>
               </div>
               <ul className="space-y-3 text-neutral-700">
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2 mt-1">✓</span>
-                  <span>実体験を持つコンサルから、本当に必要な英語を学べる</span>
+                  <span>
+                    実体験を持つコンサルから、本当に必要な英語を学べる
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-600 mr-2 mt-1">✓</span>
@@ -280,7 +349,9 @@ export default function EcosystemPage() {
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900">教える人（学生・留学経験者）</h3>
+                <h3 className="font-serif text-xl font-bold text-neutral-900">
+                  教える人（学生・留学経験者）
+                </h3>
               </div>
               <ul className="space-y-3 text-neutral-700">
                 <li className="flex items-start">
@@ -304,7 +375,9 @@ export default function EcosystemPage() {
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-8 h-8 text-green-600" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900">社会・企業</h3>
+                <h3 className="font-serif text-xl font-bold text-neutral-900">
+                  社会・企業
+                </h3>
               </div>
               <ul className="space-y-3 text-neutral-700">
                 <li className="flex items-start">
@@ -364,10 +437,13 @@ export default function EcosystemPage() {
               </h3>
               <div className="text-lg text-neutral-700 leading-relaxed space-y-4">
                 <p>
-                  <strong>Engrowthは、英語を軸に「経済と教育の課題を両立的に解決する」仕組みを提供します。</strong>
+                  <strong>
+                    Engrowthは、英語を軸に「経済と教育の課題を両立的に解決する」仕組みを提供します。
+                  </strong>
                 </p>
                 <p>
-                  あなたが学ぶことで、誰かが留学を実現できる。<br />
+                  あなたが学ぶことで、誰かが留学を実現できる。
+                  <br />
                   あなたが教えることで、誰かが世界とつながる。
                 </p>
               </div>
@@ -377,14 +453,19 @@ export default function EcosystemPage() {
       </SectionSeparator>
 
       {/* 参加方法 */}
-      <SectionSeparator background="neutral-900" className="text-white" id="how-to-join">
+      <SectionSeparator
+        background="neutral-900"
+        className="text-white"
+        id="how-to-join"
+      >
         <Container>
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6">
               あなたはどちらで関わりますか？
             </h2>
             <p className="text-lg text-neutral-300 max-w-2xl mx-auto leading-relaxed">
-              学び手として参加するか、教える側として挑戦するか。<br />
+              学び手として参加するか、教える側として挑戦するか。
+              <br />
               まずは話を聞いてみたいという方も歓迎です。
             </p>
           </div>
@@ -392,7 +473,9 @@ export default function EcosystemPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white/10 p-8 rounded-xl text-center">
               <BookOpen className="w-12 h-12 text-white mx-auto mb-4" />
-              <h3 className="font-serif text-xl font-bold mb-4">学び手として参加</h3>
+              <h3 className="font-serif text-xl font-bold mb-4">
+                学び手として参加
+              </h3>
               <p className="text-neutral-300 mb-6">
                 英語を実践的に学び、ビジネスで活用したい社会人の方
               </p>
@@ -403,7 +486,9 @@ export default function EcosystemPage() {
 
             <div className="bg-primary/20 p-8 rounded-xl text-center border-2 border-primary">
               <Users className="w-12 h-12 text-white mx-auto mb-4" />
-              <h3 className="font-serif text-xl font-bold mb-4">教える側として挑戦</h3>
+              <h3 className="font-serif text-xl font-bold mb-4">
+                教える側として挑戦
+              </h3>
               <p className="text-neutral-300 mb-6">
                 留学経験を活かして収入を得ながら、さらに成長したい学生の方
               </p>
@@ -414,7 +499,9 @@ export default function EcosystemPage() {
 
             <div className="bg-white/10 p-8 rounded-xl text-center">
               <MessageCircle className="w-12 h-12 text-white mx-auto mb-4" />
-              <h3 className="font-serif text-xl font-bold mb-4">まず話を聞いてみたい</h3>
+              <h3 className="font-serif text-xl font-bold mb-4">
+                まず話を聞いてみたい
+              </h3>
               <p className="text-neutral-300 mb-6">
                 仕組みについて詳しく知りたい、相談してから決めたい方
               </p>
@@ -427,4 +514,4 @@ export default function EcosystemPage() {
       </SectionSeparator>
     </LayoutWrapper>
   )
-} 
+}
