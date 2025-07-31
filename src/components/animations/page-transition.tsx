@@ -1,25 +1,32 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
-// Simple page transition component
 interface PageTransitionProps {
   children: React.ReactNode
-  className?: string
 }
 
-export function PageTransition({ children, className }: PageTransitionProps) {
+export function PageTransition({ children }: PageTransitionProps) {
+  const pathname = usePathname()
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.4, ease: 'easeOut' }}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.div
+        key={pathname}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{
+          type: 'tween' as const,
+          ease: 'easeOut',
+          duration: 0.3,
+        }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
   )
 }
 
@@ -115,7 +122,7 @@ export function Counter({
   useEffect(() => {
     const increment = (end - start) / (duration * 60) // 60fps
     const timer = setInterval(() => {
-      setCount(prev => {
+      setCount((prev: number) => {
         const next = prev + increment
         if (next >= end) {
           clearInterval(timer)

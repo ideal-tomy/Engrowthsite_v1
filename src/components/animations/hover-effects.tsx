@@ -5,20 +5,33 @@ import { motion } from 'framer-motion'
 interface HoverScaleProps {
   children: React.ReactNode
   scale?: number
+  duration?: number
   className?: string
 }
 
 export function HoverScale({
   children,
   scale = 1.05,
+  duration = 0.2,
   className,
 }: HoverScaleProps) {
   return (
     <motion.div
-      whileHover={{ scale }}
-      whileTap={{ scale: scale * 0.95 }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className={className}
+      whileHover={{
+        scale,
+        transition: {
+          duration,
+          ease: 'easeOut',
+        },
+      }}
+      whileTap={{
+        scale: 0.95,
+        transition: {
+          duration: 0.1,
+          ease: 'easeOut',
+        },
+      }}
     >
       {children}
     </motion.div>
@@ -27,20 +40,54 @@ export function HoverScale({
 
 interface HoverLiftProps {
   children: React.ReactNode
-  lift?: number
+  translateY?: number
+  duration?: number
   className?: string
 }
 
-export function HoverLift({ children, lift = -8, className }: HoverLiftProps) {
+export function HoverLift({
+  children,
+  translateY = -4,
+  duration = 0.2,
+  className,
+}: HoverLiftProps) {
   return (
     <motion.div
-      whileHover={{
-        y: lift,
-        boxShadow:
-          '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
-      }}
-      transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       className={className}
+      whileHover={{
+        y: translateY,
+        transition: {
+          duration,
+          ease: 'easeOut',
+        },
+      }}
+    >
+      {children}
+    </motion.div>
+  )
+}
+
+interface HoverGlowProps {
+  children: React.ReactNode
+  duration?: number
+  className?: string
+}
+
+export function HoverGlow({
+  children,
+  duration = 0.3,
+  className,
+}: HoverGlowProps) {
+  return (
+    <motion.div
+      className={className}
+      whileHover={{
+        boxShadow: '0 10px 30px rgba(215, 2, 7, 0.3)',
+        transition: {
+          duration,
+          ease: 'easeOut',
+        },
+      }}
     >
       {children}
     </motion.div>

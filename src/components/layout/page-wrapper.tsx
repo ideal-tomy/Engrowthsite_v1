@@ -1,9 +1,11 @@
 'use client'
 
+import { PageTransition } from '@/components/animations/page-transition'
+
 interface PageWrapperProps {
   children: React.ReactNode
 }
 
 export function PageWrapper({ children }: PageWrapperProps) {
-  return <div>{children}</div>
+  return <PageTransition>{children}</PageTransition>
 }
