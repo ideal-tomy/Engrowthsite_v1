@@ -3,6 +3,8 @@ import { Inter } from 'next/font/google'
 import '@/styles/globals.css'
 import { PageWrapper } from '@/components/layout/page-wrapper'
 import { Toaster } from '@/components/ui/toaster'
+import { SkipLink } from '@/components/accessibility/skip-link'
+import { WebVitals } from '@/components/performance/web-vitals'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -34,8 +36,10 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={inter.className}>
+        <SkipLink />
         <PageWrapper>{children}</PageWrapper>
         <Toaster />
+        <WebVitals />
       </body>
     </html>
   )

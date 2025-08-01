@@ -18,10 +18,12 @@ import {
   Briefcase,
   MessageCircle,
 } from 'lucide-react'
+// Lazy loading components imported above
 import {
-  EcosystemDiagram,
-  SimpleEcosystemFlow,
-} from '@/components/diagrams/ecosystem-diagram'
+  LazyAIFeedbackLoop,
+  LazyEcosystemDiagram,
+  LazySimpleEcosystemFlow,
+} from '@/components/diagrams/lazy-diagram-loader'
 
 export const metadata: Metadata = {
   title: 'エコシステム | Engrowth - 循環型英語学習コミュニティ',
@@ -70,7 +72,7 @@ export default function EcosystemPage() {
 
           {/* 循環型エコシステム図解 */}
           <div className="mb-16">
-            <EcosystemDiagram className="mb-8" />
+            <LazyEcosystemDiagram className="mb-8" />
           </div>
 
           {/* シンプルフロー（コンパクト版） */}
@@ -136,7 +138,7 @@ export default function EcosystemPage() {
 
             {/* シンプルフロー表示 */}
             <div className="mt-8 pt-8 border-t border-neutral-200">
-              <SimpleEcosystemFlow />
+              <LazySimpleEcosystemFlow />
             </div>
           </div>
 
@@ -395,6 +397,13 @@ export default function EcosystemPage() {
               </ul>
             </div>
           </div>
+        </Container>
+      </SectionSeparator>
+
+      {/* AIフィードバック学習ループ */}
+      <SectionSeparator background="surface">
+        <Container>
+          <LazyAIFeedbackLoop />
         </Container>
       </SectionSeparator>
 

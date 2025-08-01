@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+
+# 主要ページの優先度
+Sitemap: https://engrowth.vercel.app/sitemap.xml
+
+# 除外するパス
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# 重要なページ（SEO最適化）
+Allow: /
+Allow: /business
+Allow: /students  
+Allow: /ecosystem
+Allow: /method
+Allow: /flow
+Allow: /pricing
+Allow: /faq
+Allow: /contact

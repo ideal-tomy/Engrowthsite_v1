@@ -10,6 +10,7 @@ import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
 import { FadeIn, FadeInStagger } from '@/components/animations/fade-in'
+import { LazySocialImpactDiagram } from '@/components/diagrams/lazy-diagram-loader'
 
 import {
   GraduationCap,
@@ -593,7 +594,14 @@ export default function HomePage() {
         </Container>
       </SectionSeparator>
 
-      {/* 11. CTA Section（締め） */}
+      {/* 11. 社会的インパクト図 */}
+      <SectionSeparator background="white">
+        <Container>
+          <LazySocialImpactDiagram />
+        </Container>
+      </SectionSeparator>
+
+      {/* 12. CTA Section（締め） */}
       <SectionSeparator background="neutral-900" className="text-white">
         <Container>
           <div className="text-center">

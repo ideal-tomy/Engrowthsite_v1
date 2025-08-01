@@ -15,7 +15,9 @@ export function LayoutWrapper({
   return (
     <div className="min-h-screen flex flex-col">
       {showHeader && <Header />}
-      <main className="flex-1">{children}</main>
+      <main id="main-content" className="flex-1" role="main" tabIndex={-1}>
+        {children}
+      </main>
       {showFooter && <Footer />}
     </div>
   )

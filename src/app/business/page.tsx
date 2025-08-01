@@ -10,6 +10,7 @@ import {
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
+import { LazyBusinessCalendar } from '@/components/diagrams/lazy-diagram-loader'
 import {
   Clock,
   Target,
@@ -248,6 +249,13 @@ export default function BusinessPage() {
               description="翻訳に頼らず「自分の言葉で語れる」ことが信頼・差別化に直結"
             />
           </div>
+        </Container>
+      </SectionSeparator>
+
+      {/* 階段式スキマ学習カレンダー */}
+      <SectionSeparator background="white">
+        <Container>
+          <LazyBusinessCalendar />
         </Container>
       </SectionSeparator>
 
