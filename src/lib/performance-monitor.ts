@@ -59,12 +59,14 @@ export function checkCoreWebVitals() {
     const entries = list.getEntries()
     const lastEntry = entries[entries.length - 1]
 
-    logPerformanceMetric({
-      name: 'LCP',
-      value: lastEntry.startTime,
-      rating: getRating('LCP', lastEntry.startTime),
-      id: 'lcp-check',
-    })
+    if (lastEntry) {
+      logPerformanceMetric({
+        name: 'LCP',
+        value: lastEntry.startTime,
+        rating: getRating('LCP', lastEntry.startTime),
+        id: 'lcp-check',
+      })
+    }
   }).observe({ entryTypes: ['largest-contentful-paint'] })
 
   // CLS監視

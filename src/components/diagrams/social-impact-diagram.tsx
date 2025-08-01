@@ -127,7 +127,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
       },
     },
   }
@@ -140,7 +140,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       },
     },
   }
@@ -186,7 +186,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
                 fill="none"
                 initial={{ pathLength: 0, opacity: 0 }}
                 whileInView={{ pathLength: 1, opacity: 1 }}
-                transition={{ duration: 2 + index, ease: 'easeInOut' }}
+                transition={{ duration: 2 + index, ease: 'easeInOut' as const }}
               />
             ))}
 

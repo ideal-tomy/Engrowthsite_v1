@@ -22,14 +22,14 @@ export function HoverScale({
         scale,
         transition: {
           duration,
-          ease: 'easeOut',
+          ease: 'easeOut' as const,
         },
       }}
       whileTap={{
         scale: 0.95,
         transition: {
           duration: 0.1,
-          ease: 'easeOut',
+          ease: 'easeOut' as const,
         },
       }}
     >
@@ -58,7 +58,7 @@ export function HoverLift({
         y: translateY,
         transition: {
           duration,
-          ease: 'easeOut',
+          ease: 'easeOut' as const,
         },
       }}
     >
@@ -85,7 +85,7 @@ export function HoverGlow({
         boxShadow: '0 10px 30px rgba(215, 2, 7, 0.3)',
         transition: {
           duration,
-          ease: 'easeOut',
+          ease: 'easeOut' as const,
         },
       }}
     >
@@ -150,7 +150,7 @@ export function FloatingElement({
       transition={{
         duration,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       }}
       className={className}
     >
@@ -180,7 +180,7 @@ export function PulseEffect({
       transition={{
         duration,
         repeat: Infinity,
-        ease: 'easeInOut',
+        ease: 'easeInOut' as const,
       }}
       className={className}
     >

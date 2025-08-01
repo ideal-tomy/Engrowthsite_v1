@@ -90,7 +90,7 @@ export function BusinessCalendar({ className }: BusinessCalendarProps) {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: 'easeOut',
+        ease: 'easeOut' as const,
       },
     },
   }
@@ -126,7 +126,7 @@ export function BusinessCalendar({ className }: BusinessCalendarProps) {
             className="bg-gradient-to-r from-[#d70207] to-[#b60206] h-3 rounded-full"
             initial={{ width: 0 }}
             whileInView={{ width: '100%' }}
-            transition={{ duration: 2, ease: 'easeOut' }}
+            transition={{ duration: 2, ease: 'easeOut' as const }}
           />
         </div>
       </motion.div>

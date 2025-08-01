@@ -20,7 +20,7 @@ export function PageTransition({ children }: PageTransitionProps) {
         exit={{ opacity: 0, y: -20 }}
         transition={{
           type: 'tween' as const,
-          ease: 'easeOut',
+          ease: 'easeOut' as const,
           duration: 0.3,
         }}
       >
@@ -48,7 +48,7 @@ export function Fade({
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration, delay, ease: 'easeOut' }}
+              transition={{ duration, delay, ease: 'easeOut' as const }}
       className={className}
     >
       {children}
@@ -91,7 +91,7 @@ export function Slide({
     <motion.div
       initial={{ opacity: 0, ...getInitialPosition() }}
       animate={{ opacity: 1, x: 0, y: 0 }}
-      transition={{ duration, ease: 'easeOut' }}
+              transition={{ duration, ease: 'easeOut' as const }}
       className={className}
     >
       {children}

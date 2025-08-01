@@ -165,7 +165,7 @@ export function AIFeedbackLoop({ className }: AIFeedbackLoopProps) {
               fill="none"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
-              transition={{ duration: 2, ease: 'easeInOut' }}
+              transition={{ duration: 2, ease: 'easeInOut' as const }}
             />
 
             {/* 中央のAI脳 */}
@@ -239,7 +239,7 @@ export function AIFeedbackLoop({ className }: AIFeedbackLoopProps) {
           <motion.div
             className="absolute top-4 right-4"
             animate={{ rotate: 360 }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+            transition={{ duration: 8, repeat: Infinity, ease: 'linear' as const }}
           >
             <RefreshCw className="w-8 h-8 text-[#d70207] opacity-60" />
           </motion.div>

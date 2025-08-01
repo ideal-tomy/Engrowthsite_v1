@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import { LayoutWrapper } from '@/components/layout/layout-wrapper'
 import { Container } from '@/components/layout/container'
@@ -57,11 +59,9 @@ export default function NotFound() {
                 </Link>
               </CTAButton>
 
-              <CTAButton variant="secondary" asChild>
-                <button onClick={() => window.history.back()}>
-                  <ArrowLeft className="w-5 h-5 mr-2" />
-                  前のページに戻る
-                </button>
+              <CTAButton variant="secondary" onClick={() => window.history.back()}>
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                前のページに戻る
               </CTAButton>
 
               <CTAButton variant="outline" asChild>
