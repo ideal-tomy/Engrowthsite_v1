@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   title:
     'ビジネス向けサービス | Engrowth - 忙しい社会人のための英語コンサルティング',
   description:
-    '挫折経験のある社会人の方へ。科学的メソッドに基づく短時間集中型プログラムで、忙しくても続けられる英語習得をサポートします。',
+    '挫折経験のある社会人の方へ。科学的メソッドに基づく集中型プログラムで、忙しくても続けられる英語習得をサポートします。',
 }
 
 export default function BusinessPage() {
