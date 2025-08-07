@@ -9,8 +9,6 @@ import {
   Users,
   Brain,
   Target,
-  Briefcase,
-  GraduationCap,
   RefreshCw,
   CheckCircle,
   ArrowRight,
@@ -20,12 +18,6 @@ import {
   Zap,
   Clock,
 } from 'lucide-react'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
 
 export const metadata: Metadata = {
   title: '学習メソッド | Engrowth - 科学的根拠に基づく英語コンサルティング',
@@ -70,41 +62,47 @@ export default function MethodPage() {
           </div>
 
           <div className="bg-white p-8 md:p-12 rounded-xl shadow-sm border max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="space-y-8">
+              <div className="flex items-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                   <Users className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                  専属コンサルタント
-                </h3>
-                <p className="text-sm text-neutral-700">
-                  学習のパートナーとなり、継続的にサポート
-                </p>
+                <div className="ml-6">
+                  <h3 className="font-serif text-xl font-bold text-neutral-900 mb-1">
+                    実力派コンサルタントが伴走
+                  </h3>
+                  <p className="text-neutral-700">
+                    学習のパートナーとなり、目標達成まで継続的にサポートします。
+                  </p>
+                </div>
               </div>
-              <div className="text-center">
-                <ArrowRight className="w-8 h-8 text-primary mx-auto mb-6" />
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+
+              <div className="flex items-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                   <Target className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                  個別最適化プラン
-                </h3>
-                <p className="text-sm text-neutral-700">
-                  あなたの目標と現状に合わせた学習設計
-                </p>
+                <div className="ml-6">
+                  <h3 className="font-serif text-xl font-bold text-neutral-900 mb-1">
+                    科学的根拠に基づいた学習設計
+                  </h3>
+                  <p className="text-neutral-700">
+                    あなたの目標と現状に合わせた個別最適化プランを設計します。
+                  </p>
+                </div>
               </div>
-              <div className="text-center">
-                <ArrowRight className="w-8 h-8 text-primary mx-auto mb-6" />
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+
+              <div className="flex items-center">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center shrink-0">
                   <RefreshCw className="w-8 h-8 text-primary" />
                 </div>
-                <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                  科学的習慣化
-                </h3>
-                <p className="text-sm text-neutral-700">
-                  毎日の行動と成果を科学的に習慣化
-                </p>
+                <div className="ml-6">
+                  <h3 className="font-serif text-xl font-bold text-neutral-900 mb-1">
+                    実践主義の仕組み
+                  </h3>
+                  <p className="text-neutral-700">
+                    毎日の学習と成果を科学的な仕組みで無理なく習慣化させます。
+                  </p>
+                </div>
               </div>
             </div>
             <div className="text-center mt-12">
@@ -176,50 +174,50 @@ export default function MethodPage() {
       {/* 特徴2: 科学的根拠 */}
       <SectionSeparator background="surface">
         <Container>
-          {/* メソッド全体の図解 */}
           <div className="text-center mb-16">
-            <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-6">
-              Engrowthメソッドの全体像
-            </h3>
-            <div className="bg-white p-8 rounded-xl border max-w-4xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Brain className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                    理論
-                  </h4>
-                  <p className="text-sm text-neutral-700">
-                    SLA理論 + 習慣化心理学
-                  </p>
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+              科学的根拠に基づいた
+              <br />
+              学習設計
+            </h2>
+            <p className="text-lg text-neutral-700 max-w-4xl mx-auto leading-relaxed">
+              Engrowthは、第二言語習得理論（SLA）と習慣化の心理学に基づいて学習プランを設計。
+              <br />
+              なぜこの方法で英語力が向上するのか、理論的裏付けのある指導を実施します。
+            </p>
+          </div>
+
+          {/* メソッド全体の図解 */}
+          <div className="bg-white p-8 rounded-xl border max-w-4xl mx-auto mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Brain className="w-8 h-8 text-blue-600" />
                 </div>
-                <div className="text-center">
-                  <ArrowRight className="w-8 h-8 text-primary mx-auto mb-6" />
-                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Target className="w-8 h-8 text-green-600" />
-                  </div>
-                  <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                    実践
-                  </h4>
-                  <p className="text-sm text-neutral-700">90日集中プログラム</p>
+                <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                  理論
+                </h4>
+                <p className="text-sm text-neutral-700">
+                  SLA理論 + 習慣化心理学
+                </p>
+              </div>
+              <div className="text-center hidden md:block">
+                <ArrowRight className="w-8 h-8 text-primary mx-auto" />
+              </div>
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Target className="w-8 h-8 text-green-600" />
                 </div>
-                <div className="text-center">
-                  <ArrowRight className="w-8 h-8 text-primary mx-auto mb-6" />
-                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="w-8 h-8 text-purple-600" />
-                  </div>
-                  <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                    成果
-                  </h4>
-                  <p className="text-sm text-neutral-700">実用レベルの英語力</p>
-                </div>
+                <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                  実践
+                </h4>
+                <p className="text-sm text-neutral-700">90日集中プログラム</p>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="order-2 lg:order-1 space-y-6">
+            <div className="space-y-6">
               <ServiceCard
                 title="第二言語習得理論（SLA）"
                 description="意味あるインプット・アウトプットの重要性、理解可能な文脈での実践学習に基づいた効果的な学習順序"
@@ -239,286 +237,50 @@ export default function MethodPage() {
                 ]}
               />
             </div>
-            <div className="order-1 lg:order-2">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                  2
-                </div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900">
-                  科学的根拠に基づいた
-                  <br />
-                  学習設計
-                </h2>
-              </div>
-              <p className="text-lg text-neutral-700 leading-relaxed mb-8">
-                Engrowthは、第二言語習得理論（SLA）と習慣化の心理学に基づいて学習プランを設計。
-                なぜこの方法で英語力が向上するのか、理論的裏付けのある指導を実施します。
-              </p>
-
-              {/* 理論的支柱の視覚的グルーピング */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-                  <h3 className="font-serif text-lg font-bold text-neutral-900 mb-3 flex items-center">
-                    <Brain className="w-5 h-5 text-blue-600 mr-2" />
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger className="underline decoration-dotted">
-                          第二言語習得理論（SLA）
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>
-                            人が第二言語をどのように学ぶかを科学的に研究する分野
-                          </p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </h3>
-                  <p className="text-sm text-neutral-700">
-                    意味あるインプット・アウトプットの重要性、理解可能な文脈での実践学習
-                  </p>
-                </div>
-                <div className="bg-purple-50 p-6 rounded-xl border border-purple-200">
-                  <h3 className="font-serif text-lg font-bold text-neutral-900 mb-3 flex items-center">
-                    <RefreshCw className="w-5 h-5 text-purple-600 mr-2" />
-                    習慣化の心理学
-                  </h3>
-                  <p className="text-sm text-neutral-700">
-                    トリガー・報酬・行動ループに基づく学習継続支援
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
+            <div>
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl border border-blue-200">
                 <div className="text-center mb-4">
-                  <ArrowRight className="w-8 h-8 text-primary mx-auto transform rotate-90 md:rotate-0" />
+                  <TrendingUp className="w-10 h-10 text-primary mx-auto" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4 text-center">
+                <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-4 text-center">
                   学習効率の最大化
                 </h3>
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   <li className="flex items-start">
-                    <Lightbulb className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      スキマ時間を活用した効率的学習
-                    </span>
+                    <Lightbulb className="w-6 h-6 text-green-600 mr-4 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-neutral-800">
+                        スキマ時間を活用した効率的学習
+                      </h4>
+                      <p className="text-neutral-600 text-sm">
+                        5〜15分の短時間でも効果のある学習モジュールを提供します。
+                      </p>
+                    </div>
                   </li>
                   <li className="flex items-start">
-                    <RefreshCw className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      科学的反復設計による記憶定着
-                    </span>
+                    <RefreshCw className="w-6 h-6 text-green-600 mr-4 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-neutral-800">
+                        科学的反復設計による記憶定着
+                      </h4>
+                      <p className="text-neutral-600 text-sm">
+                        忘却曲線に基づき、最適なタイミングでの復習を促します。
+                      </p>
+                    </div>
                   </li>
                   <li className="flex items-start">
-                    <Target className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      目標逆算型のプログラム構築
-                    </span>
+                    <Target className="w-6 h-6 text-green-600 mr-4 mt-1 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-neutral-800">
+                        目標逆算型のプログラム構築
+                      </h4>
+                      <p className="text-neutral-600 text-sm">
+                        あなたのゴールから逆算し、最短距離での到達を目指します。
+                      </p>
+                    </div>
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </Container>
-      </SectionSeparator>
-
-      {/* 特徴3: 実践主義 */}
-      <SectionSeparator background="white">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                  3
-                </div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900">
-                  実践主義の仕組み
-                </h2>
-              </div>
-              <p className="text-lg text-neutral-700 leading-relaxed mb-8">
-                学習内容・進捗・目標をすべて共有し、毎日のやり取りを通じて習慣化。
-                90日で達成するべきゴールを設定し、コンサルが伴走しながら管理します。
-              </p>
-              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl border border-purple-200">
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
-                  忙しい社会人にも最適な柔軟対応
-                </h3>
-                <div className="space-y-3">
-                  <div className="flex items-center">
-                    <MessageCircle className="w-5 h-5 text-purple-600 mr-3" />
-                    <span className="text-neutral-700">
-                      LINEでの日常的なフォロー
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <Users className="w-5 h-5 text-purple-600 mr-3" />
-                    <span className="text-neutral-700">
-                      Zoomでの週次セッション
-                    </span>
-                  </div>
-                  <div className="flex items-center">
-                    <Clock className="w-5 h-5 text-purple-600 mr-3" />
-                    <span className="text-neutral-700">
-                      生活リズムに合わせた学習設計
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-6">
-              <FeatureCard
-                icon={<Target className="w-6 h-6" />}
-                title="学習の継続を科学する、毎日の進捗サポート"
-                description="学習の進捗を毎日共有し、コンサルタントが継続をサポート"
-                accent
-              />
-              <FeatureCard
-                icon={<Brain className="w-6 h-6" />}
-                title="ゴールから逆算した、あなただけの90日集中プラン"
-                description="明確なゴール設定と逆算型の学習プランで確実な成果を実現"
-                accent
-              />
-              <FeatureCard
-                icon={<RefreshCw className="w-6 h-6" />}
-                title="生活リズムに合わせた、柔軟な学習スタイル"
-                description="あなたの生活リズムに合わせて最適化された学習方法"
-                accent
-              />
-            </div>
-          </div>
-        </Container>
-      </SectionSeparator>
-
-      {/* 対象者 */}
-      <SectionSeparator background="surface">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              どんな方に最適か？
-            </h2>
-            <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              Engrowthは、本気で英語力を向上させたい方のための実践的なプログラムです。
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl border hover:shadow-lg transition-all duration-300">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-2">
-                  ビジネスパーソン
-                </h3>
-                <p className="text-sm text-blue-600 font-medium mb-3">
-                  限られた時間で、最高の結果を出したいあなたへ
-                </p>
-              </div>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    ビジネス英語を短期間で実用化したい
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    海外赴任・昇進に向けて英語力が必要
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    忙しい中でも効率的に学習したい
-                  </span>
-                </div>
-              </div>
-              <CTAButton
-                asChild
-                className="w-full bg-blue-600 hover:bg-blue-700"
-              >
-                <a href="/business">ビジネスパーソン向けプランへ</a>
-              </CTAButton>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl border hover:shadow-lg transition-all duration-300">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <GraduationCap className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-2">
-                  学生
-                </h3>
-                <p className="text-sm text-green-600 font-medium mb-3">
-                  留学・就活で差をつけたい成長意欲の高いあなたへ
-                </p>
-              </div>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    留学前に英語力を整えたい
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    就活で差別化できる英語力が欲しい
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-green-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    将来の目標に向けて英語力を強化
-                  </span>
-                </div>
-              </div>
-              <CTAButton
-                asChild
-                className="w-full bg-green-600 hover:bg-green-700"
-              >
-                <a href="/students">学生向けプランへ</a>
-              </CTAButton>
-            </div>
-
-            <div className="bg-white p-8 rounded-xl border hover:shadow-lg transition-all duration-300">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <RefreshCw className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-2">
-                  挫折経験者
-                </h3>
-                <p className="text-sm text-amber-600 font-medium mb-3">
-                  今度こそ確実に成果を出したいあなたへ
-                </p>
-              </div>
-              <div className="space-y-3 mb-6">
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    英語学習が続かず挫折した経験がある
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    今度こそ確実に習慣化したい
-                  </span>
-                </div>
-                <div className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-amber-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    専門家のサポートで継続したい
-                  </span>
-                </div>
-              </div>
-              <CTAButton
-                asChild
-                className="w-full bg-amber-600 hover:bg-amber-700"
-              >
-                <a href="/flow">受講の流れを見る</a>
-              </CTAButton>
             </div>
           </div>
         </Container>

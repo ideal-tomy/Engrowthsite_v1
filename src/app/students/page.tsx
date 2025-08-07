@@ -71,49 +71,51 @@ export default function StudentsPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* 失敗談 */}
-            <div className="bg-red-50 p-8 rounded-xl border-l-4 border-red-200">
-              <h3 className="font-serif text-2xl font-bold text-neutral-800 mb-4">
-                <span className="text-red-500">×</span> 留学あるある失敗談
-              </h3>
-              <div className="space-y-4 text-neutral-700 leading-relaxed">
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h3 className="font-serif text-2xl font-bold text-neutral-800 mb-4">
+              <span className="text-red-500">×</span> 留学あるある失敗談
+            </h3>
+            <div className="space-y-4 text-neutral-700 leading-relaxed bg-red-50 p-8 rounded-xl border-l-4 border-red-200 text-left">
+              <div>
                 <p className="font-semibold">
                   「最初のグループワーク、一言も発せなかった…」
                 </p>
                 <p className="text-sm">
                   周りの話すスピードについていけず、意見を求められても頭が真っ白に。自信をなくし、授業への参加が怖くなってしまった。
                 </p>
+              </div>
+              <div>
                 <p className="font-semibold mt-4">「友達作りに苦労した…」</p>
                 <p className="text-sm">
                   日常会話にはついていけるけど、深い話やジョークになると輪に入れない。結果、日本人とばかり一緒にいてしまいがち。
                 </p>
               </div>
             </div>
-            {/* 解決策 */}
-            <div className="space-y-6">
-              <FeatureCard
-                icon={<GraduationCap className="w-6 h-6 text-blue-600" />}
-                title="授業理解の土台作り"
-                description="英語で授業を理解し、積極的に参加するための基礎英語力を事前に構築"
-                className="bg-blue-50 border-blue-200"
-                hover={false}
-              />
-              <FeatureCard
-                icon={<FileText className="w-6 h-6 text-green-600" />}
-                title="レポート・発表スキル"
-                description="現地で求められるアカデミックライティングと口頭発表の技術を習得"
-                className="bg-green-50 border-green-200"
-                hover={false}
-              />
-              <FeatureCard
-                icon={<Users2 className="w-6 h-6 text-yellow-600" />}
-                title="コミュニケーション力"
-                description="現地の人と関係を築き、留学生活を充実させる実践的な英語力"
-                className="bg-yellow-50 border-yellow-200"
-                hover={false}
-              />
-            </div>
+          </div>
+
+          {/* 解決策 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <FeatureCard
+              icon={<GraduationCap className="w-6 h-6 text-blue-600" />}
+              title="授業理解の土台作り"
+              description="英語で授業を理解し、積極的に参加するための基礎英語力を事前に構築"
+              className="bg-blue-50 border-blue-200"
+              hover={false}
+            />
+            <FeatureCard
+              icon={<FileText className="w-6 h-6 text-green-600" />}
+              title="レポート・発表スキル"
+              description="現地で求められるアカデミックライティングと口頭発表の技術を習得"
+              className="bg-green-50 border-green-200"
+              hover={false}
+            />
+            <FeatureCard
+              icon={<Users2 className="w-6 h-6 text-yellow-600" />}
+              title="コミュニケーション力"
+              description="現地の人と関係を築き、留学生活を充実させる実践的な英語力"
+              className="bg-yellow-50 border-yellow-200"
+              hover={false}
+            />
           </div>
         </Container>
       </SectionSeparator>
@@ -247,36 +249,68 @@ export default function StudentsPage() {
               出発前から帰国後まで、一貫したサポートであなたの成長を最大化します。
             </p>
           </div>
-          <Timeline
-            steps={[
-              {
-                id: 'before',
-                title: '留学前：徹底準備',
-                description:
-                  '基礎英語力と専門分野の語彙を固め、自信を持って留学をスタート。',
-                status: 'current',
-                icon: <GraduationCap />,
-              },
-              {
-                id: 'during',
-                title: '留学中：実践と挑戦',
-                description:
-                  '授業や現地生活で英語を実践。定期的な面談で課題を即解決。',
-                status: 'upcoming',
-                icon: <BookOpen />,
-              },
-              {
-                id: 'after',
-                title: '留学後：経験の価値化',
-                description:
-                  '留学経験をキャリアに繋げる。英語力を維持・向上させ、教える側へ。',
-                status: 'upcoming',
-                icon: <TrendingUp />,
-              },
-            ]}
-            orientation="horizontal"
-            className="timeline-student"
-          />
+          <div className="w-full max-w-5xl mx-auto">
+            <div className="relative flex items-center justify-around">
+              {/* Background line */}
+              <div className="absolute top-1/2 left-10 right-10 h-0.5 bg-blue-200 transform -translate-y-1/2" />
+
+              {/* Icons */}
+              {[
+                {
+                  id: 'before',
+                  icon: <GraduationCap className="w-8 h-8 text-white" />,
+                },
+                {
+                  id: 'during',
+                  icon: <BookOpen className="w-8 h-8 text-white" />,
+                },
+                {
+                  id: 'after',
+                  icon: <TrendingUp className="w-8 h-8 text-white" />,
+                },
+              ].map(step => (
+                <div
+                  key={step.id}
+                  className="relative bg-surface p-2 rounded-full"
+                >
+                  <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center shrink-0 z-10">
+                    {step.icon}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-6">
+              {[
+                {
+                  id: 'before-text',
+                  title: '留学前：徹底準備',
+                  description:
+                    '基礎英語力と専門分野の語彙を固め、自信を持って留学をスタート。',
+                },
+                {
+                  id: 'during-text',
+                  title: '留学中：実践と挑戦',
+                  description:
+                    '授業や現地生活で英語を実践。定期的な面談で課題を即解決。',
+                },
+                {
+                  id: 'after-text',
+                  title: '留学後：経験の価値化',
+                  description:
+                    '留学経験をキャリアに繋げる。英語力を維持・向上させ、教える側へ。',
+                },
+              ].map(step => (
+                <div key={step.id} className="text-center px-4">
+                  <h3 className="font-serif text-xl font-bold text-neutral-900 mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-neutral-700 leading-relaxed">
+                    {step.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </Container>
       </SectionSeparator>
 

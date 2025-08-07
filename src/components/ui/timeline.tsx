@@ -26,12 +26,27 @@ export function Timeline({
     return (
       <div className={cn('flex items-start justify-between', className)}>
         {steps.map((step, index) => (
-          <div key={step.id} className="flex flex-col items-center flex-1">
-            {/* ステップアイコン */}
+          <div
+            key={step.id}
+            className="flex flex-col items-center flex-1 text-center"
+          >
+            {/* ステップアイコンと接続線 */}
             <div className="flex items-center w-full mb-4">
+              {index > 0 && (
+                <div
+                  className={cn(
+                    'flex-1 h-0.5',
+                    {
+                      'bg-green-600': steps[index - 1].status === 'completed',
+                    },
+                    steps[index - 1].status !== 'completed' &&
+                      'timeline-connector-upcoming'
+                  )}
+                />
+              )}
               <div
                 className={cn(
-                  'w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg',
+                  'w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg shrink-0 mx-4',
                   {
                     'bg-green-600': step.status === 'completed',
                     'bg-primary': step.status === 'current',
@@ -41,12 +56,10 @@ export function Timeline({
               >
                 {step.icon || index + 1}
               </div>
-
-              {/* 接続線 */}
               {index < steps.length - 1 && (
                 <div
                   className={cn(
-                    'flex-1 h-0.5 mx-4',
+                    'flex-1 h-0.5',
                     {
                       'bg-green-600': step.status === 'completed',
                     },
@@ -57,7 +70,7 @@ export function Timeline({
             </div>
 
             {/* ステップ内容 */}
-            <div className="text-center">
+            <div>
               <h3 className="font-serif text-lg font-semibold text-neutral-900 mb-2">
                 {step.title}
               </h3>

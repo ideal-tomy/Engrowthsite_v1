@@ -28,7 +28,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '個人成長',
       icon: User,
       color: '#3b82f6',
-      angle: 0,
+      angle: -90,
       impacts: [
         { text: 'キャリアアップ', value: '+30%平均年収向上' },
         { text: '自信の向上', value: '95%が実感' },
@@ -41,7 +41,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '経済効果',
       icon: TrendingUp,
       color: '#10b981',
-      angle: 60,
+      angle: -30,
       impacts: [
         { text: '収入増加', value: '平均30万円/年' },
         { text: '転職成功率', value: '85%向上' },
@@ -54,7 +54,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: 'ビジネス展開',
       icon: Building2,
       color: '#f59e0b',
-      angle: 120,
+      angle: 30,
       impacts: [
         { text: '海外展開', value: '新市場開拓' },
         { text: '国際取引', value: '取引量3倍' },
@@ -67,7 +67,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '社会貢献',
       icon: Users,
       color: '#d70207',
-      angle: 180,
+      angle: 90,
       impacts: [
         { text: '知識共有', value: '後進指導' },
         { text: 'コミュニティ', value: '学習者同士の繋がり' },
@@ -80,7 +80,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '地域活性化',
       icon: Heart,
       color: '#8b5cf6',
-      angle: 240,
+      angle: 150,
       impacts: [
         { text: '地方創生', value: 'リモートワーク' },
         { text: '観光促進', value: '外国人対応' },
@@ -93,7 +93,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: 'グローバル影響',
       icon: Globe,
       color: '#06b6d4',
-      angle: 300,
+      angle: 210,
       impacts: [
         { text: 'SDGs貢献', value: '質の高い教育' },
         { text: '国際協力', value: 'クロスボーダー' },

@@ -252,23 +252,23 @@ export function SimpleEcosystemFlow({ className }: { className?: string }) {
   ]
 
   return (
-    <div className={cn('flex items-center justify-center gap-4', className)}>
+    <div className={cn('flex items-center justify-center gap-6', className)}>
       {steps.map((step, index) => (
         <div key={index} className="flex items-center">
           <div className="flex flex-col items-center">
-            <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-2">
-              <step.icon className={cn('w-6 h-6', step.color)} />
+            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-2">
+              <step.icon className={cn('w-8 h-8', step.color)} />
             </div>
-            <span className="text-xs font-medium text-neutral-700">
+            <span className="text-sm font-medium text-neutral-700">
               {step.label}
             </span>
           </div>
           {index < steps.length - 1 && (
-            <ArrowRight className="w-5 h-5 text-primary mx-3" />
+            <ArrowRight className="w-6 h-6 text-primary mx-4" />
           )}
         </div>
       ))}
-      <RefreshCw className="w-5 h-5 text-primary ml-3" />
+      <RefreshCw className="w-6 h-6 text-primary ml-4" />
     </div>
   )
 }

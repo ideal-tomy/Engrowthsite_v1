@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  .section-spacing {
+    @apply py-16 md:py-24;
+  }
+
   /* 基本スタイル */
   .timeline-step-icon-upcoming {
     @apply bg-neutral-300;

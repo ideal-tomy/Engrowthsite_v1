@@ -51,21 +51,24 @@ export function FeatureCard({
   return (
     <Card
       className={cn(
+        'flex flex-col h-full',
         accent && 'border-l-4 border-l-primary',
         !hover && 'cursor-default',
         className
       )}
       hover={hover}
     >
-      {icon && (
-        <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary mb-4">
-          {icon}
-        </div>
-      )}
-      <h3 className="font-serif text-xl font-semibold text-neutral-900 mb-3">
-        {title}
-      </h3>
-      <p className="text-neutral-600 leading-relaxed">{description}</p>
+      <div className="flex-grow">
+        {icon && (
+          <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary mb-4">
+            {icon}
+          </div>
+        )}
+        <h3 className="font-serif text-xl font-semibold text-neutral-900 mb-3">
+          {title}
+        </h3>
+        <p className="text-neutral-600 leading-relaxed">{description}</p>
+      </div>
     </Card>
   )
 }
@@ -104,7 +107,7 @@ export function ServiceCard({
   return (
     <Card
       className={cn(
-        'relative flex flex-col',
+        'relative flex flex-col h-full',
         popular && 'border-primary shadow-lg',
         !hover && 'cursor-default',
         className
@@ -305,15 +308,22 @@ export function TestimonialCard({
   isBubble = false,
 }: TestimonialCardProps) {
   return (
-    <Card className={cn(isBubble && 'relative mt-4', className)} hover={hover}>
+    <Card
+      className={cn(
+        'flex flex-col h-full',
+        isBubble && 'relative mt-4',
+        className
+      )}
+      hover={hover}
+    >
       {isBubble && (
         <div className="absolute -top-4 left-8 w-0 h-0 border-l-[10px] border-l-transparent border-r-[10px] border-r-transparent border-b-[16px] border-b-white" />
       )}
-      <div className="space-y-4">
-        <blockquote className="text-neutral-700 leading-relaxed italic">
+      <div className="space-y-4 flex flex-col flex-grow">
+        <blockquote className="text-neutral-700 leading-relaxed italic flex-grow">
           &ldquo;{quote}&rdquo;
         </blockquote>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center space-x-3 mt-auto">
           {avatar && (
             <Image
               src={avatar}

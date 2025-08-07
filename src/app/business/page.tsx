@@ -6,7 +6,6 @@ import {
   FeatureCard,
   ServiceCard,
   StatsCard,
-  PricingCard,
   TestimonialCard,
 } from '@/components/ui/card-components'
 import { Container } from '@/components/layout/container'
@@ -34,6 +33,71 @@ export const metadata: Metadata = {
 }
 
 export default function BusinessPage() {
+  const businessPlans = [
+    {
+      period: '1ヶ月',
+      originalPrice: '$1,480',
+      discountedPrice: '$1,480',
+      monthlyPrice: '-',
+      note: '3ヶ月以上のプラン修了者のみ利用可能',
+      available: false,
+      features: [
+        '専任コンサルタント',
+        '科学的メソッド',
+        'ビジネス実践英会話',
+        'プロ講師陣',
+      ],
+    },
+    {
+      period: '3ヶ月',
+      originalPrice: '$4,400',
+      discountedPrice: '$3,980',
+      monthlyPrice: '$1,326',
+      discount: '約10%OFF',
+      popular: false,
+      available: true,
+      features: [
+        '専任コンサルタント',
+        '科学的メソッド',
+        'ビジネス実践英会話',
+        'プロ講師陣',
+      ],
+    },
+    {
+      period: '6ヶ月',
+      originalPrice: '$8,880',
+      discountedPrice: '$7,480',
+      monthlyPrice: '$1,246',
+      discount: '約16%OFF',
+      popular: true,
+      available: true,
+      features: [
+        '専任コンサルタント',
+        '科学的メソッド',
+        'ビジネス実践英会話',
+        'プロ講師陣',
+        'コミュニティアクセス',
+      ],
+    },
+    {
+      period: '12ヶ月',
+      originalPrice: '$17,760',
+      discountedPrice: '$13,980',
+      monthlyPrice: '$1,165',
+      discount: '約21%OFF',
+      popular: false,
+      available: true,
+      features: [
+        '専任コンサルタント',
+        '科学的メソッド',
+        'ビジネス実践英会話',
+        'プロ講師陣',
+        'コミュニティアクセス',
+        'エコシステム参加資格',
+      ],
+    },
+  ]
+
   return (
     <LayoutWrapper>
       {/* Hero Section */}
@@ -306,81 +370,104 @@ export default function BusinessPage() {
       {/* 対象者・サービス概要 */}
       <SectionSeparator background="white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-            {/* 対象者 */}
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-8">
-                こんな方に最適です
-              </h2>
-              <div className="space-y-4">
-                {[
-                  'TOEICのスコアはあっても、会議での発言に自信が持てない',
-                  '海外の最新情報を、翻訳ではなく原文で理解したい',
-                  '海外顧客や外国人部下と、円滑な関係を築きたい',
-                  '英語でのプレゼンや交渉で、ビジネスを有利に進めたい',
-                  '多忙な毎日でも、効率的に英語力を向上させたい経営者・管理職',
-                  '自己流の学習に限界を感じ、プロの指導を受けたい',
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start">
-                    <span className="text-primary mr-3 mt-1 text-lg">✓</span>
-                    <span className="text-neutral-700">{item}</span>
-                  </div>
-                ))}
-              </div>
+          {/* 対象者 */}
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-8">
+              こんな方に最適です
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-left">
+              {[
+                'TOEICのスコアはあっても、会議での発言に自信が持てない',
+                '海外の最新情報を、翻訳ではなく原文で理解したい',
+                '海外顧客や外国人部下と、円滑な関係を築きたい',
+                '英語でのプレゼンや交渉で、ビジネスを有利に進めたい',
+                '多忙な毎日でも、効率的に英語力を向上させたい経営者・管理職',
+                '自己流の学習に限界を感じ、プロの指導を受けたい',
+              ].map((item, index) => (
+                <div key={index} className="flex items-start">
+                  <span className="text-primary mr-3 mt-1 text-lg shrink-0">
+                    ✓
+                  </span>
+                  <span className="text-neutral-700">{item}</span>
+                </div>
+              ))}
             </div>
+          </div>
 
-            {/* プラン比較 */}
-            <div className="lg:col-span-1">
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-8">
+          {/* プラン比較 */}
+          <div>
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
                 サービスプラン
               </h2>
-              <div className="grid grid-cols-1 gap-8">
-                <PricingCard
-                  title="基礎力養成プラン"
-                  price="¥98,000"
-                  priceDescription="/月"
-                  description="ビジネス英語の土台を固める"
-                  features={[
-                    '週1回 60分セッション',
-                    '毎日のLINEサポート',
-                    '語彙・文法・発音の基礎強化',
-                    '月1回の進捗レポート',
-                  ]}
-                  ctaText="このプランを選ぶ"
-                  ctaHref="/contact"
-                />
-                <PricingCard
-                  title="実践応用プラン"
-                  price="¥148,000"
-                  priceDescription="/月"
-                  description="会議や交渉で使える英語を習得"
-                  features={[
-                    '週2回 60分セッション',
-                    '毎日のLINE/音声サポート',
-                    '実践的なロールプレイング',
-                    '業界に特化した語彙学習',
-                    '隔週の進捗レポート',
-                  ]}
-                  ctaText="このプランを選ぶ"
-                  ctaHref="/contact"
-                  popular
-                />
-                <PricingCard
-                  title="エグゼクティブ集中プラン"
-                  price="応相談"
-                  priceDescription=""
-                  description="経営者向けの完全個別カスタマイズ"
-                  features={[
-                    '無制限のセッション予約',
-                    '24時間対応のチャットサポート',
-                    '海外出張・交渉への同行サポート',
-                    '英語でのプレゼン資料作成支援',
-                    '専属コンサルタントによるフルサポート',
-                  ]}
-                  ctaText="お問い合わせ"
-                  ctaHref="/contact"
-                />
-              </div>
+              <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
+                あなたの目標とペースに合わせて選べる、柔軟なプランをご用意しました。
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+              {businessPlans.map((plan, index) => (
+                <div
+                  key={index}
+                  className={`relative bg-white p-6 rounded-xl border flex flex-col ${plan.popular ? 'border-primary border-2 shadow-lg' : 'border-gray-200'} ${!plan.available ? 'opacity-75' : ''} hover:shadow-md transition-all duration-300`}
+                >
+                  {plan.popular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
+                        一番人気
+                      </span>
+                    </div>
+                  )}
+                  <div className="text-center mb-4">
+                    <h4 className="font-serif text-xl font-bold text-neutral-900 mb-2">
+                      {plan.period}
+                    </h4>
+                    <div className="mb-2">
+                      {plan.originalPrice !== plan.discountedPrice && (
+                        <div className="text-sm text-neutral-500 line-through">
+                          {plan.originalPrice}
+                        </div>
+                      )}
+                      <div className="text-2xl font-bold text-primary">
+                        {plan.discountedPrice}
+                      </div>
+                      {plan.monthlyPrice !== '-' && (
+                        <div className="text-sm text-neutral-600">
+                          月額 {plan.monthlyPrice}
+                        </div>
+                      )}
+                    </div>
+                    {plan.discount && (
+                      <div className="inline-flex items-center bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">
+                        {plan.discount}
+                      </div>
+                    )}
+                  </div>
+                  <ul className="space-y-2 text-sm text-neutral-700 mb-4 flex-grow">
+                    {plan.features.map((feature, i) => (
+                      <li key={i} className="flex items-start">
+                        <span className="text-primary mr-2 mt-1 shrink-0">
+                          ✓
+                        </span>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  {plan.note && (
+                    <div className="text-xs text-neutral-600 bg-neutral-50 p-2 rounded-lg mb-3 text-center">
+                      ※ {plan.note}
+                    </div>
+                  )}
+                  <CTAButton
+                    asChild
+                    className={`w-full mt-auto ${plan.popular ? '' : 'bg-slate-600 hover:bg-slate-700'} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={!plan.available}
+                  >
+                    <a href="/contact">
+                      {plan.available ? 'このプランを選ぶ' : '要修了認定'}
+                    </a>
+                  </CTAButton>
+                </div>
+              ))}
             </div>
           </div>
         </Container>

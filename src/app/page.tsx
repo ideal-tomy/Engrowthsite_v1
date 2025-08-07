@@ -14,7 +14,6 @@ import {
   LazySocialImpactDiagram,
   LazySimpleEcosystemFlow,
 } from '@/components/diagrams/lazy-diagram-loader'
-import { Timeline } from '@/components/ui/timeline'
 
 import {
   GraduationCap,
@@ -44,27 +43,6 @@ export const metadata: Metadata = {
   description:
     '第二言語として英語を習得した日本人コンサルによる実践的な英語学習支援。科学的メソッドに基づく循環型エコシステムで、英語を学ぶ人も教える人も成長できる仕組みを提供します。',
 }
-
-const flowSteps = [
-  {
-    id: 'step1',
-    title: '無料相談',
-    description:
-      '現在の英語力、目標、生活リズムをヒアリング。あなたに最適なプランの方向性をご提案',
-  },
-  {
-    id: 'step2',
-    title: '診断・プラン提示',
-    description:
-      '詳細な英語力診断を実施。具体的な90日プランと学習内容をご提示いたします',
-  },
-  {
-    id: 'step3',
-    title: 'サポート開始',
-    description:
-      '専属コンサルタントによる90日間の伴走サポートがスタート。毎日の学習をフォロー',
-  },
-]
 
 export default function HomePage() {
   return (
@@ -164,8 +142,9 @@ export default function HomePage() {
             </div>
           </FadeIn>
 
-          <FadeInStagger className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <FadeInStagger className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             <ServiceCard
+              className="border-primary"
               icon={<Award className="w-6 h-6 text-primary" />}
               title="英語で“結果を出した”日本人コンサルタント"
               description="全員が留学経験あり、英語を実践で使いこなす人材のみで構成。理論だけでなく、実体験に基づく具体的なアドバイスを提供。"
@@ -180,6 +159,7 @@ export default function HomePage() {
               }}
             />
             <ServiceCard
+              className="border-primary"
               icon={<Recycle className="w-6 h-6 text-primary" />}
               title="「教える」が学びを加速させるエコシステム"
               description="教える人も学び続ける仕組み。英語を習得した人が教える側にまわることで、持続可能な学習コミュニティを形成。"
@@ -188,9 +168,9 @@ export default function HomePage() {
                 '経済的自立支援',
                 '社会貢献としての教育',
               ]}
-              popular
             />
             <ServiceCard
+              className="border-primary"
               icon={<FlaskConical className="w-6 h-6 text-primary" />}
               title="再現性を高める、科学的学習メソッド"
               description="第二言語習得理論と習慣化心理学に基づく学習設計。なぜこの方法で伸びるのか、理論的裏付けのある指導を実施。"
@@ -370,7 +350,7 @@ export default function HomePage() {
           </div>
 
           <div className="bg-white p-8 md:p-12 rounded-xl shadow-sm border mb-12">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center">
               <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <BookOpen className="w-8 h-8 text-primary" />
@@ -381,9 +361,6 @@ export default function HomePage() {
                 <p className="text-sm text-neutral-600">実践的な英語力を習得</p>
               </div>
               <div className="text-center">
-                <ArrowRight className="w-8 h-8 text-primary mx-auto" />
-              </div>
-              <div className="text-center">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="w-8 h-8 text-primary" />
                 </div>
@@ -392,11 +369,6 @@ export default function HomePage() {
                 </h3>
                 <p className="text-sm text-neutral-600">コンサルとして活躍</p>
               </div>
-              <div className="text-center">
-                <RefreshCw className="w-8 h-8 text-primary mx-auto" />
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 pt-8 border-t border-neutral-200">
               <div className="text-center">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="w-8 h-8 text-green-600" />
@@ -630,11 +602,38 @@ export default function HomePage() {
               受講の流れ
             </h2>
             <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
-              無料相談から90日サポート開始まで、スムーズにご案内いたします。
+              LINEでのご相談から90日サポート開始まで、スムーズにご案内いたします。
             </p>
           </div>
 
-          <Timeline steps={flowSteps} orientation="horizontal" />
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <FeatureCard
+                title="1. LINEで相談"
+                description="現在の英語力、目標、生活リズムをヒアリング。あなたに最適なプランの方向性をご提案します。"
+                hover={false}
+              />
+              <FeatureCard
+                title="2. 診断・プラン提示"
+                description="詳細な英語力診断を実施。具体的な90日プランと学習内容をご提示いたします。"
+                hover={false}
+              />
+              <FeatureCard
+                title="3. サポート開始"
+                description="専属コンサルタントによる90日間の伴走サポートがスタート。毎日の学習をフォローします。"
+                hover={false}
+              />
+            </div>
+            <div className="absolute top-1/2 -left-4 -right-4 hidden md:flex justify-between items-center transform -translate-y-1/2">
+              <div className="w-full h-1 bg-primary/20" />
+              <div className="absolute left-1/3 -ml-4 w-8 h-8 bg-white flex items-center justify-center rounded-full">
+                <ArrowRight className="w-6 h-6 text-primary" />
+              </div>
+              <div className="absolute left-2/3 -ml-4 w-8 h-8 bg-white flex items-center justify-center rounded-full">
+                <ArrowRight className="w-6 h-6 text-primary" />
+              </div>
+            </div>
+          </div>
 
           <div className="text-center mt-12">
             <CTAButton variant="outline" asChild>
