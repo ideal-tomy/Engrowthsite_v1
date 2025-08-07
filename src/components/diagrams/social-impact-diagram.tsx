@@ -266,7 +266,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
             return (
               <motion.div
                 key={category.id}
-                className="absolute cursor-pointer"
+                className="absolute cursor-pointer z-20"
                 style={{
                   left: `${x}%`,
                   top: `${y}%`,
@@ -309,20 +309,22 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
                   </div>
                 </div>
 
-                {/* インパクト詳細（ホバー時表示） */}
+                {/* インパクト詳細（ホバー時表示） - 元の位置表示 */}
                 {isActive && (
-                  <motion.div
-                    className="absolute top-full mt-16 left-1/2 transform -translate-x-1/2 z-20"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.2 }}
+                  <div
+                    className="absolute top-full mt-16 left-1/2 transform -translate-x-1/2"
                     style={{
-                      // 画面端での表示調整
+                      zIndex: 999999, // 非常に高いz-index
                       left: Math.max(Math.min(50, 85), 15) + '%',
                       transform: 'translateX(-50%)',
                     }}
                   >
-                    <div className="bg-white rounded-xl shadow-xl p-4 border border-gray-200 w-64 max-w-sm">
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="bg-white rounded-xl shadow-xl p-4 border border-gray-200 w-64 max-w-sm"
+                    >
                       <div className="flex items-center space-x-2 mb-3">
                         <IconComponent
                           className="w-5 h-5"
@@ -347,8 +349,8 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
                           </div>
                         ))}
                       </div>
-                    </div>
-                  </motion.div>
+                    </motion.div>
+                  </div>
                 )}
               </motion.div>
             )
