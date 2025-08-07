@@ -38,10 +38,9 @@ export default function EcosystemPage() {
       <HeroSection
         title={
           <>
-            英語を通して、
-            <span className="text-primary">経済的にも社会的にも</span>
+            英語を通して、経済的にも社会的にも
             <br />
-            成長できる人材を増やす
+            <span className="text-primary">成長できる人材</span>を増やす
           </>
         }
         subtitle="Engrowthの循環型エコシステム"
@@ -50,10 +49,12 @@ export default function EcosystemPage() {
           text: '仕組みを詳しく見る',
           href: '#ecosystem-flow',
         }}
-        secondaryCTA={{
-          text: '参加方法を知る',
-          href: '#how-to-join',
-        }}
+        backgroundImage="/images/backgrounds/ecosystem-hero-2.jpg"
+        backgroundImageClassName="opacity-20"
+        // secondaryCTA={{
+        //   text: '参加方法を知る',
+        //   href: '#how-to-join',
+        // }}
       />
 
       {/* 循環型エコシステムとは */}
@@ -316,63 +317,79 @@ export default function EcosystemPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* 学ぶ人のメリット */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <BookOpen className="w-8 h-8 text-blue-600" />
+          <div className="relative">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+              {/* 学ぶ人のメリット */}
+              <div className="bg-white p-8 rounded-xl shadow-sm border">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <BookOpen className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-neutral-900">
+                    学ぶ人（社会人・英語初心者）
+                  </h3>
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900">
-                  学ぶ人（社会人・英語初心者）
-                </h3>
+                <ul className="space-y-3 text-neutral-700">
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2 mt-1">✓</span>
+                    <span>
+                      専属コンサルとAIによる24時間サポートで、実体験に基づく本当に必要な英語を学べる
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2 mt-1">✓</span>
+                    <span>
+                      科学的メソッドと習慣化支援で、挫折せずに学習が続く
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-blue-600 mr-2 mt-1">✓</span>
+                    <span>
+                      「学ぶことで誰かの未来を支える」という社会貢献を実感できる
+                    </span>
+                  </li>
+                </ul>
               </div>
-              <ul className="space-y-3 text-neutral-700">
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✓</span>
-                  <span>
-                    実体験を持つコンサルから、本当に必要な英語を学べる
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✓</span>
-                  <span>習慣化と支援体制で、学習が続く</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-blue-600 mr-2 mt-1">✓</span>
-                  <span>「学ぶことで誰かの未来を支える」感覚を得られる</span>
-                </li>
-              </ul>
+
+              {/* 教える人のメリット */}
+              <div className="bg-white p-8 rounded-xl shadow-sm border border-primary">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-primary" />
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-neutral-900">
+                    教える人（学生・留学経験者）
+                  </h3>
+                </div>
+                <ul className="space-y-3 text-neutral-700">
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2 mt-1">✓</span>
+                    <span>
+                      留学を継続・実現するための収入（月5〜10万円）を得られる
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2 mt-1">✓</span>
+                    <span>
+                      教える経験を通じて、自身の英語力とリーダーシップが飛躍的に向上する
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-primary mr-2 mt-1">✓</span>
+                    <span>
+                      経済的自立と社会貢献を両立する、前向きなキャリアを築ける
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
-            {/* 教える人のメリット */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-primary border-2">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Users className="w-8 h-8 text-primary" />
-                </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900">
-                  教える人（学生・留学経験者）
-                </h3>
-              </div>
-              <ul className="space-y-3 text-neutral-700">
-                <li className="flex items-start">
-                  <span className="text-primary mr-2 mt-1">✓</span>
-                  <span>留学を継続・実現するための収入を得られる</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2 mt-1">✓</span>
-                  <span>教えることで英語力と人間力が伸びる</span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-primary mr-2 mt-1">✓</span>
-                  <span>経済と学びが両立する、前向きなキャリアモデル</span>
-                </li>
-              </ul>
+            <div className="flex justify-center my-8">
+              <ArrowRight className="w-8 h-8 text-neutral-400 transform rotate-90" />
             </div>
 
             {/* 社会・企業のメリット */}
-            <div className="bg-white p-8 rounded-xl shadow-sm border">
+            <div className="bg-white p-8 rounded-xl shadow-sm border max-w-2xl mx-auto">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Globe className="w-8 h-8 text-green-600" />
@@ -384,15 +401,21 @@ export default function EcosystemPage() {
               <ul className="space-y-3 text-neutral-700">
                 <li className="flex items-start">
                   <span className="text-green-600 mr-2 mt-1">✓</span>
-                  <span>英語で仕事ができる人材が増える</span>
+                  <span>
+                    即戦力となるグローバル人材が増え、企業の競争力が向上する
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-600 mr-2 mt-1">✓</span>
-                  <span>若手人材の経験と意欲が企業に還元される</span>
+                  <span>
+                    若手の意欲と経験が社会に還元され、新たな価値創造に繋がる
+                  </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-green-600 mr-2 mt-1">✓</span>
-                  <span>世界との接続力が強まり、日本の競争力が上がる</span>
+                  <span>
+                    世界との接続点が強化され、日本の国際的なプレゼンスが向上する
+                  </span>
                 </li>
               </ul>
             </div>
@@ -418,33 +441,40 @@ export default function EcosystemPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <StatsCard
+              icon={<DollarSign className="w-8 h-8" />}
               number="0人"
-              label="留学をあきらめる人"
-              description="経済的理由での断念をゼロに"
+              label="経済的な理由で諦める人"
+              description="留学や学びの機会を経済的な理由で断念する人をゼロに"
             />
             <StatsCard
+              icon={<TrendingUp className="w-8 h-8" />}
               number="∞"
               label="英語で活躍する人材"
-              description="無限に広がる可能性"
+              description="教える経験を通じて、自身の可能性を無限に広げる"
             />
             <StatsCard
+              icon={<Heart className="w-8 h-8" />}
               number="100%"
               label="社会貢献としての教育"
-              description="教えることがキャリアに"
+              description="あなたの経験が100%、次の世代の力になる"
             />
             <StatsCard
+              icon={<RefreshCw className="w-8 h-8" />}
               number="循環"
               label="持続可能な教育構造"
-              description="自立した学習エコシステム"
+              description="学びと貢献が循環し続ける自律的なエコシステム"
             />
           </div>
 
           <div className="mt-16 text-center">
-            <div className="bg-primary/5 border-2 border-primary/20 rounded-xl p-8 md:p-12 max-w-4xl mx-auto">
-              <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-6">
+            <div className="bg-gradient-to-br from-neutral-800 to-neutral-900 border-t-4 border-primary rounded-xl p-8 md:p-12 max-w-4xl mx-auto text-white">
+              <h3 className="font-serif text-2xl font-bold mb-6">
                 Engrowthが目指すビジョン
               </h3>
-              <div className="text-lg text-neutral-700 leading-relaxed space-y-4">
+              <blockquote className="text-lg leading-relaxed space-y-4 relative">
+                <p className="absolute -top-4 left-0 text-6xl text-primary/30 font-serif">
+                  “
+                </p>
                 <p>
                   <strong>
                     Engrowthは、英語を軸に「経済と教育の課題を両立的に解決する」仕組みを提供します。
@@ -455,7 +485,10 @@ export default function EcosystemPage() {
                   <br />
                   あなたが教えることで、誰かが世界とつながる。
                 </p>
-              </div>
+                <p className="absolute -bottom-4 right-0 text-6xl text-primary/30 font-serif">
+                  ”
+                </p>
+              </blockquote>
             </div>
           </div>
         </Container>
@@ -479,43 +512,47 @@ export default function EcosystemPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white/10 p-8 rounded-xl text-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+            <div className="bg-white/10 p-8 rounded-xl text-center flex flex-col">
               <BookOpen className="w-12 h-12 text-white mx-auto mb-4" />
               <h3 className="font-serif text-xl font-bold mb-4">
                 学び手として参加
               </h3>
-              <p className="text-neutral-300 mb-6">
-                英語を実践的に学び、ビジネスで活用したい社会人の方
+              <p className="text-neutral-300 mb-6 flex-grow">
+                まずは、世界で通用する英語力を手に入れたいあなたへ
               </p>
-              <CTAButton variant="outline" asChild className="w-full">
-                <a href="/business">ビジネス向けページ</a>
+              <CTAButton variant="outline" asChild className="w-full mt-auto">
+                <a href="/business">ビジネス向けプラン詳細</a>
               </CTAButton>
             </div>
 
-            <div className="bg-primary/20 p-8 rounded-xl text-center border-2 border-primary">
+            <div className="bg-primary p-8 rounded-xl text-center border-2 border-white/50 shadow-2xl transform scale-105 flex flex-col">
               <Users className="w-12 h-12 text-white mx-auto mb-4" />
               <h3 className="font-serif text-xl font-bold mb-4">
                 教える側として挑戦
               </h3>
-              <p className="text-neutral-300 mb-6">
-                留学経験を活かして収入を得ながら、さらに成長したい学生の方
+              <p className="text-white mb-6 flex-grow">
+                あなたの英語経験を、次の誰かの力に変えたいあなたへ
               </p>
-              <CTAButton asChild className="w-full">
-                <a href="/students">学生向けページ</a>
+              <CTAButton
+                variant="secondary"
+                asChild
+                className="w-full mt-auto bg-white text-primary hover:bg-neutral-100"
+              >
+                <a href="/students">学生向けプラン詳細</a>
               </CTAButton>
             </div>
 
-            <div className="bg-white/10 p-8 rounded-xl text-center">
+            <div className="bg-white/10 p-8 rounded-xl text-center flex flex-col">
               <MessageCircle className="w-12 h-12 text-white mx-auto mb-4" />
               <h3 className="font-serif text-xl font-bold mb-4">
                 まず話を聞いてみたい
               </h3>
-              <p className="text-neutral-300 mb-6">
+              <p className="text-neutral-300 mb-6 flex-grow">
                 仕組みについて詳しく知りたい、相談してから決めたい方
               </p>
-              <CTAButton variant="outline" asChild className="w-full">
-                <a href="/contact">お問い合わせ</a>
+              <CTAButton variant="outline" asChild className="w-full mt-auto">
+                <a href="/contact">無料カウンセリングを予約</a>
               </CTAButton>
             </div>
           </div>

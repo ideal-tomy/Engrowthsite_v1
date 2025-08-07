@@ -1,38 +1,7 @@
 'use client'
 
-import { Suspense, lazy } from 'react'
+import dynamic from 'next/dynamic'
 import { Skeleton } from '@/components/ui/skeleton'
-
-// 図解コンポーネントの動的インポート
-const BusinessCalendar = lazy(() =>
-  import('./business-calendar').then(module => ({
-    default: module.BusinessCalendar,
-  }))
-)
-
-const AIFeedbackLoop = lazy(() =>
-  import('./ai-feedback-loop').then(module => ({
-    default: module.AIFeedbackLoop,
-  }))
-)
-
-const SocialImpactDiagram = lazy(() =>
-  import('./social-impact-diagram').then(module => ({
-    default: module.SocialImpactDiagram,
-  }))
-)
-
-const EcosystemDiagram = lazy(() =>
-  import('./ecosystem-diagram').then(module => ({
-    default: module.EcosystemDiagram,
-  }))
-)
-
-const SimpleEcosystemFlow = lazy(() =>
-  import('./ecosystem-diagram').then(module => ({
-    default: module.SimpleEcosystemFlow,
-  }))
-)
 
 // ローディングスケルトン
 function DiagramSkeleton() {
@@ -55,47 +24,47 @@ function DiagramSkeleton() {
   )
 }
 
-// Lazy Wrapper コンポーネント
-interface LazyDiagramProps {
-  className?: string
-}
+// 図解コンポーネントの動的インポート (next/dynamic を使用)
+export const LazyBusinessCalendar = dynamic(
+  () => import('./business-calendar').then(module => module.BusinessCalendar),
+  {
+    ssr: false,
+    loading: () => <DiagramSkeleton />,
+  }
+)
 
-export function LazyBusinessCalendar({ className }: LazyDiagramProps) {
-  return (
-    <Suspense fallback={<DiagramSkeleton />}>
-      <BusinessCalendar className={className} />
-    </Suspense>
-  )
-}
+export const LazyAIFeedbackLoop = dynamic(
+  () => import('./ai-feedback-loop').then(module => module.AIFeedbackLoop),
+  {
+    ssr: false,
+    loading: () => <DiagramSkeleton />,
+  }
+)
 
-export function LazyAIFeedbackLoop({ className }: LazyDiagramProps) {
-  return (
-    <Suspense fallback={<DiagramSkeleton />}>
-      <AIFeedbackLoop className={className} />
-    </Suspense>
-  )
-}
+export const LazySocialImpactDiagram = dynamic(
+  () =>
+    import('./social-impact-diagram').then(
+      module => module.SocialImpactDiagram
+    ),
+  {
+    ssr: false,
+    loading: () => <DiagramSkeleton />,
+  }
+)
 
-export function LazySocialImpactDiagram({ className }: LazyDiagramProps) {
-  return (
-    <Suspense fallback={<DiagramSkeleton />}>
-      <SocialImpactDiagram className={className} />
-    </Suspense>
-  )
-}
+export const LazyEcosystemDiagram = dynamic(
+  () => import('./ecosystem-diagram').then(module => module.EcosystemDiagram),
+  {
+    ssr: false,
+    loading: () => <DiagramSkeleton />,
+  }
+)
 
-export function LazyEcosystemDiagram({ className }: LazyDiagramProps) {
-  return (
-    <Suspense fallback={<DiagramSkeleton />}>
-      <EcosystemDiagram className={className} />
-    </Suspense>
-  )
-}
-
-export function LazySimpleEcosystemFlow({ className }: LazyDiagramProps) {
-  return (
-    <Suspense fallback={<DiagramSkeleton />}>
-      <SimpleEcosystemFlow className={className} />
-    </Suspense>
-  )
-}
+export const LazySimpleEcosystemFlow = dynamic(
+  () =>
+    import('./ecosystem-diagram').then(module => module.SimpleEcosystemFlow),
+  {
+    ssr: false,
+    loading: () => <DiagramSkeleton />,
+  }
+)

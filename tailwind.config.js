@@ -65,6 +65,11 @@ module.exports = {
           5: 'hsl(var(--chart-5))',
         },
       },
+      backgroundImage: {
+        'hero-pattern': "url('/images/hero/hero-background.jpg')",
+        'student-card': "url('/images/backgrounds/campus.jpg')",
+        'business-card': "url('/images/backgrounds/office.jpg')",
+      },
       fontFamily: {
         serif: ['YuMincho', 'Playfair Display', 'Times New Roman', 'serif'],
         sans: ['Inter', 'system-ui', 'sans-serif'],

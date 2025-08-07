@@ -20,6 +20,12 @@ import {
   Zap,
   Clock,
 } from 'lucide-react'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/components/ui/tooltip'
 
 export const metadata: Metadata = {
   title: '学習メソッド | Engrowth - 科学的根拠に基づく英語コンサルティング',
@@ -42,13 +48,11 @@ export default function MethodPage() {
         subtitle="科学的根拠に基づく実践的な英語コンサルティング"
         description="Engrowthは、第二言語習得理論と習慣化心理学を組み合わせた独自のメソッドで、ビジネスパーソンと成長意欲の高い学生の英語力向上を支援します。"
         primaryCTA={{
-          text: '無料相談で詳細を聞く',
+          text: 'まずは無料相談で学習法を知る',
           href: '/contact',
         }}
-        secondaryCTA={{
-          text: '料金プランを見る',
-          href: '/pricing',
-        }}
+        backgroundImage="/images/backgrounds/learning-method-hero.jpg"
+        backgroundImageClassName="opacity-20"
       />
 
       {/* サービス概要 */}
@@ -172,6 +176,48 @@ export default function MethodPage() {
       {/* 特徴2: 科学的根拠 */}
       <SectionSeparator background="surface">
         <Container>
+          {/* メソッド全体の図解 */}
+          <div className="text-center mb-16">
+            <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-6">
+              Engrowthメソッドの全体像
+            </h3>
+            <div className="bg-white p-8 rounded-xl border max-w-4xl mx-auto">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Brain className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                    理論
+                  </h4>
+                  <p className="text-sm text-neutral-700">
+                    SLA理論 + 習慣化心理学
+                  </p>
+                </div>
+                <div className="text-center">
+                  <ArrowRight className="w-8 h-8 text-primary mx-auto mb-6" />
+                  <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Target className="w-8 h-8 text-green-600" />
+                  </div>
+                  <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                    実践
+                  </h4>
+                  <p className="text-sm text-neutral-700">90日集中プログラム</p>
+                </div>
+                <div className="text-center">
+                  <ArrowRight className="w-8 h-8 text-primary mx-auto mb-6" />
+                  <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-purple-600" />
+                  </div>
+                  <h4 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                    成果
+                  </h4>
+                  <p className="text-sm text-neutral-700">実用レベルの英語力</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="order-2 lg:order-1 space-y-6">
               <ServiceCard
@@ -208,8 +254,45 @@ export default function MethodPage() {
                 Engrowthは、第二言語習得理論（SLA）と習慣化の心理学に基づいて学習プランを設計。
                 なぜこの方法で英語力が向上するのか、理論的裏付けのある指導を実施します。
               </p>
-              <div className="bg-white p-6 rounded-xl border">
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
+
+              {/* 理論的支柱の視覚的グルーピング */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                  <h3 className="font-serif text-lg font-bold text-neutral-900 mb-3 flex items-center">
+                    <Brain className="w-5 h-5 text-blue-600 mr-2" />
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger className="underline decoration-dotted">
+                          第二言語習得理論（SLA）
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>
+                            人が第二言語をどのように学ぶかを科学的に研究する分野
+                          </p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </h3>
+                  <p className="text-sm text-neutral-700">
+                    意味あるインプット・アウトプットの重要性、理解可能な文脈での実践学習
+                  </p>
+                </div>
+                <div className="bg-purple-50 p-6 rounded-xl border border-purple-200">
+                  <h3 className="font-serif text-lg font-bold text-neutral-900 mb-3 flex items-center">
+                    <RefreshCw className="w-5 h-5 text-purple-600 mr-2" />
+                    習慣化の心理学
+                  </h3>
+                  <p className="text-sm text-neutral-700">
+                    トリガー・報酬・行動ループに基づく学習継続支援
+                  </p>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-xl border border-blue-200">
+                <div className="text-center mb-4">
+                  <ArrowRight className="w-8 h-8 text-primary mx-auto transform rotate-90 md:rotate-0" />
+                </div>
+                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4 text-center">
                   学習効率の最大化
                 </h3>
                 <ul className="space-y-3">
@@ -284,19 +367,19 @@ export default function MethodPage() {
             <div className="space-y-6">
               <FeatureCard
                 icon={<Target className="w-6 h-6" />}
-                title="毎日の習慣化サポート"
+                title="学習の継続を科学する、毎日の進捗サポート"
                 description="学習の進捗を毎日共有し、コンサルタントが継続をサポート"
                 accent
               />
               <FeatureCard
                 icon={<Brain className="w-6 h-6" />}
-                title="90日集中プログラム"
+                title="ゴールから逆算した、あなただけの90日集中プラン"
                 description="明確なゴール設定と逆算型の学習プランで確実な成果を実現"
                 accent
               />
               <FeatureCard
                 icon={<RefreshCw className="w-6 h-6" />}
-                title="柔軟な学習スタイル"
+                title="生活リズムに合わせた、柔軟な学習スタイル"
                 description="あなたの生活リズムに合わせて最適化された学習方法"
                 accent
               />
@@ -323,9 +406,12 @@ export default function MethodPage() {
                 <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Briefcase className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-3">
+                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-2">
                   ビジネスパーソン
                 </h3>
+                <p className="text-sm text-blue-600 font-medium mb-3">
+                  限られた時間で、最高の結果を出したいあなたへ
+                </p>
               </div>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start">
@@ -351,7 +437,7 @@ export default function MethodPage() {
                 asChild
                 className="w-full bg-blue-600 hover:bg-blue-700"
               >
-                <a href="/business">ビジネス向け詳細</a>
+                <a href="/business">ビジネスパーソン向けプランへ</a>
               </CTAButton>
             </div>
 
@@ -360,9 +446,12 @@ export default function MethodPage() {
                 <div className="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <GraduationCap className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-3">
+                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-2">
                   学生
                 </h3>
+                <p className="text-sm text-green-600 font-medium mb-3">
+                  留学・就活で差をつけたい成長意欲の高いあなたへ
+                </p>
               </div>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start">
@@ -388,7 +477,7 @@ export default function MethodPage() {
                 asChild
                 className="w-full bg-green-600 hover:bg-green-700"
               >
-                <a href="/students">学生向け詳細</a>
+                <a href="/students">学生向けプランへ</a>
               </CTAButton>
             </div>
 
@@ -397,9 +486,12 @@ export default function MethodPage() {
                 <div className="w-16 h-16 bg-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <RefreshCw className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-3">
+                <h3 className="font-serif text-xl font-bold text-neutral-900 mb-2">
                   挫折経験者
                 </h3>
+                <p className="text-sm text-amber-600 font-medium mb-3">
+                  今度こそ確実に成果を出したいあなたへ
+                </p>
               </div>
               <div className="space-y-3 mb-6">
                 <div className="flex items-start">
@@ -442,7 +534,7 @@ export default function MethodPage() {
             <p className="text-lg text-neutral-300 mb-8 max-w-3xl mx-auto leading-relaxed">
               Engrowthでは、無料相談・診断を常時受け付けています。
               <br />
-              英語力や目標に合わせた最適プランを一緒に設計しましょう。
+              あなたの英語力と目標に合わせた最適な学習メソッドを一緒に設計しましょう。
               <br />
               <strong>強引な営業は一切いたしません。</strong>
             </p>

@@ -40,6 +40,11 @@ const navItems = [
         href: '/method',
         description: '科学的根拠に基づく学習設計',
       },
+      {
+        title: 'スポットサービス',
+        href: '/spot-service',
+        description: '必要な時に必要なだけ専門サポート',
+      },
     ],
   },
   { title: 'エコシステム', href: '/ecosystem' },
@@ -100,7 +105,7 @@ export function Header() {
                   <NavigationMenuLink asChild>
                     <Link
                       href={item.href}
-                      className="font-medium text-neutral-700 hover:text-primary px-3 py-2 rounded-md transition-colors"
+                      className="font-medium text-neutral-700 hover:text-primary hover:bg-accent px-3 py-2 rounded-md transition-colors"
                     >
                       {item.title}
                     </Link>

@@ -106,17 +106,32 @@ export default function PricingPage() {
             <span className="text-primary">最適化された料金設定</span>
           </>
         }
-        subtitle="一人ひとりの目標に合わせて最適化されたプラン構成"
-        description="Engrowthは、継続することで成果が出る学習を前提としたプラン構成。長期割引により、無理なく続けられる料金設定を実現しています。"
+        subtitle="「教える」ことで得られる収益を還元する独自の仕組み"
+        description="Engrowthは、継続することで成果が出る学習を前提としたプラン構成。エコシステムによる収益還元で、高品質なサービスを適正価格で提供し、あなたの長期的な成長を支援します。"
         primaryCTA={{
-          text: '無料相談で詳細を聞く',
+          text: '無料カウンセリングで相談',
           href: '/contact',
         }}
         secondaryCTA={{
           text: 'プラン比較を見る',
           href: '#pricing-plans',
         }}
-      />
+      >
+        <div className="mt-8 flex justify-center gap-8 text-white">
+          <div className="flex items-center">
+            <TrendingDown className="w-6 h-6 mr-2" />
+            <span>継続しやすい価格</span>
+          </div>
+          <div className="flex items-center">
+            <Clock className="w-6 h-6 mr-2" />
+            <span>長期的な成長支援</span>
+          </div>
+          <div className="flex items-center">
+            <Star className="w-6 h-6 mr-2" />
+            <span>高品質なサービス</span>
+          </div>
+        </div>
+      </HeroSection>
 
       {/* プラン比較 */}
       <SectionSeparator background="surface" id="pricing-plans">
@@ -139,8 +154,8 @@ export default function PricingPage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
                 ビジネスパーソン向け
               </h3>
-              <p className="text-neutral-700">
-                実践的なビジネス英語に特化したプログラム
+              <p className="text-neutral-700 max-w-lg mx-auto">
+                キャリアアップに直結する、実践的英語力を手に入れる
               </p>
             </div>
 
@@ -148,12 +163,12 @@ export default function PricingPage() {
               {businessPlans.map((plan, index) => (
                 <div
                   key={index}
-                  className={`bg-white p-6 rounded-xl border ${plan.popular ? 'border-primary border-2 shadow-lg' : 'border-gray-200'} ${!plan.available ? 'opacity-75' : ''} hover:shadow-md transition-all duration-300`}
+                  className={`bg-white p-6 rounded-xl border flex flex-col ${plan.popular ? 'border-primary border-2 shadow-lg' : 'border-gray-200'} ${!plan.available ? 'opacity-75' : ''} hover:shadow-md transition-all duration-300`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                       <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
-                        人気プラン
+                        一番人気
                       </span>
                     </div>
                   )}
@@ -185,6 +200,25 @@ export default function PricingPage() {
                     )}
                   </div>
 
+                  <ul className="space-y-3 text-sm text-neutral-700 mb-6 flex-grow">
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span>専任コンサルタント</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span>科学的メソッド</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span>ビジネス実践英会話</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
+                      <span>プロ講師陣</span>
+                    </li>
+                  </ul>
+
                   {plan.note && (
                     <div className="text-xs text-neutral-600 bg-neutral-50 p-3 rounded-lg mb-4">
                       ※ {plan.note}
@@ -193,7 +227,7 @@ export default function PricingPage() {
 
                   <CTAButton
                     asChild
-                    className={`w-full ${plan.popular ? '' : 'bg-slate-600 hover:bg-slate-700'} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full mt-auto ${plan.popular ? '' : 'bg-slate-600 hover:bg-slate-700'} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={!plan.available}
                   >
                     <a href="/contact">
@@ -206,27 +240,9 @@ export default function PricingPage() {
 
             <div className="mt-8 text-center">
               <div className="bg-slate-50 p-6 rounded-xl max-w-4xl mx-auto">
-                <h4 className="font-semibold text-neutral-900 mb-4">
-                  ビジネス向けプラン サービス内容
-                </h4>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-neutral-700">
-                  <div className="flex items-start">
-                    <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                    <span>専任コンサルタントによる毎日の伴走サポート</span>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                    <span>脳科学・第二言語習得論に基づく科学的メソッド</span>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                    <span>ビジネス現場特化の実践シミュレーション英会話</span>
-                  </div>
-                  <div className="flex items-start">
-                    <CheckCircle className="w-4 h-4 text-primary mr-2 mt-0.5 flex-shrink-0" />
-                    <span>海外トップ大学・実務経験豊富なプロ講師陣</span>
-                  </div>
-                </div>
+                <p className="text-sm text-neutral-600">
+                  上記に加え、すべてのプランに完全返金保証、24時間LINEサポートが含まれます。
+                </p>
               </div>
             </div>
           </div>
@@ -240,8 +256,8 @@ export default function PricingPage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-4">
                 学生向けプラン
               </h3>
-              <p className="text-neutral-700">
-                留学準備・就活に向けた総合的な英語力強化
+              <p className="text-neutral-700 max-w-lg mx-auto">
+                留学、そしてその先のキャリアまで見据えた「一生モノの英語力」を。
               </p>
             </div>
 
@@ -249,12 +265,12 @@ export default function PricingPage() {
               {studentPlans.map((plan, index) => (
                 <div
                   key={index}
-                  className={`bg-white p-6 rounded-xl border ${plan.popular ? 'border-blue-500 border-2 shadow-lg' : 'border-gray-200'} ${!plan.available ? 'opacity-75' : ''} hover:shadow-md transition-all duration-300`}
+                  className={`bg-white p-6 rounded-xl border flex flex-col ${plan.popular ? 'border-blue-500 border-2 shadow-lg' : 'border-gray-200'} ${!plan.available ? 'opacity-75' : ''} hover:shadow-md transition-all duration-300`}
                 >
                   {plan.popular && (
                     <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                       <span className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                        人気プラン
+                        一番人気
                       </span>
                     </div>
                   )}
@@ -286,6 +302,25 @@ export default function PricingPage() {
                     )}
                   </div>
 
+                  <ul className="space-y-3 text-sm text-neutral-700 mb-6 flex-grow">
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <span>専任コンサルタント</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <span>留学準備・エッセイ添削</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <span>就活サポート</span>
+                    </li>
+                    <li className="flex items-start">
+                      <CheckCircle className="w-4 h-4 text-blue-600 mr-2 mt-0.5 flex-shrink-0" />
+                      <span>エコシステム参加資格</span>
+                    </li>
+                  </ul>
+
                   {plan.note && (
                     <div className="text-xs text-neutral-600 bg-neutral-50 p-3 rounded-lg mb-4">
                       ※ {plan.note}
@@ -294,7 +329,7 @@ export default function PricingPage() {
 
                   <CTAButton
                     asChild
-                    className={`w-full ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-slate-600 hover:bg-slate-700'} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    className={`w-full mt-auto ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-slate-600 hover:bg-slate-700'} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={!plan.available}
                   >
                     <a href="/contact">
@@ -303,6 +338,13 @@ export default function PricingPage() {
                   </CTAButton>
                 </div>
               ))}
+            </div>
+            <div className="mt-8 text-center">
+              <div className="bg-blue-50 p-6 rounded-xl max-w-4xl mx-auto">
+                <p className="text-sm text-neutral-600">
+                  上記に加え、すべてのプランに完全返金保証、24時間LINEサポートが含まれます。
+                </p>
+              </div>
             </div>
           </div>
         </Container>
@@ -321,29 +363,18 @@ export default function PricingPage() {
             <FeatureCard
               icon={<DollarSign className="w-6 h-6" />}
               title="通貨について"
-              description="計算便利のためUSD表記としていますが、実際のお支払いは日本円で実行されます"
+              description="計算の便宜上USDで表記していますが、実際のお支払いは申込時の為替レートに基づき日本円で実行されます。"
             />
             <FeatureCard
               icon={<CreditCard className="w-6 h-6" />}
               title="決済方法"
-              description="Stripe等のオンライン決済を使用。クレジットカード、デビットカードがご利用いただけます"
+              description="Stripeを利用したオンライン決済です。各種クレジットカード、デビットカードがご利用いただけます。"
             />
             <FeatureCard
               icon={<Shield className="w-6 h-6" />}
               title="安全な決済"
-              description="業界標準の暗号化技術により、お支払い情報は安全に保護されます"
+              description="業界標準の暗号化技術（SSL）により、お支払い情報は安全に保護されますのでご安心ください。"
             />
-          </div>
-
-          <div className="mt-12 text-center">
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-8 max-w-2xl mx-auto">
-              <h3 className="font-serif text-xl font-bold text-amber-900 mb-4">
-                為替レート変動について
-              </h3>
-              <p className="text-amber-800 leading-relaxed">
-                USD表記の料金は参考価格です。実際のお支払い金額は、お申し込み時の為替レートに基づいて日本円で確定いたします。
-              </p>
-            </div>
           </div>
         </Container>
       </SectionSeparator>
@@ -364,17 +395,17 @@ export default function PricingPage() {
             <FeatureCard
               icon={<Clock className="w-6 h-6" />}
               title="学習の継続性"
-              description="3ヶ月以上の継続により、学習習慣が定着し、着実な成果が期待できます"
+              description="科学的メソッドがあなたの学習を習慣化させ、3ヶ月以上の継続を力強くサポートします。"
             />
             <FeatureCard
               icon={<TrendingDown className="w-6 h-6" />}
               title="コストメリット"
-              description="長期プランほど月額料金が安くなり、総合的な学習コストを抑えられます"
+              description="長期プランほど月額料金が安くなり、総合的な学習コストを大幅に抑えられます。"
             />
             <FeatureCard
               icon={<Star className="w-6 h-6" />}
               title="段階的成長"
-              description="長期間かけて段階的にレベルアップ。無理なく着実に英語力を向上できます"
+              description="長期間かけて段階的にレベルアップ。無理なく、しかし着実に英語力を向上できます。"
             />
           </div>
 
@@ -389,7 +420,7 @@ export default function PricingPage() {
                 Engrowthでは、6ヶ月プランを最も推奨しており、多くの受講生が目標を達成されています。
               </p>
               <CTAButton variant="secondary" asChild>
-                <a href="/method">学習メソッドの詳細を見る</a>
+                <a href="#pricing-plans">あなたに最適な長期プランを見つける</a>
               </CTAButton>
             </div>
           </div>
@@ -420,26 +451,32 @@ export default function PricingPage() {
               </CTAButton>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <Clock className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">相談は30分程度</h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                  <Shield className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">完全返金保証</h3>
                 <p className="text-sm text-neutral-400">
-                  お忙しい方でも気軽にご参加いただけます
+                  万が一ご満足いただけない場合、条件に基づき全額返金いたします。
                 </p>
               </div>
-              <div>
-                <Shield className="w-8 h-8 text-primary mx-auto mb-3" />
-                <h3 className="font-semibold mb-2">完全無料</h3>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                  <CreditCard className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">分割払い可能</h3>
                 <p className="text-sm text-neutral-400">
-                  相談、診断、プラン提案まですべて無料
+                  ご状況に応じて柔軟な分割払いに対応可能です。お気軽にご相談ください。
                 </p>
               </div>
-              <div>
-                <Star className="w-8 h-8 text-primary mx-auto mb-3" />
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                  <MessageCircle className="w-7 h-7 text-primary" />
+                </div>
                 <h3 className="font-semibold mb-2">強引な営業なし</h3>
                 <p className="text-sm text-neutral-400">
-                  あなたのペースに合わせてご提案いたします
+                  あなたのペースを尊重し、納得いくまでご検討いただけます。
                 </p>
               </div>
             </div>

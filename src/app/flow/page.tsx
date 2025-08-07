@@ -10,14 +10,11 @@ import {
   Video,
   Target,
   CheckCircle,
-  Play,
   Users,
   Heart,
-  ArrowRight,
   Clock,
   Shield,
 } from 'lucide-react'
-import { Timeline } from '@/components/ui/timeline'
 
 export const metadata: Metadata = {
   title: '受講の流れ | Engrowth - LINE登録から90日サポートまで',
@@ -44,10 +41,8 @@ export default function FlowPage() {
           text: 'LINE登録はこちら',
           href: '/contact',
         }}
-        secondaryCTA={{
-          text: '詳しい流れを見る',
-          href: '#flow-steps',
-        }}
+        backgroundImage="/images/backgrounds/line-bg.jpg"
+        backgroundImageClassName="opacity-10"
       />
 
       {/* 受講までの流れ */}
@@ -62,94 +57,21 @@ export default function FlowPage() {
             </p>
           </div>
 
-          {/* Timelineコンポーネント使用 */}
-          <div className="mb-16">
-            <Timeline
-              steps={[
-                {
-                  id: 'line-register',
-                  title: 'LINEに登録',
-                  description:
-                    '公式LINEを登録してスタッフとの連絡を開始。学習情報の受け取りや相談が可能です。',
-                  status: 'upcoming',
-                  icon: <MessageCircle className="w-6 h-6" />,
-                },
-                {
-                  id: 'online-interview',
-                  title: 'オンライン面談',
-                  description:
-                    'Zoom面談（約30分）で現在の英語力、目標、生活リズムをヒアリング。',
-                  status: 'upcoming',
-                  icon: <Video className="w-6 h-6" />,
-                },
-                {
-                  id: 'plan-design',
-                  title: 'プラン設計',
-                  description:
-                    '診断結果に基づき、あなた専用の90日学習プランを設計・提案。',
-                  status: 'upcoming',
-                  icon: <Target className="w-6 h-6" />,
-                },
-                {
-                  id: 'start-support',
-                  title: 'サポート開始',
-                  description:
-                    '専属コンサルタントによる90日間の伴走サポートがスタート。',
-                  status: 'upcoming',
-                  icon: <Play className="w-6 h-6" />,
-                },
-              ]}
-              orientation="vertical"
-            />
-          </div>
-
-          <div className="space-y-16">
+          <div className="space-y-24">
             {/* Step 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                    1
-                  </div>
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900">
-                    LINEに登録
-                  </h3>
-                </div>
-                <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                  公式LINEを登録（ボタンまたはQRコード読み込み）。情報を受け取りながら、スタッフに質問も可能。予約サービスもLINEで完結します。
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      公式LINEアカウントへの登録
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      学習に役立つ情報の定期配信
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      気軽な質問・相談が可能
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div className="order-1 lg:order-2">
-                <div className="bg-white p-8 rounded-xl shadow-lg border border-primary/20">
+              <div className="relative">
+                <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
+                <div className="relative bg-white p-8 rounded-xl shadow-lg border">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
                       <MessageCircle className="w-10 h-10 text-white" />
                     </div>
                     <h4 className="font-serif text-xl font-bold text-neutral-900 mb-4">
-                      今すぐ始められます
+                      今すぐ、無料で始められます
                     </h4>
                     <p className="text-neutral-700 mb-6">
-                      登録は30秒で完了。すぐに情報を受け取り始められます。
+                      登録は30秒で完了。すぐに限定情報を受け取り始められます。
                     </p>
                     <CTAButton
                       asChild
@@ -157,18 +79,46 @@ export default function FlowPage() {
                     >
                       <a href="/contact">
                         <MessageCircle className="w-5 h-5 mr-2" />
-                        LINE登録
+                        LINEで無料相談を予約
                       </a>
                     </CTAButton>
                   </div>
                 </div>
               </div>
+              <div className="relative">
+                <span className="absolute -top-6 -left-6 font-serif text-8xl text-primary/10">
+                  01
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-6 relative">
+                  LINEに登録
+                </h3>
+                <p className="text-lg text-neutral-700 leading-relaxed mb-6">
+                  公式LINEを登録し、スタッフとの連絡を開始。情報を受け取りながら、いつでも気軽に質問が可能です。面談予約もLINEで完結します。
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-neutral-700">
+                      <strong>英語力アップに役立つ限定コンテンツ</strong>
+                      を定期配信
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-neutral-700">
+                      学習に関する<strong>どんな些細なことでも</strong>
+                      気軽に質問・相談
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Step 2 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="bg-white p-8 rounded-xl shadow-lg border">
+              <div className="relative lg:order-2">
+                <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
+                <div className="relative bg-white p-8 rounded-xl shadow-lg border">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Video className="w-10 h-10 text-white" />
@@ -177,39 +127,39 @@ export default function FlowPage() {
                       無料オンライン面談
                     </h4>
                     <p className="text-neutral-700">
-                      30-60分程度のリラックスした面談です
+                      30-60分程度のリラックスした対話形式の面談です。
                     </p>
                   </div>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                    2
-                  </div>
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900">
-                    オンライン面談でヒアリング
-                  </h3>
-                </div>
+              <div className="relative lg:order-1">
+                <span className="absolute -top-6 -left-6 font-serif text-8xl text-primary/10">
+                  02
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-6 relative">
+                  オンライン面談でヒアリング
+                </h3>
                 <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                  Zoomなどで面談（相談）を実施。英語力の現状、目標、学習習慣、体制などをヒアリングいたします。
+                  Zoomなどで面談を実施。英語力の現状、目標、学習習慣、体制などをヒアリングし、あなたのことを深く理解します。
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
                     <span className="text-neutral-700">
-                      現在の英語力と目標の確認
+                      現在の英語力と<strong>達成したい目標</strong>の確認
                     </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
                     <span className="text-neutral-700">
-                      学習習慣と生活スタイルの把握
+                      1日の<strong>学習可能時間や生活スタイル</strong>の把握
                     </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">お悩みや不安の共有</span>
+                    <span className="text-neutral-700">
+                      英語学習に関するお悩みや不安の共有
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -217,41 +167,9 @@ export default function FlowPage() {
 
             {/* Step 3 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                    3
-                  </div>
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900">
-                    プログラムプランを共に設計
-                  </h3>
-                </div>
-                <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                  目標と体制に合わせてカスタムプランを作成。この時点で、受講を絶対に決める必要はありません。ご自身のペースに合わせた方法をご提案いたします。
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      完全オーダーメイドのプラン設計
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      無理のないスケジュール調整
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      受講の検討時間を十分確保
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div className="order-1 lg:order-2">
-                <div className="bg-white p-8 rounded-xl shadow-lg border">
+              <div className="relative">
+                <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
+                <div className="relative bg-white p-8 rounded-xl shadow-lg border">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Target className="w-10 h-10 text-white" />
@@ -265,12 +183,45 @@ export default function FlowPage() {
                   </div>
                 </div>
               </div>
+              <div className="relative">
+                <span className="absolute -top-6 -left-6 font-serif text-8xl text-primary/10">
+                  03
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-6 relative">
+                  プログラムプランを共に設計
+                </h3>
+                <p className="text-lg text-neutral-700 leading-relaxed mb-6">
+                  目標と体制に合わせてカスタムプランを作成。この時点で、受講を絶対に決める必要はありません。ご自身のペースに合わせた方法をご提案いたします。
+                </p>
+                <ul className="space-y-3">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-neutral-700">
+                      <strong>完全オーダーメイド</strong>
+                      の学習プランを具体的に設計
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-neutral-700">
+                      無理のないスケジュールと料金体系をご提案
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-neutral-700">
+                      受講を決める前に、十分な検討時間を確保
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
 
             {/* Step 4 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="bg-white p-8 rounded-xl shadow-lg border">
+              <div className="relative lg:order-2">
+                <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
+                <div className="relative bg-white p-8 rounded-xl shadow-lg border">
                   <div className="text-center">
                     <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
                       <Heart className="w-10 h-10 text-white" />
@@ -279,96 +230,42 @@ export default function FlowPage() {
                       納得してからスタート
                     </h4>
                     <p className="text-neutral-700">
-                      プレッシャーなく、ご自身のタイミングで決定
+                      プレッシャーなく、ご自身のタイミングで決定できます
                     </p>
                   </div>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                    4
-                  </div>
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900">
-                    受講の決定
-                  </h3>
-                </div>
+              <div className="relative lg:order-1">
+                <span className="absolute -top-6 -left-6 font-serif text-8xl text-primary/10">
+                  04
+                </span>
+                <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-6 relative">
+                  受講の決定・サポート開始
+                </h3>
                 <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                  ひと通りの面談後、情報を正しく把握した上で受講を決定。LINEからプランに進む手続きをご案内いたします。
+                  提案内容に納得いただけたら、受講を決定。LINEから手続きをご案内し、専属コンサルタントによる90日間の伴走サポートがスタートします。
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
                     <span className="text-neutral-700">
-                      十分な検討時間を確保
+                      週次の<strong>マンツーマンセッション</strong>
+                      で進捗と課題を解決
                     </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">LINEでの簡単手続き</span>
+                    <span className="text-neutral-700">
+                      毎日のLINEフィードバックでモチベーションを維持
+                    </span>
                   </li>
                   <li className="flex items-start">
                     <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
                     <span className="text-neutral-700">
-                      納得いくまでサポート
+                      <strong>定期的なプログレスチェック</strong>で成長を可視化
                     </span>
                   </li>
                 </ul>
-              </div>
-            </div>
-
-            {/* Step 5 */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1">
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
-                    5
-                  </div>
-                  <h3 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900">
-                    サポート開始
-                  </h3>
-                </div>
-                <p className="text-lg text-neutral-700 leading-relaxed mb-6">
-                  LINEとZoomを使ったハイブリッドサポート。週次のセッション、フィードバック、プログレスチェックで90日間伴走いたします。
-                </p>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      週次のマンツーマンセッション
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      毎日のLINEフィードバック
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <CheckCircle className="w-5 h-5 text-primary mr-3 mt-1 flex-shrink-0" />
-                    <span className="text-neutral-700">
-                      定期的なプログレスチェック
-                    </span>
-                  </li>
-                </ul>
-              </div>
-              <div className="order-1 lg:order-2">
-                <div className="bg-gradient-to-br from-primary/10 to-primary/20 p-8 rounded-xl border border-primary/30">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Play className="w-10 h-10 text-white" />
-                    </div>
-                    <h4 className="font-serif text-xl font-bold text-neutral-900 mb-4">
-                      90日間の伴走開始
-                    </h4>
-                    <p className="text-neutral-700 mb-6">
-                      あなたの英語力向上を全力でサポートします
-                    </p>
-                    <div className="text-primary font-bold text-lg">
-                      成果が見える、続けられる
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -380,30 +277,32 @@ export default function FlowPage() {
         <Container>
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              無料相談とは形の違う、&ldquo;一定の互相&rdquo;
+              一方的な「相談」ではなく、
+              <br />
+              共に創る「対話」
             </h2>
             <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              「無料相談」よりも、あくまで「互いに考えるミーティング」の場としての互相です。
+              Engrowthが大切にするのは、一方的な情報の提供ではありません。
               <br />
-              情報を一方的に提供するのではなく、ご自身の想いや理想、現状と無理のない目標を一緒に考える場です。
+              あなたの想いや理想、現状と無理のない目標を、対等なパートナーとして一緒に考える場です。
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FeatureCard
               icon={<Users className="w-6 h-6" />}
-              title="対等な関係"
-              description="上から目線ではなく、対等なパートナーとして一緒に考えます"
+              title="対等なパートナーシップ"
+              description="上から目線ではなく、同じ目標を持つパートナーとして一緒に考えます"
             />
             <FeatureCard
               icon={<Heart className="w-6 h-6" />}
-              title="想いを大切に"
-              description="あなたの想いや理想を聞かせてください。それが出発点です"
+              title="あなたの「想い」が主役"
+              description="あなたの英語学習への想いや理想を聞かせてください。それが全ての出発点です"
             />
             <FeatureCard
               icon={<Target className="w-6 h-6" />}
-              title="現実的な目標設定"
-              description="無理のない、実現可能な目標を一緒に設定します"
+              title="現実的で最適な目標設定"
+              description="無理なく、しかし確実に成長できる、あなただけの現実的な目標を一緒に設定します"
             />
           </div>
         </Container>
@@ -414,24 +313,20 @@ export default function FlowPage() {
         <Container>
           <div className="text-center">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              まずはLINEで、想いを聞かせてください
+              あなたの英語学習への「想い」、
+              <br className="sm:hidden" />
+              私たちに聞かせてください
             </h2>
             <p className="text-lg text-neutral-700 mb-8 max-w-2xl mx-auto leading-relaxed">
-              あなたの英語学習への想い、目標、不安...どんなことでも構いません。
+              あなたの目標、不安、どんなことでも構いません。
               <br />
               まずは気軽にお声がけください。一緒に考えていきましょう。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+            <div className="flex justify-center mb-12">
               <CTAButton size="lg" asChild>
                 <a href="/contact">
                   <MessageCircle className="w-5 h-5 mr-2" />
-                  LINE登録して相談する
-                </a>
-              </CTAButton>
-              <CTAButton variant="outline" size="lg" asChild>
-                <a href="/pricing">
-                  料金プランを見る
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  LINEで無料相談を予約する
                 </a>
               </CTAButton>
             </div>

@@ -17,6 +17,7 @@ interface HeroSectionProps {
     href: string
   }
   backgroundImage?: string
+  backgroundImageClassName?: string
   className?: string
   children?: ReactNode
 }
@@ -28,6 +29,7 @@ export function HeroSection({
   primaryCTA,
   secondaryCTA,
   backgroundImage,
+  backgroundImageClassName,
   className,
   children,
 }: HeroSectionProps) {
@@ -44,7 +46,14 @@ export function HeroSection({
           : undefined
       }
     >
-      {backgroundImage && <div className="absolute inset-0 bg-black/20" />}
+      {backgroundImage && (
+        <div
+          className={cn(
+            'absolute inset-0 bg-black/20',
+            backgroundImageClassName
+          )}
+        />
+      )}
       <Container className="relative z-10">
         <div className="text-center max-w-4xl mx-auto">
           {/* Title */}

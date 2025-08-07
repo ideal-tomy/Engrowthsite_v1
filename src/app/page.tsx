@@ -10,7 +10,11 @@ import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
 import { FadeIn, FadeInStagger } from '@/components/animations/fade-in'
-import { LazySocialImpactDiagram } from '@/components/diagrams/lazy-diagram-loader'
+import {
+  LazySocialImpactDiagram,
+  LazySimpleEcosystemFlow,
+} from '@/components/diagrams/lazy-diagram-loader'
+import { Timeline } from '@/components/ui/timeline'
 
 import {
   GraduationCap,
@@ -27,6 +31,12 @@ import {
   Brain,
   CheckCircle,
   ArrowRight,
+  UserCheck,
+  ClipboardList,
+  Smartphone,
+  Award,
+  Recycle,
+  FlaskConical,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -35,6 +45,27 @@ export const metadata: Metadata = {
     '第二言語として英語を習得した日本人コンサルによる実践的な英語学習支援。科学的メソッドに基づく循環型エコシステムで、英語を学ぶ人も教える人も成長できる仕組みを提供します。',
 }
 
+const flowSteps = [
+  {
+    id: 'step1',
+    title: '無料相談',
+    description:
+      '現在の英語力、目標、生活リズムをヒアリング。あなたに最適なプランの方向性をご提案',
+  },
+  {
+    id: 'step2',
+    title: '診断・プラン提示',
+    description:
+      '詳細な英語力診断を実施。具体的な90日プランと学習内容をご提示いたします',
+  },
+  {
+    id: 'step3',
+    title: 'サポート開始',
+    description:
+      '専属コンサルタントによる90日間の伴走サポートがスタート。毎日の学習をフォロー',
+  },
+]
+
 export default function HomePage() {
   return (
     <LayoutWrapper>
@@ -42,7 +73,10 @@ export default function HomePage() {
       <HeroSection
         title={
           <>
-            英語を<span className="text-primary">&ldquo;誰かのため&rdquo;</span>
+            英語を
+            <span className="text-primary text-2xl lg:text-3xl">
+              &ldquo;誰かのため&rdquo;
+            </span>
             に
             <br />
             学んできた人から学ぶ。
@@ -56,13 +90,14 @@ export default function HomePage() {
         }
         description="第二言語として英語を習得した日本人コンサルが、実践的な学習支援を提供。科学的メソッドに基づく循環型エコシステムで、英語を学ぶ人も教える人も成長できる仕組みです。"
         primaryCTA={{
-          text: '無料相談を受ける',
+          text: 'まずは無料でLINE相談',
           href: '/contact',
         }}
         secondaryCTA={{
-          text: 'LINE登録',
+          text: 'カウンセリング予約',
           href: '/contact',
         }}
+        backgroundImage="/images/hero/hero-background.jpg"
       />
 
       {/* 2. 提供サービス概要 */}
@@ -83,19 +118,19 @@ export default function HomePage() {
 
           <FadeInStagger className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <FeatureCard
-              icon={<Users className="w-6 h-6" />}
+              icon={<UserCheck className="w-6 h-6" />}
               title="専属コンサルタント"
               description="留学経験豊富なコンサルタントが、あなた専用の学習プランを設計し、90日間伴走します"
               accent
             />
             <FeatureCard
-              icon={<Target className="w-6 h-6" />}
+              icon={<ClipboardList className="w-6 h-6" />}
               title="目標から逆算設計"
               description="TOEIC、ビジネス英語、留学準備など、目的に応じた最適なカリキュラムを構築"
               accent
             />
             <FeatureCard
-              icon={<MessageCircle className="w-6 h-6" />}
+              icon={<Smartphone className="w-6 h-6" />}
               title="毎日のサポート"
               description="Zoom・LINEを活用した柔軟な対応で、学習の継続をしっかりサポート"
               accent
@@ -131,16 +166,22 @@ export default function HomePage() {
 
           <FadeInStagger className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <ServiceCard
-              title="実践経験豊富なコンサル"
+              icon={<Award className="w-6 h-6 text-primary" />}
+              title="英語で“結果を出した”日本人コンサルタント"
               description="全員が留学経験あり、英語を実践で使いこなす人材のみで構成。理論だけでなく、実体験に基づく具体的なアドバイスを提供。"
               features={[
                 '留学・海外勤務経験者のみ',
                 '第二言語習得の実体験',
                 '共感に基づく指導',
               ]}
+              image={{
+                src: '/images/team/consultants.jpg',
+                alt: 'Engrowthのコンサルタントチーム',
+              }}
             />
             <ServiceCard
-              title="循環型エコシステム"
+              icon={<Recycle className="w-6 h-6 text-primary" />}
+              title="「教える」が学びを加速させるエコシステム"
               description="教える人も学び続ける仕組み。英語を習得した人が教える側にまわることで、持続可能な学習コミュニティを形成。"
               features={[
                 '学ぶ→教える→成長の循環',
@@ -150,7 +191,8 @@ export default function HomePage() {
               popular
             />
             <ServiceCard
-              title="科学的メソッド"
+              icon={<FlaskConical className="w-6 h-6 text-primary" />}
+              title="再現性を高める、科学的学習メソッド"
               description="第二言語習得理論と習慣化心理学に基づく学習設計。なぜこの方法で伸びるのか、理論的裏付けのある指導を実施。"
               features={[
                 'SLA理論に基づく設計',
@@ -159,6 +201,10 @@ export default function HomePage() {
               ]}
             />
           </FadeInStagger>
+
+          <div className="mt-12">
+            <LazySimpleEcosystemFlow />
+          </div>
 
           <div className="text-center mt-12">
             <CTAButton variant="outline" asChild>
@@ -226,80 +272,84 @@ export default function HomePage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-300">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <GraduationCap className="w-8 h-8 text-white" />
+            <div className="relative p-8 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-300 overflow-hidden bg-student-card bg-cover bg-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/50 to-blue-700/80" />
+              <div className="relative z-10">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <GraduationCap className="w-8 h-8 text-blue-600" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-white mb-3">
+                    学生向けサービス
+                  </h3>
+                  <p className="text-blue-100">
+                    英語で働きたい・経験を活かしたい学生へ
+                  </p>
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-3">
-                  学生向けサービス
-                </h3>
-                <p className="text-neutral-700">
-                  英語で働きたい・経験を活かしたい学生へ
-                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-blue-50">留学前・後の英語力強化</span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-blue-50">
+                      就活で差別化できる英語力
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-blue-50">教える側への成長支援</span>
+                  </li>
+                </ul>
+                <CTAButton
+                  asChild
+                  className="w-full bg-white text-blue-600 hover:bg-blue-50"
+                >
+                  <a href="/students">学生向け詳細を見る</a>
+                </CTAButton>
               </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    留学前・後の英語力強化
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    就活で差別化できる英語力
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-blue-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">教える側への成長支援</span>
-                </li>
-              </ul>
-              <CTAButton
-                asChild
-                className="w-full bg-blue-600 hover:bg-blue-700"
-              >
-                <a href="/students">学生向け詳細を見る</a>
-              </CTAButton>
             </div>
 
-            <div className="bg-gradient-to-br from-slate-50 to-slate-100 p-8 rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300">
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="w-8 h-8 text-white" />
+            <div className="relative p-8 rounded-xl border border-slate-200 hover:shadow-lg transition-all duration-300 overflow-hidden bg-business-card bg-cover bg-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-600/50 to-slate-800/80" />
+              <div className="relative z-10">
+                <div className="text-center mb-6">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Briefcase className="w-8 h-8 text-slate-700" />
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-white mb-3">
+                    ビジネス向けサービス
+                  </h3>
+                  <p className="text-slate-200">
+                    実践英語が必要な社会人・経営者へ
+                  </p>
                 </div>
-                <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-3">
-                  ビジネス向けサービス
-                </h3>
-                <p className="text-neutral-700">
-                  実践英語が必要な社会人・経営者へ
-                </p>
+                <ul className="space-y-3 mb-8">
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-slate-100">
+                      忙しい中でも続けられる学習
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-slate-100">
+                      ビジネスで使える実践英語
+                    </span>
+                  </li>
+                  <li className="flex items-start">
+                    <CheckCircle className="w-5 h-5 text-white mr-3 mt-1 flex-shrink-0" />
+                    <span className="text-slate-100">短期間で成果を実感</span>
+                  </li>
+                </ul>
+                <CTAButton
+                  asChild
+                  className="w-full bg-white text-slate-700 hover:bg-slate-50"
+                >
+                  <a href="/business">ビジネス向け詳細を見る</a>
+                </CTAButton>
               </div>
-              <ul className="space-y-3 mb-8">
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-slate-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    忙しい中でも続けられる学習
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-slate-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">
-                    ビジネスで使える実践英語
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <CheckCircle className="w-5 h-5 text-slate-600 mr-3 mt-1 flex-shrink-0" />
-                  <span className="text-neutral-700">短期間で成果を実感</span>
-                </li>
-              </ul>
-              <CTAButton
-                asChild
-                className="w-full bg-slate-700 hover:bg-slate-800"
-              >
-                <a href="/business">ビジネス向け詳細を見る</a>
-              </CTAButton>
             </div>
           </div>
         </Container>
@@ -427,7 +477,7 @@ export default function HomePage() {
       </SectionSeparator>
 
       {/* 8. よくある相談例 */}
-      <SectionSeparator background="surface">
+      <SectionSeparator background="white">
         <Container>
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
@@ -443,23 +493,26 @@ export default function HomePage() {
               quote="TOEICはある程度取れたけど、実際の会話になると全然話せない。どうやって「使える英語」に変えればいいの？"
               author="会社員・28歳"
               role="TOEIC 750点"
+              isBubble
             />
             <TestimonialCard
               quote="仕事が忙しくて、まとまった勉強時間が取れない。短時間でも効果的に学習を続ける方法はある？"
               author="経営者・35歳"
               role="起業3年目"
+              isBubble
             />
             <TestimonialCard
               quote="来年留学予定だけど、現地で授業についていけるか不安。留学前にやっておくべきことは？"
               author="大学生・20歳"
               role="交換留学予定"
+              isBubble
             />
           </div>
 
           <div className="text-center mt-12">
             <div className="bg-primary/10 border border-primary/20 rounded-xl p-8 max-w-2xl mx-auto">
               <h3 className="font-serif text-xl font-bold text-primary mb-4">
-                あなたの悩みに合わせた解決策があります
+                そのお悩み、Engrowthが解決し、あなたの『なりたい姿』を実現します
               </h3>
               <p className="text-neutral-700 leading-relaxed mb-6">
                 Engrowthのコンサルタントは、同じような課題を乗り越えてきた経験者ばかり。
@@ -474,8 +527,42 @@ export default function HomePage() {
         </Container>
       </SectionSeparator>
 
-      {/* 9. 運営メンバー紹介（簡易） */}
+      {/* 9. お客様の声セクション */}
       <SectionSeparator background="white">
+        <Container>
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
+              お客様の声
+            </h2>
+            <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
+              Engrowthで英語力を飛躍的に向上させた方々の声をご紹介します。
+            </p>
+          </div>
+          <FadeInStagger className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <TestimonialCard
+              quote="自己流の学習に限界を感じていましたが、90日間でビジネスで自信を持って話せるレベルになりました。本当に感謝しています。"
+              author="田中 健一様"
+              role="外資系メーカー勤務"
+              avatar="/images/team/avatar1.jpg"
+            />
+            <TestimonialCard
+              quote="留学前に受講したおかげで、現地の授業にもスムーズについていけました。実践的な準備ができてよかったです。"
+              author="佐藤 美咲様"
+              role="大学生・交換留学"
+              avatar="/images/team/avatar2.jpg"
+            />
+            <TestimonialCard
+              quote="コンサルタントの方が親身に寄り添ってくれたので、最後までモチベーションを維持できました。最高のサポートでした。"
+              author="鈴木 大輔様"
+              role="IT企業経営者"
+              avatar="/images/team/avatar3.jpg"
+            />
+          </FadeInStagger>
+        </Container>
+      </SectionSeparator>
+
+      {/* 10. 運営メンバー紹介（簡易） */}
+      <SectionSeparator background="surface">
         <Container>
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
@@ -536,7 +623,7 @@ export default function HomePage() {
       </SectionSeparator>
 
       {/* 10. 受講の流れ（簡易） */}
-      <SectionSeparator background="surface">
+      <SectionSeparator background="white">
         <Container>
           <div className="text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
@@ -547,41 +634,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
-                1
-              </div>
-              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
-                無料相談
-              </h3>
-              <p className="text-neutral-700 leading-relaxed">
-                現在の英語力、目標、生活リズムをヒアリング。あなたに最適なプランの方向性をご提案
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
-                2
-              </div>
-              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
-                診断・プラン提示
-              </h3>
-              <p className="text-neutral-700 leading-relaxed">
-                詳細な英語力診断を実施。具体的な90日プランと学習内容をご提示いたします
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white font-bold text-xl">
-                3
-              </div>
-              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4">
-                サポート開始
-              </h3>
-              <p className="text-neutral-700 leading-relaxed">
-                専属コンサルタントによる90日間の伴走サポートがスタート。毎日の学習をフォロー
-              </p>
-            </div>
-          </div>
+          <Timeline steps={flowSteps} orientation="horizontal" />
 
           <div className="text-center mt-12">
             <CTAButton variant="outline" asChild>

@@ -11,9 +11,9 @@ const ctaButtonVariants = cva(
         primary:
           'bg-primary text-white shadow-lg hover:bg-primary-dark hover:shadow-xl transform hover:scale-[1.02] active:scale-[0.98]',
         secondary:
-          'border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white shadow-sm hover:shadow-md',
+          'border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white shadow-sm hover:shadow-md transform hover:scale-[1.02] active:scale-[0.98]',
         outline:
-          'border-2 border-neutral-light text-neutral-700 bg-transparent hover:bg-neutral-900 hover:text-white hover:border-neutral-900',
+          'border-2 border-neutral-light text-neutral-700 bg-transparent hover:bg-neutral-900 hover:text-white hover:border-neutral-900 transform hover:scale-[1.02] active:scale-[0.98]',
       },
       size: {
         default: 'h-12 px-8 py-3',

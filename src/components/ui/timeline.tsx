@@ -28,15 +28,15 @@ export function Timeline({
         {steps.map((step, index) => (
           <div key={step.id} className="flex flex-col items-center flex-1">
             {/* ステップアイコン */}
-            <div className="flex items-center mb-4">
+            <div className="flex items-center w-full mb-4">
               <div
                 className={cn(
                   'w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg',
                   {
                     'bg-green-600': step.status === 'completed',
                     'bg-primary': step.status === 'current',
-                    'bg-neutral-300': step.status === 'upcoming',
-                  }
+                  },
+                  step.status === 'upcoming' && 'timeline-step-icon-upcoming'
                 )}
               >
                 {step.icon || index + 1}
@@ -45,10 +45,13 @@ export function Timeline({
               {/* 接続線 */}
               {index < steps.length - 1 && (
                 <div
-                  className={cn('flex-1 h-0.5 mx-4', {
-                    'bg-green-600': step.status === 'completed',
-                    'bg-neutral-300': step.status !== 'completed',
-                  })}
+                  className={cn(
+                    'flex-1 h-0.5 mx-4',
+                    {
+                      'bg-green-600': step.status === 'completed',
+                    },
+                    step.status !== 'completed' && 'timeline-connector-upcoming'
+                  )}
                 />
               )}
             </div>
@@ -81,8 +84,8 @@ export function Timeline({
                 {
                   'bg-green-600': step.status === 'completed',
                   'bg-primary': step.status === 'current',
-                  'bg-neutral-300': step.status === 'upcoming',
-                }
+                },
+                step.status === 'upcoming' && 'timeline-step-icon-upcoming'
               )}
             >
               {step.status === 'completed' ? (
@@ -95,17 +98,20 @@ export function Timeline({
             {/* 接続線 */}
             {index < steps.length - 1 && (
               <div
-                className={cn('w-0.5 h-16 mt-4', {
-                  'bg-green-600': step.status === 'completed',
-                  'bg-neutral-300': step.status !== 'completed',
-                })}
+                className={cn(
+                  'w-0.5 h-16 mt-4',
+                  {
+                    'bg-green-600': step.status === 'completed',
+                  },
+                  step.status !== 'completed' && 'timeline-connector-upcoming'
+                )}
               />
             )}
           </div>
 
           {/* ステップ内容 */}
-          <div className="flex-1">
-            <h3 className="font-serif text-xl font-semibold text-neutral-900 mb-3">
+          <div className="flex-1 pt-2">
+            <h3 className="font-serif text-xl font-semibold text-neutral-900 mb-2">
               {step.title}
             </h3>
             <p className="text-neutral-700 leading-relaxed mb-4">
