@@ -153,10 +153,6 @@ export default function HomePage() {
                 '第二言語習得の実体験',
                 '共感に基づく指導',
               ]}
-              image={{
-                src: '/images/team/consultants.jpg',
-                alt: 'Engrowthのコンサルタントチーム',
-              }}
             />
             <ServiceCard
               className="border-primary"

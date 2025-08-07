@@ -28,7 +28,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '個人成長',
       icon: User,
       color: '#3b82f6',
-      angle: -90,
+      angle: -90, // 上（12時方向）
       impacts: [
         { text: 'キャリアアップ', value: '+30%平均年収向上' },
         { text: '自信の向上', value: '95%が実感' },
@@ -41,7 +41,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '経済効果',
       icon: TrendingUp,
       color: '#10b981',
-      angle: -30,
+      angle: -30, // 右上（2時方向）
       impacts: [
         { text: '収入増加', value: '平均30万円/年' },
         { text: '転職成功率', value: '85%向上' },
@@ -54,7 +54,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: 'ビジネス展開',
       icon: Building2,
       color: '#f59e0b',
-      angle: 30,
+      angle: 30, // 右下（4時方向）
       impacts: [
         { text: '海外展開', value: '新市場開拓' },
         { text: '国際取引', value: '取引量3倍' },
@@ -67,7 +67,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '社会貢献',
       icon: Users,
       color: '#d70207',
-      angle: 90,
+      angle: 90, // 下（6時方向）
       impacts: [
         { text: '知識共有', value: '後進指導' },
         { text: 'コミュニティ', value: '学習者同士の繋がり' },
@@ -80,7 +80,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: '地域活性化',
       icon: Heart,
       color: '#8b5cf6',
-      angle: 150,
+      angle: 150, // 左下（8時方向）
       impacts: [
         { text: '地方創生', value: 'リモートワーク' },
         { text: '観光促進', value: '外国人対応' },
@@ -93,7 +93,7 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
       title: 'グローバル影響',
       icon: Globe,
       color: '#06b6d4',
-      angle: 210,
+      angle: 210, // 左上（10時方向）
       impacts: [
         { text: 'SDGs貢献', value: '質の高い教育' },
         { text: '国際協力', value: 'クロスボーダー' },
@@ -256,23 +256,39 @@ export function SocialImpactDiagram({ className }: SocialImpactDiagramProps) {
           {/* インパクトカテゴリー */}
           {impactCategories.map((category, index) => {
             const radians = (category.angle * Math.PI) / 180
-            const x = 50 + Math.cos(radians) * 35 // パーセンテージ位置
-            const y = 50 + Math.sin(radians) * 35
+            // 中心からの距離を35%に固定し、アイコンサイズの半分(2.5%)を考慮して調整
+            const radius = 37.5 // 35% + アイコン半径の調整
+            const x = 50 + Math.cos(radians) * radius
+            const y = 50 + Math.sin(radians) * radius
             const IconComponent = category.icon
             const isActive = activeCategory === category.id
 
             return (
               <motion.div
                 key={category.id}
-                className="absolute transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
+                className="absolute cursor-pointer"
                 style={{
                   left: `${x}%`,
                   top: `${y}%`,
                 }}
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
+                initial={{
+                  scale: 0,
+                  opacity: 0,
+                  x: '-50%',
+                  y: '-50%',
+                }}
+                whileInView={{
+                  scale: 1,
+                  opacity: 1,
+                  x: '-50%',
+                  y: '-50%',
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  y: '-54%', // -50% + hover offset
+                  x: '-50%',
+                }}
                 transition={{ delay: 0.5 + index * 0.15, duration: 0.4 }}
-                whileHover={{ scale: 1.1, y: -4 }}
                 onHoverStart={() => setActiveCategory(category.id)}
                 onHoverEnd={() => setActiveCategory(null)}
               >
