@@ -12,10 +12,10 @@ import {
   Clock,
   Star,
   CheckCircle,
-  CreditCard,
-  Shield,
   MessageCircle,
   TrendingDown,
+  Landmark,
+  Shield,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -225,15 +225,14 @@ export default function PricingPage() {
                     </div>
                   )}
 
-                  <CTAButton
-                    asChild
-                    className={`w-full mt-auto ${plan.popular ? '' : 'bg-slate-600 hover:bg-slate-700'} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    disabled={!plan.available}
-                  >
-                    <a href="/contact">
-                      {plan.available ? '相談・申し込み' : '要修了認定'}
-                    </a>
-                  </CTAButton>
+                  {plan.available && (
+                    <CTAButton
+                      asChild
+                      className={`w-full mt-auto ${plan.popular ? '' : 'bg-slate-600 hover:bg-slate-700'}`}
+                    >
+                      <a href="/contact">相談・申し込み</a>
+                    </CTAButton>
+                  )}
                 </div>
               ))}
             </div>
@@ -327,15 +326,14 @@ export default function PricingPage() {
                     </div>
                   )}
 
-                  <CTAButton
-                    asChild
-                    className={`w-full mt-auto ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-slate-600 hover:bg-slate-700'} ${!plan.available ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    disabled={!plan.available}
-                  >
-                    <a href="/contact">
-                      {plan.available ? '相談・申し込み' : '要修了認定'}
-                    </a>
-                  </CTAButton>
+                  {plan.available && (
+                    <CTAButton
+                      asChild
+                      className={`w-full mt-auto ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'bg-slate-600 hover:bg-slate-700'}`}
+                    >
+                      <a href="/contact">相談・申し込み</a>
+                    </CTAButton>
+                  )}
                 </div>
               ))}
             </div>
@@ -359,21 +357,16 @@ export default function PricingPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <FeatureCard
               icon={<DollarSign className="w-6 h-6" />}
               title="通貨について"
               description="計算の便宜上USDで表記していますが、実際のお支払いは申込時の為替レートに基づき日本円で実行されます。"
             />
             <FeatureCard
-              icon={<CreditCard className="w-6 h-6" />}
+              icon={<Landmark className="w-6 h-6" />}
               title="決済方法"
-              description="Stripeを利用したオンライン決済です。各種クレジットカード、デビットカードがご利用いただけます。"
-            />
-            <FeatureCard
-              icon={<Shield className="w-6 h-6" />}
-              title="安全な決済"
-              description="業界標準の暗号化技術（SSL）により、お支払い情報は安全に保護されますのでご安心ください。"
+              description="現在、お支払いは銀行振込のみ受け付けております。詳細はお申し込み後にご案内いたします。"
             />
           </div>
         </Container>
@@ -463,7 +456,7 @@ export default function PricingPage() {
               </div>
               <div className="flex flex-col items-center">
                 <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                  <CreditCard className="w-7 h-7 text-primary" />
+                  <Landmark className="w-7 h-7 text-primary" />
                 </div>
                 <h3 className="font-semibold mb-2">分割払い可能</h3>
                 <p className="text-sm text-neutral-400">
