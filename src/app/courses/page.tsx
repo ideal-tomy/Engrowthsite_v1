@@ -257,8 +257,6 @@ export default function CoursesPage() {
         </div>
       </Container>
 
-      <SectionSeparator background="surface" />
-
       {/* スポットサービス */}
       <Container className="section-spacing bg-surface">
         <div className="text-center mb-16">
@@ -321,8 +319,6 @@ export default function CoursesPage() {
           ))}
         </div>
       </Container>
-
-      <SectionSeparator background="surface" />
 
       {/* 最終CTA */}
       <Container className="section-spacing bg-surface">

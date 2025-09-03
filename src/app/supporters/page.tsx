@@ -245,8 +245,6 @@ export default function SupportersPage() {
         </div>
       </Container>
 
-      <SectionSeparator background="surface" />
-
       {/* 三者メリットセクション */}
       <Container className="section-spacing bg-surface">
         <div className="text-center mb-16">
@@ -341,8 +339,6 @@ export default function SupportersPage() {
           ))}
         </div>
       </Container>
-
-      <SectionSeparator background="surface" />
 
       {/* FAQ セクション */}
       <Container className="section-spacing bg-surface">

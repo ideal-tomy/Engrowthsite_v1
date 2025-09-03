@@ -213,8 +213,6 @@ export default function SpotServiceBusinessPage() {
           </div>
         </Container>
 
-        <SectionSeparator background="surface" />
-
         {/* サービス特長セクション */}
         <Container className="section-spacing bg-surface">
           <div className="text-center mb-16">
@@ -301,8 +299,6 @@ export default function SpotServiceBusinessPage() {
             </div>
           </Container>
         </div>
-
-        <SectionSeparator background="surface" />
 
         {/* 最終CTA */}
         <Container className="section-spacing bg-surface">

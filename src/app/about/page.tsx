@@ -159,8 +159,6 @@ export default function AboutPage() {
         </div>
       </Container>
 
-      <SectionSeparator background="surface" />
-
       {/* 方法論セクション */}
       <Container className="section-spacing bg-surface">
         <div className="text-center mb-16">
@@ -213,8 +211,6 @@ export default function AboutPage() {
         </div>
       </Container>
 
-      <SectionSeparator background="surface" />
-
       {/* エコシステム図セクション */}
       <Container className="section-spacing bg-surface">
         <div className="text-center mb-16">
@@ -257,8 +253,6 @@ export default function AboutPage() {
           ))}
         </div>
       </Container>
-
-      <SectionSeparator background="surface" />
 
       {/* CTA セクション */}
       <Container className="section-spacing bg-surface">

@@ -219,8 +219,6 @@ export default function SpotServiceStudentPage() {
           </div>
         </Container>
 
-        <SectionSeparator background="surface" />
-
         {/* 提携留学サポート業者について */}
         <Container className="section-spacing bg-surface">
           <div className="text-center mb-16">
@@ -345,8 +343,6 @@ export default function SpotServiceStudentPage() {
           </div>
         </Container>
       </div>
-
-      <SectionSeparator background="surface" />
 
       {/* 最終CTA */}
       <Container className="section-spacing bg-surface">
