@@ -5,6 +5,7 @@ import { FeatureCard, ServiceCard } from '@/components/ui/card-components'
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
+import Image from 'next/image'
 import {
   BookOpen,
   Briefcase,
@@ -135,10 +136,14 @@ export default function CoursesPage() {
         title="コース料金"
         subtitle="あなたの目標に最適な<br />英語学習コースを見つけよう"
         description="プログラム内容から具体的なコース、スポットサービスまで。Engrowthの全サービスをご紹介し、あなたの英語学習目標に最適なプランをご提案します。"
-        primaryCTA="無料カウンセリングを予約"
-        primaryCTAHref="/contact"
-        secondaryCTA="プログラム詳細を見る"
-        secondaryCTAHref="/method"
+        primaryCTA={{
+          text: '無料カウンセリングを予約',
+          href: '/contact',
+        }}
+        secondaryCTA={{
+          text: 'プログラム詳細を見る',
+          href: '/method',
+        }}
         backgroundImage="/images/courses/courses-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
@@ -180,10 +185,11 @@ export default function CoursesPage() {
                 >
                   {course.image && (
                     <div className="absolute inset-0">
-                      <img
+                      <Image
                         src={course.image}
                         alt={course.title}
-                        className="w-full h-full object-cover opacity-20"
+                        fill
+                        className="object-cover opacity-20"
                       />
                     </div>
                   )}
@@ -236,11 +242,13 @@ export default function CoursesPage() {
                   <CTAButton
                     variant={course.color === 'primary' ? 'primary' : 'outline'}
                     size="lg"
-                    href={course.href}
                     className="w-full sm:w-auto"
+                    asChild
                   >
-                    {course.buttonText}
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <a href={course.href}>
+                      {course.buttonText}
+                      <ArrowRight className="w-5 h-5 ml-2" />
+                    </a>
                   </CTAButton>
                 </div>
               </div>
@@ -272,6 +280,9 @@ export default function CoursesPage() {
               description={service.description}
               className="flex flex-col h-full"
               hover={true}
+              features={service.features}
+              ctaText="詳細を見る"
+              ctaHref={service.href}
               image={{
                 src:
                   index === 0
@@ -279,32 +290,7 @@ export default function CoursesPage() {
                     : '/images/courses/courses-spot-student.jpg',
                 alt: service.title,
               }}
-            >
-              <div className="mt-6">
-                <h4 className="font-semibold text-neutral-900 mb-3 text-sm">
-                  主なサービス:
-                </h4>
-                <div className="grid grid-cols-2 gap-2 mb-6">
-                  {service.features.map((feature, featureIndex) => (
-                    <div
-                      key={featureIndex}
-                      className="flex items-center text-sm text-neutral-600"
-                    >
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                      {feature}
-                    </div>
-                  ))}
-                </div>
-                <CTAButton
-                  variant="outline"
-                  size="sm"
-                  href={service.href}
-                  className="w-full"
-                >
-                  詳細を見る
-                </CTAButton>
-              </div>
-            </ServiceCard>
+            />
           ))}
         </div>
       </Container>
@@ -351,12 +337,14 @@ export default function CoursesPage() {
             最適なコースやプランをご提案いたします。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton variant="primary" size="lg" href="/contact">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              無料カウンセリングを予約
+            <CTAButton variant="primary" size="lg" asChild>
+              <a href="/contact">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                無料カウンセリングを予約
+              </a>
             </CTAButton>
-            <CTAButton variant="outline" size="lg" href="/about">
-              Engrowthについて詳しく
+            <CTAButton variant="outline" size="lg" asChild>
+              <a href="/about">Engrowthについて詳しく</a>
             </CTAButton>
           </div>
 

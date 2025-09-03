@@ -37,9 +37,9 @@ export function Timeline({
                   className={cn(
                     'flex-1 h-0.5',
                     {
-                      'bg-green-600': steps[index - 1].status === 'completed',
+                      'bg-green-600': steps[index - 1]?.status === 'completed',
                     },
-                    steps[index - 1].status !== 'completed' &&
+                    steps[index - 1]?.status !== 'completed' &&
                       'timeline-connector-upcoming'
                   )}
                 />

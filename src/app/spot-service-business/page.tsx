@@ -147,10 +147,14 @@ export default function SpotServiceBusinessPage() {
         title="ビジネス向け<br />スポットサービス"
         subtitle="重要な商談を成功に導く、<br />プロフェッショナルな英語サポート"
         description="「この会議だけ通訳が欲しい」「海外向け資料を急いで作成したい」そんなビジネスニーズにお応えします。海外経験豊富なプロが、あなたのビジネスチャンスを確実に掴むお手伝いをします。"
-        primaryCTA="サービスについて問い合わせる"
-        primaryCTAHref="/contact"
-        secondaryCTA="料金を確認する"
-        secondaryCTAHref="#pricing"
+        primaryCTA={{
+          text: 'サービスについて問い合わせる',
+          href: '/contact',
+        }}
+        secondaryCTA={{
+          text: '料金を確認する',
+          href: '#pricing',
+        }}
         backgroundImage="/images/spot-business/spot-business-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
@@ -158,195 +162,205 @@ export default function SpotServiceBusinessPage() {
       <SectionSeparator background="white" />
 
       {/* サービス詳細セクション */}
-      <Container className="section-spacing" id="services">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
-            <Briefcase className="w-8 h-8 text-primary" />
+      <div id="services">
+        <Container className="section-spacing">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
+              <Briefcase className="w-8 h-8 text-primary" />
+            </div>
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+              提供サービス
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
+              ビジネスシーンで必要な英語サポートを、
+              経験豊富なプロフェッショナルが提供します。
+            </p>
           </div>
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-            提供サービス
-          </h2>
-          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-            ビジネスシーンで必要な英語サポートを、
-            経験豊富なプロフェッショナルが提供します。
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {businessServices.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 p-8"
-            >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
-                  {service.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {businessServices.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-sm border border-gray-100 p-8"
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4">
+                    {service.icon}
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-neutral-900">
+                    {service.title}
+                  </h3>
                 </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900">
-                  {service.title}
-                </h3>
+                <p className="text-neutral-700 leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-neutral-900 text-sm">
+                    含まれるサービス:
+                  </h4>
+                  <ul className="space-y-1">
+                    {service.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-start text-sm text-neutral-600"
+                      >
+                        <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-              <p className="text-neutral-700 leading-relaxed mb-6">
-                {service.description}
+            ))}
+          </div>
+        </Container>
+
+        <SectionSeparator background="surface" />
+
+        {/* サービス特長セクション */}
+        <Container className="section-spacing bg-surface">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+              サービスの特長
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
+              なぜ多くの企業様にEngrowthのスポットサービスを
+              選んでいただいているのか。その理由をご紹介します。
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {businessFeatures.map((feature, index) => (
+              <FeatureCard
+                key={index}
+                icon={feature.icon}
+                title={feature.title}
+                description={feature.description}
+                className="flex flex-col h-full"
+              />
+            ))}
+          </div>
+        </Container>
+
+        <SectionSeparator background="white" />
+
+        {/* 料金例セクション */}
+        <div id="pricing">
+          <Container className="section-spacing">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+                料金例
+              </h2>
+              <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
+                透明性の高い料金設定で、安心してご利用いただけます。
+                詳細なお見積もりは無料でご提供いたします。
               </p>
-              <div className="space-y-2">
-                <h4 className="font-semibold text-neutral-900 text-sm">
-                  含まれるサービス:
-                </h4>
-                <ul className="space-y-1">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-start text-sm text-neutral-600"
-                    >
-                      <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
             </div>
-          ))}
-        </div>
-      </Container>
 
-      <SectionSeparator background="surface" />
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {pricingExamples.map((pricing, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center"
+                >
+                  <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                    {pricing.service}
+                  </h3>
+                  <div className="text-2xl font-bold text-primary mb-2">
+                    {pricing.price}
+                  </div>
+                  <p className="text-sm text-neutral-600">
+                    {pricing.description}
+                  </p>
+                </div>
+              ))}
+            </div>
 
-      {/* サービス特長セクション */}
-      <Container className="section-spacing bg-surface">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-            サービスの特長
-          </h2>
-          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-            なぜ多くの企業様にEngrowthのスポットサービスを
-            選んでいただいているのか。その理由をご紹介します。
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {businessFeatures.map((feature, index) => (
-            <FeatureCard
-              key={index}
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-              className="flex flex-col h-full"
-            />
-          ))}
-        </div>
-      </Container>
-
-      <SectionSeparator background="white" />
-
-      {/* 料金例セクション */}
-      <Container className="section-spacing" id="pricing">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-            料金例
-          </h2>
-          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-            透明性の高い料金設定で、安心してご利用いただけます。
-            詳細なお見積もりは無料でご提供いたします。
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {pricingExamples.map((pricing, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center"
-            >
-              <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                {pricing.service}
+            <div className="mt-12 bg-surface rounded-xl p-8 max-w-4xl mx-auto">
+              <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4 text-center">
+                料金に関するご注意
               </h3>
-              <div className="text-2xl font-bold text-primary mb-2">
-                {pricing.price}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-neutral-700">
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span>
+                    専門性の高い分野は追加料金が発生する場合があります
+                  </span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span>急ぎの案件は特急料金（+50%）を頂戴いたします</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span>事前のお見積もりは無料でご提供いたします</span>
+                </div>
+                <div className="flex items-start">
+                  <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <span>継続利用の場合は割引制度もございます</span>
+                </div>
               </div>
-              <p className="text-sm text-neutral-600">{pricing.description}</p>
             </div>
-          ))}
+          </Container>
         </div>
 
-        <div className="mt-12 bg-surface rounded-xl p-8 max-w-4xl mx-auto">
-          <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4 text-center">
-            料金に関するご注意
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-neutral-700">
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>専門性の高い分野は追加料金が発生する場合があります</span>
+        <SectionSeparator background="surface" />
+
+        {/* 最終CTA */}
+        <Container className="section-spacing bg-surface">
+          <div className="text-center">
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+              ビジネスチャンスを逃さないために
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed mb-8 max-w-2xl mx-auto">
+              「こんなことでも頼めるだろうか？」といったご質問も大歓迎です。
+              あなたのビジネスニーズに合わせて最適なサポートを提案します。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <CTAButton variant="primary" size="lg" asChild>
+                <a href="/contact">
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  無料相談・お見積もり
+                </a>
+              </CTAButton>
+              <CTAButton variant="outline" size="lg" asChild>
+                <a href="/spot-service-student">学生向けサービスを見る</a>
+              </CTAButton>
             </div>
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>急ぎの案件は特急料金（+50%）を頂戴いたします</span>
-            </div>
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>事前のお見積もりは無料でご提供いたします</span>
-            </div>
-            <div className="flex items-start">
-              <div className="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
-              <span>継続利用の場合は割引制度もございます</span>
+
+            {/* 安心要素 */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                  <MessageCircle className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">気軽にご相談</h3>
+                <p className="text-sm text-neutral-600 text-center">
+                  どんな小さなことでもお気軽にお問い合わせください
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                  <Shield className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">機密保持完全対応</h3>
+                <p className="text-sm text-neutral-600 text-center">
+                  NDA締結により機密情報も安心してお任せください
+                </p>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
+                  <Clock className="w-7 h-7 text-primary" />
+                </div>
+                <h3 className="font-semibold mb-2">迅速な対応</h3>
+                <p className="text-sm text-neutral-600 text-center">
+                  24時間以内の初回レスポンスをお約束します
+                </p>
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
-
-      <SectionSeparator background="surface" />
-
-      {/* 最終CTA */}
-      <Container className="section-spacing bg-surface">
-        <div className="text-center">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-            ビジネスチャンスを逃さないために
-          </h2>
-          <p className="text-lg text-neutral-700 leading-relaxed mb-8 max-w-2xl mx-auto">
-            「こんなことでも頼めるだろうか？」といったご質問も大歓迎です。
-            あなたのビジネスニーズに合わせて最適なサポートを提案します。
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <CTAButton variant="primary" size="lg" href="/contact">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              無料相談・お見積もり
-            </CTAButton>
-            <CTAButton variant="outline" size="lg" href="/spot-service-student">
-              学生向けサービスを見る
-            </CTAButton>
-          </div>
-
-          {/* 安心要素 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-gray-200">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                <MessageCircle className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">気軽にご相談</h3>
-              <p className="text-sm text-neutral-600 text-center">
-                どんな小さなことでもお気軽にお問い合わせください
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                <Shield className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">機密保持完全対応</h3>
-              <p className="text-sm text-neutral-600 text-center">
-                NDA締結により機密情報も安心してお任せください
-              </p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mb-4">
-                <Clock className="w-7 h-7 text-primary" />
-              </div>
-              <h3 className="font-semibold mb-2">迅速な対応</h3>
-              <p className="text-sm text-neutral-600 text-center">
-                24時間以内の初回レスポンスをお約束します
-              </p>
-            </div>
-          </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
     </LayoutWrapper>
   )
 }

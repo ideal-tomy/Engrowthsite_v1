@@ -185,10 +185,14 @@ export default function SupportersPage() {
         title="支援者の方へ"
         subtitle="社会貢献と人材発掘を両立する、<br />新しい形の企業パートナーシップ"
         description="Engrowthエコシステムへの支援により、グローバル人材育成と社会課題解決に貢献しながら、優秀な人材との事前マッチング機会を提供します。"
-        primaryCTA="パートナーシップ相談"
-        primaryCTAHref="/contact"
-        secondaryCTA="エコシステム詳細"
-        secondaryCTAHref="/about"
+        primaryCTA={{
+          text: 'パートナーシップ相談',
+          href: '/contact',
+        }}
+        secondaryCTA={{
+          text: 'エコシステム詳細',
+          href: '/about',
+        }}
         backgroundImage="/images/supporters/supporters-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
@@ -330,9 +334,9 @@ export default function SupportersPage() {
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={index}
-              name={testimonial.name}
+              author={testimonial.name}
               role={testimonial.role}
-              content={testimonial.content}
+              quote={testimonial.content}
               avatar={testimonial.avatar}
               className="flex flex-col h-full"
             />
@@ -379,11 +383,11 @@ export default function SupportersPage() {
             ご提案いたします。まずはお気軽にご相談ください。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton variant="primary" size="lg" href="/contact">
-              パートナーシップ相談
+            <CTAButton variant="primary" size="lg" asChild>
+              <a href="/contact">パートナーシップ相談</a>
             </CTAButton>
-            <CTAButton variant="outline" size="lg" href="/about">
-              エコシステム詳細
+            <CTAButton variant="outline" size="lg" asChild>
+              <a href="/about">エコシステム詳細</a>
             </CTAButton>
           </div>
 

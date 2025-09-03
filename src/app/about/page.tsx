@@ -122,10 +122,14 @@ export default function AboutPage() {
         title="Engrowthとは"
         subtitle="循環型エコシステムで実現する、<br />持続可能な英語学習支援"
         description="留学生や学習者を支え、英語を学ぶ人も教える人も成長できる仕組み。第一言語が日本語である強みを活かし、実践的で効果的な英語コンサルティングを提供します。"
-        primaryCTA="無料相談を予約"
-        primaryCTAHref="/contact"
-        secondaryCTA="サービス詳細"
-        secondaryCTAHref="/method"
+        primaryCTA={{
+          text: '無料相談を予約',
+          href: '/contact',
+        }}
+        secondaryCTA={{
+          text: 'サービス詳細',
+          href: '/method',
+        }}
         backgroundImage="/images/backgrounds/about-hero.jpg"
         backgroundImageClassName="opacity-10"
       />
@@ -271,11 +275,11 @@ export default function AboutPage() {
             共に成長できる仕組みがここにあります。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <CTAButton variant="primary" size="lg" href="/contact">
-              無料相談を予約
+            <CTAButton variant="primary" size="lg" asChild>
+              <a href="/contact">無料相談を予約</a>
             </CTAButton>
-            <CTAButton variant="outline" size="lg" href="/supporters">
-              支援者として参加
+            <CTAButton variant="outline" size="lg" asChild>
+              <a href="/supporters">支援者として参加</a>
             </CTAButton>
           </div>
         </div>

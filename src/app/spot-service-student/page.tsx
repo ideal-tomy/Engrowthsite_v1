@@ -153,10 +153,14 @@ export default function SpotServiceStudentPage() {
         title="学生向け<br />スポットサービス"
         subtitle="夢の留学を実現する、<br />専門家による包括的サポート"
         description="「志望校選びで迷っている」「エッセイが上手く書けない」「現地の様子を事前に知りたい」そんな留学への不安を解消します。経験豊富な専門家が、あなたの夢の実現を全力でサポートします。"
-        primaryCTA="留学相談を申し込む"
-        primaryCTAHref="/contact"
-        secondaryCTA="サービス詳細を見る"
-        secondaryCTAHref="#services"
+        primaryCTA={{
+          text: '留学相談を申し込む',
+          href: '/contact',
+        }}
+        secondaryCTA={{
+          text: 'サービス詳細を見る',
+          href: '#services',
+        }}
         backgroundImage="/images/spot-student/spot-student-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
@@ -164,177 +168,185 @@ export default function SpotServiceStudentPage() {
       <SectionSeparator background="white" />
 
       {/* サービス詳細セクション */}
-      <Container className="section-spacing" id="services">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-full mb-4">
-            <GraduationCap className="w-8 h-8 text-blue-600" />
-          </div>
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-            留学成功のためのサポートサービス
-          </h2>
-          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-            留学という人生の大きな決断を、信頼できる専門家がサポート。
-            一人ひとりの目標に合わせた個別対応で夢を実現します。
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-          {studentServices.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 p-8"
-            >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mr-4">
-                  {service.icon}
-                </div>
-                <h3 className="font-serif text-xl font-bold text-neutral-900">
-                  {service.title}
-                </h3>
-              </div>
-              <p className="text-neutral-700 leading-relaxed mb-6">
-                {service.description}
-              </p>
-              <div className="space-y-2">
-                <h4 className="font-semibold text-neutral-900 text-sm">
-                  含まれるサービス:
-                </h4>
-                <ul className="space-y-1">
-                  {service.features.map((feature, featureIndex) => (
-                    <li
-                      key={featureIndex}
-                      className="flex items-start text-sm text-neutral-600"
-                    >
-                      <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 mr-3 flex-shrink-0" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+      <div id="services">
+        <Container className="section-spacing">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-50 rounded-full mb-4">
+              <GraduationCap className="w-8 h-8 text-blue-600" />
             </div>
-          ))}
-        </div>
-      </Container>
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+              留学成功のためのサポートサービス
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
+              留学という人生の大きな決断を、信頼できる専門家がサポート。
+              一人ひとりの目標に合わせた個別対応で夢を実現します。
+            </p>
+          </div>
 
-      <SectionSeparator background="surface" />
-
-      {/* 提携留学サポート業者について */}
-      <Container className="section-spacing bg-surface">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-            信頼できるパートナーとの連携
-          </h2>
-          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto mb-8">
-            Engrowthが厳選した信頼できる留学サポート業者と提携。
-            豊富な実績と専門知識を持つプロフェッショナルが、あなたの留学成功をバックアップします。
-          </p>
-        </div>
-
-        <div className="bg-blue-50 rounded-2xl p-8 mb-12">
-          <h3 className="font-serif text-2xl font-bold text-blue-900 mb-6 text-center">
-            提携留学サポート業者の特長
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {partnerFeatures.map((feature, index) => (
-              <div key={index} className="flex items-start">
-                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                  {feature.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {studentServices.map((service, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-sm border border-gray-100 p-8"
+              >
+                <div className="flex items-center mb-6">
+                  <div className="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mr-4">
+                    {service.icon}
+                  </div>
+                  <h3 className="font-serif text-xl font-bold text-neutral-900">
+                    {service.title}
+                  </h3>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-blue-900 mb-2">
-                    {feature.title}
+                <p className="text-neutral-700 leading-relaxed mb-6">
+                  {service.description}
+                </p>
+                <div className="space-y-2">
+                  <h4 className="font-semibold text-neutral-900 text-sm">
+                    含まれるサービス:
                   </h4>
-                  <p className="text-blue-700 text-sm leading-relaxed">
-                    {feature.description}
-                  </p>
+                  <ul className="space-y-1">
+                    {service.features.map((feature, featureIndex) => (
+                      <li
+                        key={featureIndex}
+                        className="flex items-start text-sm text-neutral-600"
+                      >
+                        <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 mr-3 flex-shrink-0" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
           </div>
-        </div>
+        </Container>
 
-        {/* 成功事例 */}
-        <div className="text-center mb-8">
-          <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-8">
-            成功事例
-          </h3>
-        </div>
+        <SectionSeparator background="surface" />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {successStories.map((story, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 p-6"
-            >
-              <div className="text-center mb-4">
-                <h4 className="font-semibold text-neutral-900">{story.name}</h4>
-                <p className="text-sm text-blue-600 font-medium">
-                  {story.school}
+        {/* 提携留学サポート業者について */}
+        <Container className="section-spacing bg-surface">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+              信頼できるパートナーとの連携
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto mb-8">
+              Engrowthが厳選した信頼できる留学サポート業者と提携。
+              豊富な実績と専門知識を持つプロフェッショナルが、あなたの留学成功をバックアップします。
+            </p>
+          </div>
+
+          <div className="bg-blue-50 rounded-2xl p-8 mb-12">
+            <h3 className="font-serif text-2xl font-bold text-blue-900 mb-6 text-center">
+              提携留学サポート業者の特長
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {partnerFeatures.map((feature, index) => (
+                <div key={index} className="flex items-start">
+                  <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                    {feature.icon}
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-blue-900 mb-2">
+                      {feature.title}
+                    </h4>
+                    <p className="text-blue-700 text-sm leading-relaxed">
+                      {feature.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 成功事例 */}
+          <div className="text-center mb-8">
+            <h3 className="font-serif text-2xl font-bold text-neutral-900 mb-8">
+              成功事例
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {successStories.map((story, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-sm border border-gray-100 p-6"
+              >
+                <div className="text-center mb-4">
+                  <h4 className="font-semibold text-neutral-900">
+                    {story.name}
+                  </h4>
+                  <p className="text-sm text-blue-600 font-medium">
+                    {story.school}
+                  </p>
+                </div>
+                <p className="text-neutral-700 text-sm leading-relaxed italic">
+                  &ldquo;{story.story}&rdquo;
                 </p>
               </div>
-              <p className="text-neutral-700 text-sm leading-relaxed italic">
-                &ldquo;{story.story}&rdquo;
-              </p>
-            </div>
-          ))}
-        </div>
-      </Container>
+            ))}
+          </div>
+        </Container>
+      </div>
 
       <SectionSeparator background="white" />
 
       {/* 料金例セクション */}
-      <Container className="section-spacing" id="pricing">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
-            料金例
-          </h2>
-          <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-            学生の皆様にも利用しやすい料金設定。
-            詳細なお見積もりは無料でご提供いたします。
-          </p>
-        </div>
+      <div id="pricing">
+        <Container className="section-spacing">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-neutral-900 mb-6">
+              料金例
+            </h2>
+            <p className="text-lg text-neutral-700 leading-relaxed max-w-3xl mx-auto">
+              学生の皆様にも利用しやすい料金設定。
+              詳細なお見積もりは無料でご提供いたします。
+            </p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-          {pricingExamples.map((pricing, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center"
-            >
-              <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
-                {pricing.service}
-              </h3>
-              <div className="text-2xl font-bold text-blue-600 mb-2">
-                {pricing.price}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            {pricingExamples.map((pricing, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 text-center"
+              >
+                <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                  {pricing.service}
+                </h3>
+                <div className="text-2xl font-bold text-blue-600 mb-2">
+                  {pricing.price}
+                </div>
+                <p className="text-sm text-neutral-600">
+                  {pricing.description}
+                </p>
               </div>
-              <p className="text-sm text-neutral-600">{pricing.description}</p>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
 
-        <div className="mt-12 bg-surface rounded-xl p-8 max-w-4xl mx-auto">
-          <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4 text-center">
-            学生支援制度
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-neutral-700">
-            <div className="flex items-start">
-              <Heart className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
-              <span>経済的困窮者への割引制度あり</span>
-            </div>
-            <div className="flex items-start">
-              <BookOpen className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
-              <span>複数サービス利用時のパッケージ割引</span>
-            </div>
-            <div className="flex items-start">
-              <Users className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
-              <span>友達紹介キャンペーンあり</span>
-            </div>
-            <div className="flex items-start">
-              <MessageCircle className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
-              <span>初回相談は無料（30分まで）</span>
+          <div className="mt-12 bg-surface rounded-xl p-8 max-w-4xl mx-auto">
+            <h3 className="font-serif text-xl font-bold text-neutral-900 mb-4 text-center">
+              学生支援制度
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-neutral-700">
+              <div className="flex items-start">
+                <Heart className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                <span>経済的困窮者への割引制度あり</span>
+              </div>
+              <div className="flex items-start">
+                <BookOpen className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                <span>複数サービス利用時のパッケージ割引</span>
+              </div>
+              <div className="flex items-start">
+                <Users className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                <span>友達紹介キャンペーンあり</span>
+              </div>
+              <div className="flex items-start">
+                <MessageCircle className="w-5 h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                <span>初回相談は無料（30分まで）</span>
+              </div>
             </div>
           </div>
-        </div>
-      </Container>
+        </Container>
+      </div>
 
       <SectionSeparator background="surface" />
 
@@ -349,16 +361,14 @@ export default function SpotServiceStudentPage() {
             まずは無料相談で、あなたの状況をお聞かせください。
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <CTAButton variant="primary" size="lg" href="/contact">
-              <MessageCircle className="w-5 h-5 mr-2" />
-              無料留学相談を申し込む
+            <CTAButton variant="primary" size="lg" asChild>
+              <a href="/contact">
+                <MessageCircle className="w-5 h-5 mr-2" />
+                無料留学相談を申し込む
+              </a>
             </CTAButton>
-            <CTAButton
-              variant="outline"
-              size="lg"
-              href="/spot-service-business"
-            >
-              ビジネス向けサービスを見る
+            <CTAButton variant="outline" size="lg" asChild>
+              <a href="/spot-service-business">ビジネス向けサービスを見る</a>
             </CTAButton>
           </div>
 

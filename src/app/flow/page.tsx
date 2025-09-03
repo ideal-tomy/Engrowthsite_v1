@@ -5,6 +5,7 @@ import { FeatureCard } from '@/components/ui/card-components'
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
+import Image from 'next/image'
 import {
   MessageCircle,
   Video,
@@ -64,10 +65,11 @@ export default function FlowPage() {
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
                 <div className="relative bg-white rounded-xl shadow-lg border overflow-hidden">
                   <div className="relative h-48">
-                    <img
+                    <Image
                       src="/images/fliw/flow-step1-consultation.jpg"
                       alt="LINE登録・無料相談"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-green-500/20" />
                   </div>
@@ -128,10 +130,11 @@ export default function FlowPage() {
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
                 <div className="relative bg-white rounded-xl shadow-lg border overflow-hidden">
                   <div className="relative h-48">
-                    <img
+                    <Image
                       src="/images/supporters/top-flow-step2.jpg"
                       alt="オンライン面談・ヒアリング"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-blue-600/20" />
                   </div>
@@ -187,10 +190,11 @@ export default function FlowPage() {
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
                 <div className="relative bg-white rounded-xl shadow-lg border overflow-hidden">
                   <div className="relative h-48">
-                    <img
+                    <Image
                       src="/images/fliw/flow-step3-learning.jpg"
                       alt="プログラムプラン設計"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                     <div className="absolute inset-0 bg-purple-600/20" />
                   </div>
