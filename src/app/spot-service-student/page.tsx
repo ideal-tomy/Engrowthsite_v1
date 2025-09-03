@@ -165,8 +165,6 @@ export default function SpotServiceStudentPage() {
         backgroundImageClassName="opacity-10"
       />
 
-      <SectionSeparator background="white" />
-
       {/* サービス詳細セクション */}
       <div id="services">
         <Container className="section-spacing">

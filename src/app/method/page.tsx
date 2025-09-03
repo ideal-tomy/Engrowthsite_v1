@@ -115,10 +115,11 @@ export default function MethodPage() {
         </Container>
       </SectionSeparator>
 
-      {/* 特徴1: 実力派コンサルタント */}
+      {/* 特徴1: 実力派コンサルタント（上下レイアウト） */}
       <SectionSeparator background="white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-12">
+            {/* 上部: タイトルと説明 */}
             <div>
               <div className="flex items-center mb-6 relative">
                 <div className="absolute -top-8 left-6 hidden md:block">
@@ -156,7 +157,9 @@ export default function MethodPage() {
                 </div>
               </div>
             </div>
-            <div className="space-y-6">
+
+            {/* 下部: 2カラムカード */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <FeatureCard
                 icon={<Users className="w-6 h-6" />}
                 title="共感に基づく指導"
@@ -232,8 +235,9 @@ export default function MethodPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
+          <div className="space-y-12">
+            {/* 左の2カードを2カラム横並び */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <ServiceCard
                 title="第二言語習得理論（SLA）"
                 description="意味あるインプット・アウトプットの重要性、理解可能な文脈での実践学習に基づいた効果的な学習順序"
@@ -261,7 +265,9 @@ export default function MethodPage() {
                 }}
               />
             </div>
-            <div>
+
+            {/* 右側のを1カラム */}
+            <div className="max-w-2xl mx-auto">
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-8 rounded-xl border border-blue-200">
                 <div className="text-center mb-4">
                   <TrendingUp className="w-10 h-10 text-primary mx-auto" />

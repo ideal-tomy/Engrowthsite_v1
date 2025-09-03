@@ -134,8 +134,6 @@ export default function AboutPage() {
         backgroundImageClassName="opacity-10"
       />
 
-      <SectionSeparator background="white" />
-
       {/* コンセプト説明セクション */}
       <Container className="section-spacing">
         <div className="text-center mb-16">

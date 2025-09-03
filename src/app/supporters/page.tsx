@@ -197,8 +197,6 @@ export default function SupportersPage() {
         backgroundImageClassName="opacity-10"
       />
 
-      <SectionSeparator background="white" />
-
       {/* 支援プログラム概要セクション */}
       <Container className="section-spacing">
         <div className="text-center mb-16">

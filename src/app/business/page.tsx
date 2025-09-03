@@ -2,12 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { LayoutWrapper } from '@/components/layout/layout-wrapper'
 import { HeroSection } from '@/components/sections/hero-section'
-import {
-  FeatureCard,
-  ServiceCard,
-  StatsCard,
-  TestimonialCard,
-} from '@/components/ui/card-components'
+import { FeatureCard, ServiceCard } from '@/components/ui/card-components'
 import { Container } from '@/components/layout/container'
 import { SectionSeparator } from '@/components/ui/section-dividers'
 import { CTAButton } from '@/components/ui/cta-button'
@@ -19,10 +14,6 @@ import {
   TrendingUp,
   Globe,
   Briefcase,
-  Database,
-  Users2,
-  Building,
-  Rocket,
 } from 'lucide-react'
 
 export const metadata: Metadata = {
@@ -244,26 +235,33 @@ export default function BusinessPage() {
       {/* 現地に行く必要がない理由 */}
       <SectionSeparator background="surface">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* 思い込み */}
-            <div className="bg-white p-8 rounded-xl border-l-4 border-red-200">
-              <h3 className="font-serif text-2xl font-bold text-neutral-800 mb-4">
-                <span className="text-red-500">×</span> よくある思い込み
-              </h3>
-              <div className="space-y-3 text-lg text-neutral-700 leading-relaxed">
-                <p>「現地に行かないとネイティブレベルにはなれない」</p>
-                <ul className="space-y-2 text-neutral-600 list-disc list-inside">
-                  <li>発音はネイティブに囲まれないと無理</li>
-                  <li>海外生活しないとリアルな英語は身につかない</li>
-                  <li>英語力＝留学経験の有無</li>
-                </ul>
+          <div className="space-y-12">
+            {/* 大きなタイトル */}
+            <div className="text-center">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold text-neutral-900 mb-8">
+                <span className="text-green-500">✓</span> Engrowthの解決策
+              </h2>
+            </div>
+
+            {/* 思い込みカードを1カラムで */}
+            <div className="max-w-4xl mx-auto">
+              <div className="bg-white p-8 rounded-xl border-l-4 border-red-200">
+                <h3 className="font-serif text-2xl font-bold text-neutral-800 mb-4">
+                  <span className="text-red-500">×</span> よくある思い込み
+                </h3>
+                <div className="space-y-3 text-lg text-neutral-700 leading-relaxed">
+                  <p>「現地に行かないとネイティブレベルにはなれない」</p>
+                  <ul className="space-y-2 text-neutral-600 list-disc list-inside">
+                    <li>発音はネイティブに囲まれないと無理</li>
+                    <li>海外生活しないとリアルな英語は身につかない</li>
+                    <li>英語力＝留学経験の有無</li>
+                  </ul>
+                </div>
               </div>
             </div>
-            {/* 解決策 */}
-            <div className="space-y-6">
-              <h3 className="font-serif text-2xl font-bold text-neutral-800 mb-4 text-center lg:text-left">
-                <span className="text-green-500">✓</span> Engrowthの解決策
-              </h3>
+
+            {/* 解決策カードを2カラム横並び */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <FeatureCard
                 title="日本にいながらでも習得可能"
                 description="世界中のコンテンツ・ネイティブ音声にアクセスできる時代。AI・録音分析・シャドーイング支援など、発音を徹底強化できる環境が完備。"
@@ -273,85 +271,6 @@ export default function BusinessPage() {
                 description="Engrowthのコンサルたちも「日本にいながら」ネイティブレベルに到達。英語は「環境」ではなく、「設計と習慣」で決まります。"
               />
             </div>
-          </div>
-        </Container>
-      </SectionSeparator>
-
-      {/* 英語習得の価値 */}
-      <SectionSeparator background="white">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              なぜ今、英語を習得する価値がかつてなく高いのか？
-            </h2>
-            <p className="text-lg text-neutral-700 max-w-3xl mx-auto leading-relaxed">
-              外資商談、SNS発信、オンライン会議、採用活動、ChatGPTなどAIツールの活用...
-              <br />
-              <strong>
-                英語が使える＝世界中の知識・人材・市場にアクセスできる
-              </strong>
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <StatsCard
-              icon={<Database className="w-6 h-6" />}
-              number="10倍"
-              label="アクセス可能な情報量"
-              description="英語により世界中の知識・データにアクセス"
-            />
-            <StatsCard
-              icon={<Users2 className="w-6 h-6" />}
-              number="50億人"
-              label="コミュニケーション対象"
-              description="英語話者との直接的な対話が可能"
-            />
-            <StatsCard
-              icon={<Building className="w-6 h-6" />}
-              number="3倍"
-              label="ビジネス機会の拡大"
-              description="海外展開・採用・資金調達の選択肢"
-            />
-            <StatsCard
-              icon={<Rocket className="w-6 h-6" />}
-              number="即座"
-              label="意思決定スピード"
-              description="通訳を介さない直接対話で信頼構築"
-            />
-          </div>
-        </Container>
-      </SectionSeparator>
-
-      {/* お客様の声 */}
-      <SectionSeparator background="white">
-        <Container>
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-6">
-              導入事例・お客様の声
-            </h2>
-            <p className="text-lg text-neutral-700 max-w-2xl mx-auto leading-relaxed">
-              Engrowthでビジネスの課題を解決された方々の声をご紹介します。
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <TestimonialCard
-              quote="海外投資家との交渉で、通訳を介さず直接話せるようになったことで、信頼関係が格段に深まりました。"
-              author="鈴木 一郎 様"
-              role="スタートアップCEO"
-              avatar="/images/business/bu04.png"
-            />
-            <TestimonialCard
-              quote="英語での会議が苦痛でしたが、今ではファシリテーションもこなせるように。チームからの評価も上がりました。"
-              author="佐藤 由美 様"
-              role="外資系企業 マネージャー"
-              avatar="/images/business/bu05.png"
-            />
-            <TestimonialCard
-              quote="専門分野の海外文献を原文で読めるようになり、インプットの質とスピードが劇的に向上しました。"
-              author="高橋 健太 様"
-              role="医師・医学研究者"
-              avatar="/images/business/bu06.png"
-            />
           </div>
         </Container>
       </SectionSeparator>
@@ -439,7 +358,7 @@ export default function BusinessPage() {
                 あなたの目標とペースに合わせて選べる、柔軟なプランをご用意しました。
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
               {businessPlans.map((plan, index) => (
                 <div
                   key={index}

@@ -251,8 +251,13 @@ export default function FlowPage() {
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
                 <div className="relative bg-white p-8 rounded-xl shadow-lg border">
                   <div className="text-center">
-                    <div className="w-20 h-20 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <Heart className="w-10 h-10 text-white" />
+                    <div className="relative h-48 mb-6">
+                      <Image
+                        src="/images/fliw/flow-step4-evaluation.jpg"
+                        alt="納得してからスタート"
+                        fill
+                        className="object-cover rounded-xl"
+                      />
                     </div>
                     <h4 className="font-serif text-xl font-bold text-neutral-900 mb-4">
                       納得してからスタート
