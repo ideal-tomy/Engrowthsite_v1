@@ -253,7 +253,7 @@ export default function FAQPage() {
                 asChild
                 className="bg-green-600 hover:bg-green-700"
               >
-                <a href="/pricing">詳細を見る</a>
+                <a href="/courses">詳細を見る</a>
               </CTAButton>
             </div>
 

@@ -71,30 +71,34 @@ export default function StudentsPage() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h3 className="font-serif text-2xl font-bold text-neutral-800 mb-4">
+          <div className="max-w-5xl mx-auto mb-16">
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-center text-neutral-800 mb-8">
               <span className="text-red-500">×</span> 留学あるある失敗談
             </h3>
-            <div className="space-y-4 text-neutral-700 leading-relaxed bg-red-50 p-8 rounded-xl border-l-4 border-red-200 text-left">
-              <div>
-                <p className="font-semibold">
-                  「最初のグループワーク、一言も発せなかった…」
-                </p>
-                <p className="text-sm">
-                  周りの話すスピードについていけず、意見を求められても頭が真っ白に。自信をなくし、授業への参加が怖くなってしまった。
-                </p>
-              </div>
-              <div>
-                <p className="font-semibold mt-4">「友達作りに苦労した…」</p>
-                <p className="text-sm">
-                  日常会話にはついていけるけど、深い話やジョークになると輪に入れない。結果、日本人とばかり一緒にいてしまいがち。
-                </p>
+            <div className="bg-red-50 p-8 md:p-12 rounded-xl border-l-4 border-red-400 shadow-sm">
+              <div className="space-y-6 text-neutral-700 leading-relaxed">
+                <div className="text-center">
+                  <p className="font-semibold text-lg mb-2">
+                    「最初のグループワーク、一言も発せなかった…」
+                  </p>
+                  <p className="text-base">
+                    周りの話すスピードについていけず、意見を求められても頭が真っ白に。自信をなくし、授業への参加が怖くなってしまった。
+                  </p>
+                </div>
+                <div className="text-center border-t border-red-200 pt-6">
+                  <p className="font-semibold text-lg mb-2">
+                    「友達作りに苦労した…」
+                  </p>
+                  <p className="text-base">
+                    日常会話にはついていけるけど、深い話やジョークになると輪に入れない。結果、日本人とばかり一緒にいてしまいがち。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
 
           {/* 解決策 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             <FeatureCard
               icon={<GraduationCap className="w-6 h-6 text-blue-600" />}
               title="授業理解の土台作り"
@@ -413,44 +417,44 @@ export default function StudentsPage() {
       {/* 料金・おすすめ対象者 */}
       <SectionSeparator background="surface">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* 料金・サポート例 */}
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-8">
-                料金・サポート例
-              </h2>
-              <div className="space-y-6">
-                <div className="bg-white p-6 rounded-xl shadow-sm border">
-                  <h3 className="font-semibold text-lg text-neutral-900 mb-3">
-                    基本プラン
-                  </h3>
-                  <div className="space-y-2 text-neutral-700">
-                    <p>・週2回／60分 Zoomセッション</p>
-                    <p>・LINE・チャットでのフォロー付き</p>
-                    <p>・レポート添削・英作文フィードバック付き</p>
-                  </div>
-                  <p className="text-sm text-neutral-600 mt-4">
-                    ※ 料金は相談ベースで調整可能
-                  </p>
+          {/* 料金・サポート例 */}
+          <div className="mb-16">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
+              料金・サポート例
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="bg-white p-6 rounded-xl shadow-sm border">
+                <h3 className="font-semibold text-lg text-neutral-900 mb-3">
+                  基本プラン
+                </h3>
+                <div className="space-y-2 text-neutral-700">
+                  <p>・週2回／60分 Zoomセッション</p>
+                  <p>・LINE・チャットでのフォロー付き</p>
+                  <p>・レポート添削・英作文フィードバック付き</p>
                 </div>
-                <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
-                  <h3 className="font-semibold text-lg text-blue-800 mb-3">
-                    追加オプション
-                  </h3>
-                  <div className="space-y-2 text-neutral-700">
-                    <p>・留学中の継続サポート</p>
-                    <p>・帰国後のキャリア相談</p>
-                    <p>・教える側へのステップアップ支援</p>
-                  </div>
+                <p className="text-sm text-neutral-600 mt-4">
+                  ※ 料金は相談ベースで調整可能
+                </p>
+              </div>
+              <div className="bg-blue-50 p-6 rounded-xl border border-blue-200">
+                <h3 className="font-semibold text-lg text-blue-800 mb-3">
+                  追加オプション
+                </h3>
+                <div className="space-y-2 text-neutral-700">
+                  <p>・留学中の継続サポート</p>
+                  <p>・帰国後のキャリア相談</p>
+                  <p>・教える側へのステップアップ支援</p>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* おすすめ対象者 */}
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-8">
-                こんな方におすすめです
-              </h2>
+          {/* おすすめ対象者 */}
+          <div className="max-w-4xl mx-auto">
+            <h2 className="font-serif text-2xl md:text-3xl font-bold text-neutral-900 mb-8 text-center">
+              こんな方におすすめです
+            </h2>
+            <div className="bg-blue-50 p-8 rounded-xl border-l-4 border-l-blue-400">
               <div className="space-y-4">
                 {[
                   '留学予定だけど英語に不安がある',
@@ -461,7 +465,7 @@ export default function StudentsPage() {
                 ].map((item, index) => (
                   <div key={index} className="flex items-start">
                     <span className="text-blue-600 mr-3 mt-1 text-lg">✓</span>
-                    <span className="text-neutral-700">{item}</span>
+                    <span className="text-neutral-700 text-lg">{item}</span>
                   </div>
                 ))}
               </div>

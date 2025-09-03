@@ -245,30 +245,66 @@ export function EcosystemDiagram({
 // シンプル版（コンパクト表示用）
 export function SimpleEcosystemFlow({ className }: { className?: string }) {
   const steps = [
-    { icon: BookOpen, label: '学ぶ', color: 'text-blue-600' },
-    { icon: TrendingUp, label: '成長', color: 'text-green-600' },
-    { icon: Users, label: '教える', color: 'text-amber-600' },
-    { icon: Heart, label: '貢献', color: 'text-pink-600' },
+    {
+      icon: BookOpen,
+      label: '学ぶ',
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-50',
+    },
+    {
+      icon: TrendingUp,
+      label: '成長',
+      color: 'text-green-600',
+      bgColor: 'bg-green-50',
+    },
+    {
+      icon: Users,
+      label: '教える',
+      color: 'text-amber-600',
+      bgColor: 'bg-amber-50',
+    },
+    {
+      icon: Heart,
+      label: '貢献',
+      color: 'text-pink-600',
+      bgColor: 'bg-pink-50',
+    },
   ]
 
   return (
-    <div className={cn('flex items-center justify-center gap-6', className)}>
+    <div
+      className={cn(
+        'w-full flex items-center justify-between px-4 md:px-8',
+        className
+      )}
+    >
       {steps.map((step, index) => (
-        <div key={index} className="flex items-center">
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-2">
-              <step.icon className={cn('w-8 h-8', step.color)} />
+        <div key={index} className="flex items-center flex-1">
+          <div className="flex flex-col items-center flex-1">
+            <div
+              className={cn(
+                'w-20 h-20 md:w-24 md:h-24 rounded-full flex items-center justify-center mb-3',
+                step.bgColor
+              )}
+            >
+              <step.icon
+                className={cn('w-10 h-10 md:w-12 md:h-12', step.color)}
+              />
             </div>
-            <span className="text-sm font-medium text-neutral-700">
+            <span className="text-base md:text-lg font-semibold text-neutral-800">
               {step.label}
             </span>
           </div>
           {index < steps.length - 1 && (
-            <ArrowRight className="w-6 h-6 text-primary mx-4" />
+            <div className="flex items-center justify-center px-2 md:px-4">
+              <ArrowRight className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+            </div>
           )}
         </div>
       ))}
-      <RefreshCw className="w-6 h-6 text-primary ml-4" />
+      <div className="ml-4">
+        <RefreshCw className="w-6 h-6 md:w-8 md:h-8 text-primary" />
+      </div>
     </div>
   )
 }

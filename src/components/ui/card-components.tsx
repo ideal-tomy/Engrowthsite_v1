@@ -87,6 +87,7 @@ interface ServiceCardProps {
   ctaText?: string
   ctaHref?: string
   popular?: boolean
+  reasonNumber?: number
   className?: string
   hover?: boolean
 }
@@ -101,6 +102,7 @@ export function ServiceCard({
   ctaText,
   ctaHref,
   popular = false,
+  reasonNumber,
   className,
   hover = true,
 }: ServiceCardProps) {
@@ -119,6 +121,14 @@ export function ServiceCard({
           <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-medium">
             人気プラン
           </span>
+        </div>
+      )}
+
+      {reasonNumber && (
+        <div className="absolute -top-3 -left-3">
+          <div className="bg-primary text-white w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold">
+            {reasonNumber}
+          </div>
         </div>
       )}
 

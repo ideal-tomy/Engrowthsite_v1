@@ -3,14 +3,14 @@ import { Mail, MessageCircle } from 'lucide-react'
 
 const footerLinks = {
   services: [
-    { title: 'ビジネス向けサービス', href: '/business' },
-    { title: '学生向けサービス', href: '/students' },
-    { title: '学習メソッド', href: '/method' },
-    { title: 'エコシステム', href: '/ecosystem' },
+    { title: 'Engrowthとは', href: '/about' },
+    { title: 'プログラム内容', href: '/method' },
+    { title: 'ビジネスコース', href: '/business' },
+    { title: '学生コース', href: '/students' },
   ],
   support: [
     { title: '受講の流れ', href: '/flow' },
-    { title: '料金プラン', href: '/pricing' },
+    { title: '支援者の方へ', href: '/supporters' },
     { title: 'よくある質問', href: '/faq' },
     { title: 'お問い合わせ', href: '/contact' },
   ],

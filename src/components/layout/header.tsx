@@ -21,36 +21,42 @@ import {
 } from '@/components/ui/navigation-menu'
 
 const navItems = [
+  { title: 'Engrowthとは', href: '/about' },
   {
-    title: 'サービス',
-    href: '/services',
+    title: 'コース料金',
+    href: '/courses',
     items: [
       {
-        title: 'ビジネス向け',
-        href: '/business',
-        description: '忙しい社会人のための英語コンサルティング',
-      },
-      {
-        title: '学生向け',
-        href: '/students',
-        description: '留学前準備と実践的な英語学習',
-      },
-      {
-        title: '学習メソッド',
+        title: 'プログラム内容',
         href: '/method',
         description: '科学的根拠に基づく学習設計',
       },
       {
-        title: 'スポットサービス',
-        href: '/spot-service',
-        description: '必要な時に必要なだけ専門サポート',
+        title: 'ビジネスコース',
+        href: '/business',
+        description: '忙しい社会人のための英語コンサルティング',
+      },
+      {
+        title: '学生コース',
+        href: '/students',
+        description: '留学前準備と実践的な英語学習',
+      },
+      {
+        title: 'スポットサービス（ビジネス）',
+        href: '/spot-service-business',
+        description: 'ビジネス向け専門サポート',
+      },
+      {
+        title: 'スポットサービス（学生）',
+        href: '/spot-service-student',
+        description: '学生向け専門サポート',
       },
     ],
   },
-  { title: 'エコシステム', href: '/ecosystem' },
   { title: '受講の流れ', href: '/flow' },
-  { title: '料金', href: '/pricing' },
+  { title: '支援者の方へ', href: '/supporters' },
   { title: 'FAQ', href: '/faq' },
+  { title: 'お問い合わせ', href: '/contact' },
 ]
 
 export function Header() {

@@ -20,9 +20,9 @@ import {
 } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: '学習メソッド | Engrowth - 科学的根拠に基づく英語コンサルティング',
+  title: 'プログラム内容 | Engrowth - 科学的根拠に基づく英語コンサルティング',
   description:
-    'Engrowthの学習メソッドをご紹介。第二言語習得理論と習慣化心理学に基づく実践的な英語コンサルティングで、90日で英語力を実用レベルに引き上げます。',
+    'Engrowthのプログラム内容をご紹介。第二言語習得理論と習慣化心理学に基づく実践的な英語コンサルティングで、90日で英語力を実用レベルに引き上げます。',
 }
 
 export default function MethodPage() {
@@ -120,7 +120,10 @@ export default function MethodPage() {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="flex items-center mb-6">
+              <div className="flex items-center mb-6 relative">
+                <div className="absolute -top-8 left-6 hidden md:block">
+                  <ArrowRight className="w-6 h-6 text-primary rotate-[-45deg]" />
+                </div>
                 <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl mr-4">
                   1
                 </div>
@@ -190,7 +193,10 @@ export default function MethodPage() {
           {/* メソッド全体の図解 */}
           <div className="bg-white p-8 rounded-xl border max-w-4xl mx-auto mb-16">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-              <div className="text-center">
+              <div className="text-center relative">
+                <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 hidden md:block">
+                  <ArrowRight className="w-6 h-6 text-primary rotate-[-45deg]" />
+                </div>
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Brain className="w-8 h-8 text-blue-600" />
                 </div>
@@ -308,7 +314,7 @@ export default function MethodPage() {
                 </a>
               </CTAButton>
               <CTAButton variant="outline" size="lg" asChild>
-                <a href="/pricing">
+                <a href="/courses">
                   料金プランを見る
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </a>

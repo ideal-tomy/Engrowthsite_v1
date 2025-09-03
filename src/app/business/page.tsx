@@ -175,7 +175,7 @@ export default function BusinessPage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             <ServiceCard
               title="忙しい人のための設計"
               description="通勤中・移動中・休憩中でも対応できるモジュール型学習プログラム。LINEでのリアルタイムフィードバックと毎週のチェックインで軌道修正。"
@@ -184,6 +184,8 @@ export default function BusinessPage() {
                 'LINEでのリアルタイムフィードバック',
                 '毎週のチェックインサポート',
               ]}
+              reasonNumber={1}
+              className="flex flex-col h-full"
             />
             <ServiceCard
               title="短期間で「使える英語」"
@@ -193,11 +195,14 @@ export default function BusinessPage() {
                 '商談トーク・自己紹介',
                 '提案プレゼンテーション',
               ]}
-              popular
+              reasonNumber={2}
+              className="flex flex-col h-full"
             />
             <ServiceCard
               title="特別プログラムの一般公開"
               description="本来は紹介制のみで展開していた経営者・著名人向けプログラムを一般公開。マネージャー・医師・弁護士への指導実績あり。"
+              reasonNumber={3}
+              className="flex flex-col h-full"
               features={[
                 '経営者・著名人向けメソッド',
                 '専門職への指導実績',
@@ -371,26 +376,28 @@ export default function BusinessPage() {
       <SectionSeparator background="white">
         <Container>
           {/* 対象者 */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="max-w-4xl mx-auto text-center mb-16">
             <h2 className="font-serif text-3xl md:text-4xl font-bold text-neutral-900 mb-8">
               こんな方に最適です
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 text-left">
-              {[
-                'TOEICのスコアはあっても、会議での発言に自信が持てない',
-                '海外の最新情報を、翻訳ではなく原文で理解したい',
-                '海外顧客や外国人部下と、円滑な関係を築きたい',
-                '英語でのプレゼンや交渉で、ビジネスを有利に進めたい',
-                '多忙な毎日でも、効率的に英語力を向上させたい経営者・管理職',
-                '自己流の学習に限界を感じ、プロの指導を受けたい',
-              ].map((item, index) => (
-                <div key={index} className="flex items-start">
-                  <span className="text-primary mr-3 mt-1 text-lg shrink-0">
-                    ✓
-                  </span>
-                  <span className="text-neutral-700">{item}</span>
-                </div>
-              ))}
+            <div className="bg-surface p-8 rounded-xl border-l-4 border-l-primary">
+              <div className="grid grid-cols-1 gap-y-4 text-left">
+                {[
+                  'TOEICのスコアはあっても、会議での発言に自信が持てない',
+                  '海外の最新情報を、翻訳ではなく原文で理解したい',
+                  '海外顧客や外国人部下と、円滑な関係を築きたい',
+                  '英語でのプレゼンや交渉で、ビジネスを有利に進めたい',
+                  '多忙な毎日でも、効率的に英語力を向上させたい経営者・管理職',
+                  '自己流の学習に限界を感じ、プロの指導を受けたい',
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start">
+                    <span className="text-primary mr-3 mt-1 text-lg shrink-0">
+                      ✓
+                    </span>
+                    <span className="text-neutral-700 text-lg">{item}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -404,7 +411,7 @@ export default function BusinessPage() {
                 あなたの目標とペースに合わせて選べる、柔軟なプランをご用意しました。
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
               {businessPlans.map((plan, index) => (
                 <div
                   key={index}

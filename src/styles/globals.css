@@ -4,7 +4,11 @@
 
 @layer base {
   .section-spacing {
-    @apply py-16 md:py-24;
+    @apply py-20 md:py-32;
+  }
+
+  .section-divider {
+    @apply border-t border-gray-200 my-16 md:my-24;
   }
 
   /* 基本スタイル */

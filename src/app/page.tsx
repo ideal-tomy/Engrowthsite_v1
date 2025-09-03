@@ -144,18 +144,19 @@ export default function HomePage() {
 
           <FadeInStagger className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
             <ServiceCard
-              className="border-primary"
+              className="border-primary flex flex-col h-full"
               icon={<Award className="w-6 h-6 text-primary" />}
-              title="英語で“結果を出した”日本人コンサルタント"
+              title="英語で&ldquo;結果を出した&rdquo;日本人コンサルタント"
               description="全員が留学経験あり、英語を実践で使いこなす人材のみで構成。理論だけでなく、実体験に基づく具体的なアドバイスを提供。"
               features={[
                 '留学・海外勤務経験者のみ',
                 '第二言語習得の実体験',
                 '共感に基づく指導',
               ]}
+              reasonNumber={1}
             />
             <ServiceCard
-              className="border-primary"
+              className="border-primary flex flex-col h-full"
               icon={<Recycle className="w-6 h-6 text-primary" />}
               title="「教える」が学びを加速させるエコシステム"
               description="教える人も学び続ける仕組み。英語を習得した人が教える側にまわることで、持続可能な学習コミュニティを形成。"
@@ -164,9 +165,10 @@ export default function HomePage() {
                 '経済的自立支援',
                 '社会貢献としての教育',
               ]}
+              reasonNumber={2}
             />
             <ServiceCard
-              className="border-primary"
+              className="border-primary flex flex-col h-full"
               icon={<FlaskConical className="w-6 h-6 text-primary" />}
               title="再現性を高める、科学的学習メソッド"
               description="第二言語習得理論と習慣化心理学に基づく学習設計。なぜこの方法で伸びるのか、理論的裏付けのある指導を実施。"
@@ -175,6 +177,7 @@ export default function HomePage() {
                 '習慣化のメカニズム活用',
                 'エビデンスベースの指導',
               ]}
+              reasonNumber={3}
             />
           </FadeInStagger>
 
@@ -184,7 +187,7 @@ export default function HomePage() {
 
           <div className="text-center mt-12">
             <CTAButton variant="outline" asChild>
-              <a href="/ecosystem">
+              <a href="/about">
                 エコシステムの詳細を見る
                 <ArrowRight className="w-4 h-4 ml-2" />
               </a>
@@ -366,24 +369,24 @@ export default function HomePage() {
                 <p className="text-sm text-neutral-600">コンサルとして活躍</p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <TrendingUp className="w-8 h-8 text-green-600" />
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <TrendingUp className="w-10 h-10 md:w-12 md:h-12 text-green-600" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                <h3 className="font-semibold text-xl md:text-2xl text-neutral-900 mb-2">
                   収入獲得
                 </h3>
-                <p className="text-sm text-neutral-600">
+                <p className="text-base md:text-lg text-neutral-600">
                   指導で経済的自立を支援
                 </p>
               </div>
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Heart className="w-8 h-8 text-green-600" />
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Heart className="w-10 h-10 md:w-12 md:h-12 text-green-600" />
                 </div>
-                <h3 className="font-semibold text-lg text-neutral-900 mb-2">
+                <h3 className="font-semibold text-xl md:text-2xl text-neutral-900 mb-2">
                   社会貢献
                 </h3>
-                <p className="text-sm text-neutral-600">
+                <p className="text-base md:text-lg text-neutral-600">
                   次の学習者を支援し成長
                 </p>
               </div>
@@ -392,7 +395,7 @@ export default function HomePage() {
 
           <div className="text-center">
             <CTAButton variant="secondary" asChild>
-              <a href="/ecosystem">
+              <a href="/about">
                 エコシステムの詳細を見る
                 <ArrowRight className="w-4 h-4 ml-2" />
               </a>
@@ -415,21 +418,24 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             <FeatureCard
               icon={<Brain className="w-6 h-6" />}
               title="第二言語習得理論（SLA）"
-              description="科学的に証明された第二言語習得のメカニズムに基づき、最も効果的な学習順序と方法を設計"
+              description="科学的に証明された第二言語習得のメカニズムに基づき、最も効果的な学習順序と方法を設計。言語習得の各段階で必要な学習活動を理論的に裏付けられた順序で提供し、効率的な上達を実現します。"
+              className="flex flex-col h-full"
             />
             <FeatureCard
               icon={<RefreshCw className="w-6 h-6" />}
               title="習慣化心理学"
-              description="継続のための心理的メカニズムを活用。小さな成功体験の積み重ねで、学習を無理なく習慣化"
+              description="継続のための心理的メカニズムを活用。小さな成功体験の積み重ねで、学習を無理なく習慣化し、長期的な成長を支援します。"
+              className="flex flex-col h-full"
             />
             <FeatureCard
               icon={<Target className="w-6 h-6" />}
               title="個別最適化"
-              description="学習者の現在のレベル、目標、生活リズムに合わせて、一人ひとりに最適化されたプランを提供"
+              description="学習者の現在のレベル、目標、生活リズムに合わせて、一人ひとりに最適化されたプランを提供します。"
+              className="flex flex-col h-full"
             />
           </div>
 
