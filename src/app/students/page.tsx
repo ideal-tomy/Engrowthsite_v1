@@ -52,7 +52,7 @@ export default function StudentsPage() {
           text: 'サポート詳細を見る',
           href: '#support-details',
         }}
-        backgroundImage="/images/backgrounds/campus.jpg"
+        backgroundImage="/images/students/students-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
 
@@ -103,22 +103,34 @@ export default function StudentsPage() {
               icon={<GraduationCap className="w-6 h-6 text-blue-600" />}
               title="授業理解の土台作り"
               description="英語で授業を理解し、積極的に参加するための基礎英語力を事前に構築"
-              className="bg-blue-50 border-blue-200"
+              className="bg-blue-50 border-blue-200 flex flex-col h-full"
               hover={false}
+              image={{
+                src: '/images/students/students-class-understanding.jpg',
+                alt: '授業理解の土台作り',
+              }}
             />
             <FeatureCard
               icon={<FileText className="w-6 h-6 text-green-600" />}
               title="レポート・発表スキル"
               description="現地で求められるアカデミックライティングと口頭発表の技術を習得"
-              className="bg-green-50 border-green-200"
+              className="bg-green-50 border-green-200 flex flex-col h-full"
               hover={false}
+              image={{
+                src: '/images/students/students-report-skills.jpg',
+                alt: 'レポート・発表スキル',
+              }}
             />
             <FeatureCard
               icon={<Users2 className="w-6 h-6 text-yellow-600" />}
               title="コミュニケーション力"
               description="現地の人と関係を築き、留学生活を充実させる実践的な英語力"
-              className="bg-yellow-50 border-yellow-200"
+              className="bg-yellow-50 border-yellow-200 flex flex-col h-full"
               hover={false}
+              image={{
+                src: '/images/students/students-communication.jpg',
+                alt: 'コミュニケーション力向上',
+              }}
             />
           </div>
         </Container>
@@ -198,7 +210,7 @@ export default function StudentsPage() {
                       Before
                     </p>
                     <Image
-                      src="/images/diagrams/essay-before.png"
+                      src="/images/students/essay-correction-before.jpg"
                       alt="添削前のエッセイ"
                       width={400}
                       height={300}
@@ -210,7 +222,7 @@ export default function StudentsPage() {
                       After
                     </p>
                     <Image
-                      src="/images/diagrams/essay-after.png"
+                      src="/images/students/essay-correction-after.jpg"
                       alt="添削後のエッセイ"
                       width={400}
                       height={300}
@@ -336,21 +348,21 @@ export default function StudentsPage() {
               quote="私も最初は授業についていけず、悔しい思いをしました。その経験があるからこそ、伝えられることがあります。"
               author="田中 歩"
               role="コンサルタント (アメリカ留学)"
-              avatar="/images/team/avatar1.jpg"
+              avatar="/images/students/stu04.png"
               isBubble
             />
             <TestimonialCard
               quote="現地の友人作りには、ちょっとしたコツが要ります。教科書には載っていない、リアルなコミュニケーション術を教えます。"
               author="佐藤 花"
               role="コンサルタント (イギリス留学)"
-              avatar="/images/team/avatar2.jpg"
+              avatar="/images/students/stu05.png"
               isBubble
             />
             <TestimonialCard
               quote="エッセイの評価は、構成が9割。ネイティブに評価される『型』を身につければ、驚くほど筆が進みますよ。"
               author="鈴木 健"
               role="コンサルタント (カナダ留学)"
-              avatar="/images/team/avatar3.jpg"
+              avatar="/images/students/stu06.png"
               isBubble
             />
           </div>
@@ -406,7 +418,7 @@ export default function StudentsPage() {
                   安心感の提供
                 </h4>
                 <p className="text-neutral-700">
-                  英語への不安を解消し、自信を持って現地生活をスタートできる状態を作ります。
+                  お子様が現地で困らないよう、事前に英語力の土台を固め、自信を持って留学生活に臨めます。
                 </p>
               </div>
             </div>

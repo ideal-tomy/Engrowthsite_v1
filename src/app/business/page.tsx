@@ -125,6 +125,7 @@ export default function BusinessPage() {
           text: 'サービス詳細',
           href: '#service-details',
         }}
+        backgroundImage="/images/business/business-hero-background.jpg"
       />
 
       {/* 忙しい社会人でも習得可能 */}
@@ -143,24 +144,39 @@ export default function BusinessPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             <FeatureCard
               icon={<Clock className="w-6 h-6" />}
               title="5分〜10分の短時間学習"
               description="通勤中・移動中・休憩中でも対応できる、モジュール型学習プログラム"
               accent
+              className="flex flex-col h-full"
+              image={{
+                src: '/images/business/business-short-study.jpg',
+                alt: '短時間学習プログラム',
+              }}
             />
             <FeatureCard
               icon={<Target className="w-6 h-6" />}
               title="科学的メソッド"
               description="習慣化理論と第二言語習得理論に基づく効果的な学習設計"
               accent
+              className="flex flex-col h-full"
+              image={{
+                src: '/images/business/business-scientific-method.jpg',
+                alt: '科学的メソッド',
+              }}
             />
             <FeatureCard
               icon={<Users className="w-6 h-6" />}
               title="LINEで伴走支援"
               description="リアルタイムフィードバックと毎週のチェックインで無理のない軌道修正"
               accent
+              className="flex flex-col h-full"
+              image={{
+                src: '/images/business/business-line-support.jpg',
+                alt: 'LINEでの伴走支援',
+              }}
             />
           </div>
         </Container>
@@ -186,6 +202,10 @@ export default function BusinessPage() {
               ]}
               reasonNumber={1}
               className="flex flex-col h-full"
+              image={{
+                src: '/images/business/business-reason-busy-design.jpg',
+                alt: '忙しい人のための学習設計',
+              }}
             />
             <ServiceCard
               title="短期間で「使える英語」"
@@ -197,12 +217,20 @@ export default function BusinessPage() {
               ]}
               reasonNumber={2}
               className="flex flex-col h-full"
+              image={{
+                src: '/images/business/business-reason-practical-english.jpg',
+                alt: '実践的なビジネス英語',
+              }}
             />
             <ServiceCard
               title="特別プログラムの一般公開"
               description="本来は紹介制のみで展開していた経営者・著名人向けプログラムを一般公開。マネージャー・医師・弁護士への指導実績あり。"
               reasonNumber={3}
               className="flex flex-col h-full"
+              image={{
+                src: '/images/business/business-reason-executive-program.jpg',
+                alt: 'エグゼクティブ向けプログラム',
+              }}
               features={[
                 '経営者・著名人向けメソッド',
                 '専門職への指導実績',
@@ -310,19 +338,19 @@ export default function BusinessPage() {
               quote="海外投資家との交渉で、通訳を介さず直接話せるようになったことで、信頼関係が格段に深まりました。"
               author="鈴木 一郎 様"
               role="スタートアップCEO"
-              avatar="/images/team/avatar4.jpg"
+              avatar="/images/business/bu04.png"
             />
             <TestimonialCard
               quote="英語での会議が苦痛でしたが、今ではファシリテーションもこなせるように。チームからの評価も上がりました。"
               author="佐藤 由美 様"
               role="外資系企業 マネージャー"
-              avatar="/images/team/avatar5.jpg"
+              avatar="/images/business/bu05.png"
             />
             <TestimonialCard
               quote="専門分野の海外文献を原文で読めるようになり、インプットの質とスピードが劇的に向上しました。"
               author="高橋 健太 様"
               role="医師・医学研究者"
-              avatar="/images/team/avatar6.jpg"
+              avatar="/images/business/bu06.png"
             />
           </div>
         </Container>

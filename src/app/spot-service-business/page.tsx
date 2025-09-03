@@ -43,6 +43,10 @@ const businessServices = [
       '会議前の事前打ち合わせ',
       '専門用語の事前確認',
     ],
+    image: {
+      src: '/images/spot-business/spot-business-interpretation.jpg',
+      alt: '通訳・会議同席サービス',
+    },
   },
   {
     icon: <FileText className="w-8 h-8 text-primary" />,
@@ -55,6 +59,10 @@ const businessServices = [
       'マーケティング資料作成',
       'ヒアリングシート記入補助',
     ],
+    image: {
+      src: '/images/spot-business/spot-business-translation.jpg',
+      alt: '資料作成・翻訳サポート',
+    },
   },
   {
     icon: <Eye className="w-8 h-8 text-primary" />,
@@ -67,6 +75,10 @@ const businessServices = [
       '文化的配慮のアドバイス',
       '詳細なフィードバックレポート',
     ],
+    image: {
+      src: '/images/spot-business/spot-business-observer.jpg',
+      alt: '会議オブザーバーサービス',
+    },
   },
   {
     icon: <Presentation className="w-8 h-8 text-primary" />,
@@ -139,7 +151,7 @@ export default function SpotServiceBusinessPage() {
         primaryCTAHref="/contact"
         secondaryCTA="料金を確認する"
         secondaryCTAHref="#pricing"
-        backgroundImage="/images/backgrounds/business-meeting.jpg"
+        backgroundImage="/images/spot-business/spot-business-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
 

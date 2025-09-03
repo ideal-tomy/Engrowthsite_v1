@@ -42,6 +42,10 @@ const studentServices = [
       'エッセイ・志望動機書添削',
       '推薦状取得サポート',
     ],
+    image: {
+      src: '/images/spot-student/spot-student-application.jpg',
+      alt: '出願サポートサービス',
+    },
   },
   {
     icon: <MapPin className="w-8 h-8 text-primary" />,
@@ -54,6 +58,10 @@ const studentServices = [
       '現地学生との交流機会提供',
       '詳細な現地レポート作成',
     ],
+    image: {
+      src: '/images/spot-student/spot-student-school-visit.jpg',
+      alt: '留学先学校見学同行サービス',
+    },
   },
   {
     icon: <FileText className="w-8 h-8 text-primary" />,
@@ -149,7 +157,7 @@ export default function SpotServiceStudentPage() {
         primaryCTAHref="/contact"
         secondaryCTA="サービス詳細を見る"
         secondaryCTAHref="#services"
-        backgroundImage="/images/backgrounds/campus-life.jpg"
+        backgroundImage="/images/spot-student/spot-student-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
 

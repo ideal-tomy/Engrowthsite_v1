@@ -75,7 +75,8 @@ export default function HomePage() {
           text: 'カウンセリング予約',
           href: '/contact',
         }}
-        backgroundImage="/images/hero/hero-background.jpg"
+        backgroundImage="/images/supporters/top-hero-background.jpg"
+        backgroundImageClassName="opacity-20"
       />
 
       {/* 2. 提供サービス概要 */}
@@ -100,18 +101,33 @@ export default function HomePage() {
               title="専属コンサルタント"
               description="留学経験豊富なコンサルタントが、あなた専用の学習プランを設計し、90日間伴走します"
               accent
+              className="flex flex-col h-full"
+              image={{
+                src: '/images/top/service-consultant.jpg',
+                alt: '専属コンサルタントによるサポート',
+              }}
             />
             <FeatureCard
               icon={<ClipboardList className="w-6 h-6" />}
               title="目標から逆算設計"
               description="TOEIC、ビジネス英語、留学準備など、目的に応じた最適なカリキュラムを構築"
               accent
+              className="flex flex-col h-full"
+              image={{
+                src: '/images/top/service-goals.jpg',
+                alt: '目標から逆算した学習設計',
+              }}
             />
             <FeatureCard
               icon={<Smartphone className="w-6 h-6" />}
               title="毎日のサポート"
               description="Zoom・LINEを活用した柔軟な対応で、学習の継続をしっかりサポート"
               accent
+              className="flex flex-col h-full"
+              image={{
+                src: '/images/top/service-support.jpg',
+                alt: '毎日のサポート体制',
+              }}
             />
           </FadeInStagger>
 
@@ -154,6 +170,10 @@ export default function HomePage() {
                 '共感に基づく指導',
               ]}
               reasonNumber={1}
+              image={{
+                src: '/images/top/reason-consultant-team.jpg',
+                alt: '経験豊富な日本人コンサルタント',
+              }}
             />
             <ServiceCard
               className="border-primary flex flex-col h-full"
@@ -166,6 +186,10 @@ export default function HomePage() {
                 '社会貢献としての教育',
               ]}
               reasonNumber={2}
+              image={{
+                src: '/images/top/reason-ecosystem.jpg',
+                alt: '循環型エコシステム',
+              }}
             />
             <ServiceCard
               className="border-primary flex flex-col h-full"
@@ -178,6 +202,10 @@ export default function HomePage() {
                 'エビデンスベースの指導',
               ]}
               reasonNumber={3}
+              image={{
+                src: '/images/top/reason-scientific.jpg',
+                alt: '科学的学習メソッド',
+              }}
             />
           </FadeInStagger>
 
@@ -424,18 +452,30 @@ export default function HomePage() {
               title="第二言語習得理論（SLA）"
               description="科学的に証明された第二言語習得のメカニズムに基づき、最も効果的な学習順序と方法を設計。言語習得の各段階で必要な学習活動を理論的に裏付けられた順序で提供し、効率的な上達を実現します。"
               className="flex flex-col h-full"
+              image={{
+                src: '/images/top/method-sla-theory.jpg',
+                alt: '第二言語習得理論（SLA）',
+              }}
             />
             <FeatureCard
               icon={<RefreshCw className="w-6 h-6" />}
               title="習慣化心理学"
               description="継続のための心理的メカニズムを活用。小さな成功体験の積み重ねで、学習を無理なく習慣化し、長期的な成長を支援します。"
               className="flex flex-col h-full"
+              image={{
+                src: '/images/top/method-habit-psychology.jpg',
+                alt: '習慣化心理学',
+              }}
             />
             <FeatureCard
               icon={<Target className="w-6 h-6" />}
               title="個別最適化"
               description="学習者の現在のレベル、目標、生活リズムに合わせて、一人ひとりに最適化されたプランを提供します。"
               className="flex flex-col h-full"
+              image={{
+                src: '/images/top/method-personalization.jpg',
+                alt: '個別最適化',
+              }}
             />
           </div>
 
@@ -517,19 +557,19 @@ export default function HomePage() {
               quote="自己流の学習に限界を感じていましたが、90日間でビジネスで自信を持って話せるレベルになりました。本当に感謝しています。"
               author="田中 健一様"
               role="外資系メーカー勤務"
-              avatar="/images/team/avatar1.jpg"
+              avatar="/images/top/top01.png"
             />
             <TestimonialCard
               quote="留学前に受講したおかげで、現地の授業にもスムーズについていけました。実践的な準備ができてよかったです。"
               author="佐藤 美咲様"
               role="大学生・交換留学"
-              avatar="/images/team/avatar2.jpg"
+              avatar="/images/top/top02.png"
             />
             <TestimonialCard
               quote="コンサルタントの方が親身に寄り添ってくれたので、最後までモチベーションを維持できました。最高のサポートでした。"
               author="鈴木 大輔様"
               role="IT企業経営者"
-              avatar="/images/team/avatar3.jpg"
+              avatar="/images/top/top03.png"
             />
           </FadeInStagger>
         </Container>

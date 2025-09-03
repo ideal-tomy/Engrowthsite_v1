@@ -38,6 +38,10 @@ interface FeatureCardProps {
   accent?: boolean
   className?: string
   hover?: boolean
+  image?: {
+    src: string
+    alt: string
+  }
 }
 
 export function FeatureCard({
@@ -47,6 +51,7 @@ export function FeatureCard({
   accent = false,
   className,
   hover = true,
+  image,
 }: FeatureCardProps) {
   return (
     <Card
@@ -59,6 +64,17 @@ export function FeatureCard({
       hover={hover}
     >
       <div className="flex-grow">
+        {image && (
+          <div className="relative w-full h-48 mb-4 rounded-lg overflow-hidden">
+            <Image
+              src={image.src}
+              alt={image.alt}
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            />
+          </div>
+        )}
         {icon && (
           <div className="flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 text-primary mb-4">
             {icon}
@@ -132,6 +148,18 @@ export function ServiceCard({
         </div>
       )}
 
+      {image && (
+        <div className="relative w-full h-48 mb-6 rounded-lg overflow-hidden">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+        </div>
+      )}
+
       <div className="space-y-4 flex-grow">
         <div className="flex items-start space-x-4">
           {icon && <div className="flex-shrink-0 mt-1">{icon}</div>}
@@ -156,18 +184,6 @@ export function ServiceCard({
           </ul>
         )}
       </div>
-
-      {image && (
-        <div className="mt-6">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            width={400}
-            height={200}
-            className="w-full h-auto rounded-lg object-cover"
-          />
-        </div>
-      )}
 
       {ctaText && ctaHref && (
         <div className="pt-4 mt-auto">

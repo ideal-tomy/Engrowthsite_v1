@@ -44,6 +44,7 @@ const courseCategories = [
     ],
     buttonText: 'メソッド詳細を見る',
     color: 'primary',
+    image: '/images/courses/courses-program-content.jpg',
   },
   {
     icon: <Briefcase className="w-12 h-12 text-slate-700" />,
@@ -60,6 +61,7 @@ const courseCategories = [
     ],
     buttonText: 'ビジネスコース詳細',
     color: 'slate',
+    image: '/images/courses/courses-business-course.jpg',
   },
   {
     icon: <GraduationCap className="w-12 h-12 text-blue-600" />,
@@ -76,6 +78,7 @@ const courseCategories = [
     ],
     buttonText: '学生コース詳細',
     color: 'blue',
+    image: '/images/courses/courses-student-course.jpg',
   },
 ]
 
@@ -136,7 +139,7 @@ export default function CoursesPage() {
         primaryCTAHref="/contact"
         secondaryCTA="プログラム詳細を見る"
         secondaryCTAHref="/method"
-        backgroundImage="/images/backgrounds/courses-hero.jpg"
+        backgroundImage="/images/courses/courses-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
 
@@ -167,7 +170,7 @@ export default function CoursesPage() {
               >
                 {/* アイコン・画像部分 */}
                 <div
-                  className={`lg:w-1/3 p-8 lg:p-12 flex items-center justify-center ${
+                  className={`lg:w-1/3 relative overflow-hidden ${
                     course.color === 'primary'
                       ? 'bg-primary/5'
                       : course.color === 'slate'
@@ -175,22 +178,33 @@ export default function CoursesPage() {
                         : 'bg-blue-50'
                   }`}
                 >
-                  <div className="text-center">
-                    {course.icon}
-                    <h3 className="font-serif text-2xl font-bold text-neutral-900 mt-4 mb-2">
-                      {course.title}
-                    </h3>
-                    <p
-                      className={`text-sm font-medium ${
-                        course.color === 'primary'
-                          ? 'text-primary'
-                          : course.color === 'slate'
-                            ? 'text-slate-600'
-                            : 'text-blue-600'
-                      }`}
-                    >
-                      {course.subtitle}
-                    </p>
+                  {course.image && (
+                    <div className="absolute inset-0">
+                      <img
+                        src={course.image}
+                        alt={course.title}
+                        className="w-full h-full object-cover opacity-20"
+                      />
+                    </div>
+                  )}
+                  <div className="relative p-8 lg:p-12 flex items-center justify-center h-full">
+                    <div className="text-center">
+                      {course.icon}
+                      <h3 className="font-serif text-2xl font-bold text-neutral-900 mt-4 mb-2">
+                        {course.title}
+                      </h3>
+                      <p
+                        className={`text-sm font-medium ${
+                          course.color === 'primary'
+                            ? 'text-primary'
+                            : course.color === 'slate'
+                              ? 'text-slate-600'
+                              : 'text-blue-600'
+                        }`}
+                      >
+                        {course.subtitle}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -258,6 +272,13 @@ export default function CoursesPage() {
               description={service.description}
               className="flex flex-col h-full"
               hover={true}
+              image={{
+                src:
+                  index === 0
+                    ? '/images/courses/courses-spot-business.jpg'
+                    : '/images/courses/courses-spot-student.jpg',
+                alt: service.title,
+              }}
             >
               <div className="mt-6">
                 <h4 className="font-semibold text-neutral-900 mb-3 text-sm">

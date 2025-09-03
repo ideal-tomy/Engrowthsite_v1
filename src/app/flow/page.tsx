@@ -41,7 +41,7 @@ export default function FlowPage() {
           text: 'LINE登録はこちら',
           href: '/contact',
         }}
-        backgroundImage="/images/backgrounds/line-bg.jpg"
+        backgroundImage="/images/fliw/flow-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
 
@@ -62,9 +62,17 @@ export default function FlowPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
-                <div className="relative bg-white p-8 rounded-xl shadow-lg border">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="relative bg-white rounded-xl shadow-lg border overflow-hidden">
+                  <div className="relative h-48">
+                    <img
+                      src="/images/fliw/flow-step1-consultation.jpg"
+                      alt="LINE登録・無料相談"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-green-500/20" />
+                  </div>
+                  <div className="p-8 text-center">
+                    <div className="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-6 -mt-10 relative z-10">
                       <MessageCircle className="w-10 h-10 text-white" />
                     </div>
                     <h4 className="font-serif text-xl font-bold text-neutral-900 mb-4">
@@ -118,9 +126,17 @@ export default function FlowPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative lg:order-2">
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
-                <div className="relative bg-white p-8 rounded-xl shadow-lg border">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="relative bg-white rounded-xl shadow-lg border overflow-hidden">
+                  <div className="relative h-48">
+                    <img
+                      src="/images/supporters/top-flow-step2.jpg"
+                      alt="オンライン面談・ヒアリング"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-blue-600/20" />
+                  </div>
+                  <div className="p-8 text-center">
+                    <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 -mt-10 relative z-10">
                       <Video className="w-10 h-10 text-white" />
                     </div>
                     <h4 className="font-serif text-xl font-bold text-neutral-900 mb-4">
@@ -169,9 +185,17 @@ export default function FlowPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div className="relative">
                 <div className="absolute -top-8 -left-8 w-24 h-24 bg-primary/10 rounded-full" />
-                <div className="relative bg-white p-8 rounded-xl shadow-lg border">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="relative bg-white rounded-xl shadow-lg border overflow-hidden">
+                  <div className="relative h-48">
+                    <img
+                      src="/images/fliw/flow-step3-learning.jpg"
+                      alt="プログラムプラン設計"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-purple-600/20" />
+                  </div>
+                  <div className="p-8 text-center">
+                    <div className="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-6 -mt-10 relative z-10">
                       <Target className="w-10 h-10 text-white" />
                     </div>
                     <h4 className="font-serif text-xl font-bold text-neutral-900 mb-4">

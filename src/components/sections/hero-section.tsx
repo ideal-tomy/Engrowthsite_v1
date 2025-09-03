@@ -36,7 +36,7 @@ export function HeroSection({
   return (
     <section
       className={cn(
-        'mobile-spacing bg-white relative overflow-hidden',
+        'pt-24 pb-20 md:pt-32 md:pb-32 bg-white relative overflow-hidden min-h-[80vh] flex items-center',
         backgroundImage && 'bg-cover bg-center bg-no-repeat',
         className
       )}
@@ -47,18 +47,36 @@ export function HeroSection({
       }
     >
       {backgroundImage && (
-        <div
-          className={cn(
-            'absolute inset-0 bg-black/20',
-            backgroundImageClassName
+        <>
+          <div
+            className={cn(
+              'absolute inset-0',
+              backgroundImageClassName ||
+                'bg-gradient-to-b from-black/30 via-black/40 to-black/50'
+            )}
+          />
+          {!backgroundImageClassName && (
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-black/10 to-transparent" />
           )}
-        />
+        </>
       )}
-      <Container className="relative z-10">
-        <div className="text-center max-w-4xl mx-auto">
+      <Container className="relative z-10 w-full">
+        <div
+          className="text-center max-w-4xl mx-auto"
+          style={{
+            textShadow: backgroundImage
+              ? '2px 2px 4px rgba(0, 0, 0, 0.3)'
+              : 'none',
+          }}
+        >
           {/* Title */}
           <FadeIn delay={0.2}>
-            <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold text-neutral-900 mb-6 leading-tight">
+            <h1
+              className={cn(
+                'font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight',
+                backgroundImage ? 'text-white' : 'text-neutral-900'
+              )}
+            >
               {title}
             </h1>
           </FadeIn>
@@ -66,7 +84,12 @@ export function HeroSection({
           {/* Subtitle */}
           {subtitle && (
             <FadeIn delay={0.4}>
-              <p className="text-lg md:text-xl text-neutral-700 mb-4 leading-relaxed">
+              <p
+                className={cn(
+                  'text-lg md:text-xl mb-4 leading-relaxed',
+                  backgroundImage ? 'text-white/90' : 'text-neutral-700'
+                )}
+              >
                 {subtitle}
               </p>
             </FadeIn>
@@ -75,7 +98,12 @@ export function HeroSection({
           {/* Description */}
           {description && (
             <FadeIn delay={0.6}>
-              <p className="text-base md:text-lg text-neutral-600 mb-8 leading-relaxed max-w-2xl mx-auto">
+              <p
+                className={cn(
+                  'text-base md:text-lg mb-8 leading-relaxed max-w-2xl mx-auto',
+                  backgroundImage ? 'text-white/80' : 'text-neutral-600'
+                )}
+              >
                 {description}
               </p>
             </FadeIn>

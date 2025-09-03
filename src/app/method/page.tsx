@@ -43,7 +43,7 @@ export default function MethodPage() {
           text: 'まずは無料相談で学習法を知る',
           href: '/contact',
         }}
-        backgroundImage="/images/backgrounds/learning-method-hero.jpg"
+        backgroundImage="/images/method/method-hero-background.jpg"
         backgroundImageClassName="opacity-20"
       />
 
@@ -162,12 +162,22 @@ export default function MethodPage() {
                 title="共感に基づく指導"
                 description="同じ苦労を経験したからこそできる、学習者に寄り添ったサポート"
                 accent
+                className="flex flex-col h-full"
+                image={{
+                  src: '/images/method/method-empathy-teaching.jpg',
+                  alt: '共感に基づく指導',
+                }}
               />
               <FeatureCard
                 icon={<TrendingUp className="w-6 h-6" />}
                 title="実践的なアドバイス"
                 description="理論だけでなく、実際の使用経験に基づく具体的な指導"
                 accent
+                className="flex flex-col h-full"
+                image={{
+                  src: '/images/method/method-practical-advice.jpg',
+                  alt: '実践的なアドバイス',
+                }}
               />
             </div>
           </div>
@@ -232,6 +242,10 @@ export default function MethodPage() {
                   '理解可能なインプットの提供',
                   '実践的なアウトプット機会',
                 ]}
+                image={{
+                  src: '/images/method/method-sla-detailed.jpg',
+                  alt: '第二言語習得理論（SLA）',
+                }}
               />
               <ServiceCard
                 title="習慣化の心理学"
@@ -241,6 +255,10 @@ export default function MethodPage() {
                   '小さな成功体験の積み重ね',
                   '持続可能な学習習慣の構築',
                 ]}
+                image={{
+                  src: '/images/method/method-habit-detailed.jpg',
+                  alt: '習慣化の心理学',
+                }}
               />
             </div>
             <div>

@@ -43,18 +43,30 @@ const consultantBenefits = [
     title: '留学による学習機会維持の自力解決',
     description:
       '金銭的な理由で留学を断念することなく、自分の技能を活かして学習機会を維持できます。',
+    image: {
+      src: '/images/supporters/supporters-income-opportunity.jpg',
+      alt: '留学による学習機会維持',
+    },
   },
   {
     icon: <MessageCircle className="w-8 h-8 text-primary" />,
     title: '社会との接点とコミュニケーション',
     description:
       '海外にいながら日本社会との繋がりを保ち、コミュニケーション能力を向上させます。',
+    image: {
+      src: '/images/supporters/supporters-networking.jpg',
+      alt: '社会との接点とコミュニケーション',
+    },
   },
   {
     icon: <Briefcase className="w-8 h-8 text-primary" />,
     title: '事前の就活に役立つ経験',
     description:
       'コンサルティング経験は就職活動において大きなアドバンテージとなります。',
+    image: {
+      src: '/images/supporters/supporters-skill-development.jpg',
+      alt: '事前の就活に役立つ経験',
+    },
   },
   {
     icon: <Users className="w-8 h-8 text-primary" />,
@@ -70,6 +82,10 @@ const supporterBenefits = [
     title: '有能な人財発掘の機会',
     description:
       '学習意欲が高く、実際に海外で学んでいる優秀な人材との事前マッチング機会を提供します。',
+    image: {
+      src: '/images/supporters/supporters-talent-discovery.jpg',
+      alt: '有能な人財発掘の機会',
+    },
   },
   {
     icon: <Heart className="w-8 h-8 text-primary" />,
@@ -173,7 +189,7 @@ export default function SupportersPage() {
         primaryCTAHref="/contact"
         secondaryCTA="エコシステム詳細"
         secondaryCTAHref="/about"
-        backgroundImage="/images/backgrounds/supporters-hero.jpg"
+        backgroundImage="/images/supporters/supporters-hero-background.jpg"
         backgroundImageClassName="opacity-10"
       />
 
