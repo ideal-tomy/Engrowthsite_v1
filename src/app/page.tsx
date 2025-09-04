@@ -37,6 +37,7 @@ import {
   Recycle,
   FlaskConical,
 } from 'lucide-react'
+import Image from 'next/image'
 
 export const metadata: Metadata = {
   title: 'Engrowth | 循環型エコシステムによる英語コンサルティング',
@@ -77,7 +78,71 @@ export default function HomePage() {
         }}
         backgroundImage="/images/supporters/top-hero-background.jpg"
         backgroundImageClassName="opacity-20"
-      />
+      >
+        {/* 科学的メソッドGIF - オーバーラップ配置 */}
+        <div className="relative mt-16 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* 3カラムでmethod.gifを配置 */}
+            <div className="relative group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
+                <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/top/method.gif"
+                    alt="科学的言語習得メソッド"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    unoptimized
+                  />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                  実力派コンサルタントが伴走
+                </h3>
+                <p className="text-sm text-neutral-700">
+                  科学的根拠に基づいた学習設計
+                </p>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
+                <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/top/method.gif"
+                    alt="科学的言語習得メソッド"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    unoptimized
+                  />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                  科学的根拠に基づいた学習設計
+                </h3>
+                <p className="text-sm text-neutral-700">実践主義の仕組み</p>
+              </div>
+            </div>
+
+            <div className="relative group">
+              <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/20 hover:shadow-xl transition-all duration-300">
+                <div className="relative h-48 mb-4 overflow-hidden rounded-lg">
+                  <Image
+                    src="/images/top/method.gif"
+                    alt="科学的言語習得メソッド"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    unoptimized
+                  />
+                </div>
+                <h3 className="font-serif text-lg font-bold text-neutral-900 mb-2">
+                  英語で挫折した全ての人に！
+                </h3>
+                <p className="text-sm text-neutral-700">
+                  循環型エコシステムによる持続的成長
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </HeroSection>
 
       {/* 2. 提供サービス概要 */}
       <SectionSeparator background="surface">
